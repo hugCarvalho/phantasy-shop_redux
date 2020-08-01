@@ -1,13 +1,11 @@
 import React from 'react'
 
-function Cart() {
-    
+function NotFound() {
     return (
         <div>
-            
-            CART
+            PAGE NOT FOUND!!!
         </div>
     )
 }
 
-export default Cart
+export default NotFound

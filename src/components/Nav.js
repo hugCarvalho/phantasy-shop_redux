@@ -1,24 +1,54 @@
-import React from 'react'
-import Home from "../pages/Home"
-import ItemList from '../pages/ItemList'
-import Cart from "../pages/Cart"
-import Login from "../pages/Login"
-import Register from "../pages/Register"
+import React from "react";
+import Home from "../pages/Home";
+import ItemList from "../pages/ItemList";
+import Cart from "../pages/Cart";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import NotFound from "../pages/NotFound"
+import { Link, Switch, Route } from "react-router-dom";
 
 function Nav() {
-    return (
-        <div>
-            <ul>
-                <li><Home/></li>
-                <li><ItemList/></li>
-                <li><Cart/></li>
-                <li><Login/></li>
-                
-                <li><Register/></li>
-            </ul>
-            
-        </div>
-    )
+  return (
+    <header>
+      <ul>
+        <li>
+          <Link to="/">
+            <Home />
+          </Link>
+        </li>
+        <li>
+          <Link to="/items">
+           Items List
+          </Link>
+        </li>
+        <li>
+          <Link to="/cart">
+            <Cart />
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+            <Login />
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/register">
+            <Register />
+          </Link>
+        </li>
+      </ul>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/items" component={ItemList}/>
+        <Route path="/cart" component={Cart}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/register" component={Register}/>
+        <Route path="/" component={NotFound}/>
+      </Switch>
+    
+    </header>
+  );
 }
 
-export default Nav
+export default Nav;

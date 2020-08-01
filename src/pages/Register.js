@@ -1,9 +1,10 @@
 import React from 'react'
 
 function Register() {
-    return (
-        <div>
-            REGISTER
+    return ( 
+        <div >
+
+        REGISTER 
         </div>
     )
 }
