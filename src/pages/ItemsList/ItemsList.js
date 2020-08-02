@@ -1,6 +1,8 @@
 import React from "react";
-import { fetchItems } from "../redux/actions/itemAction";
+import { fetchItems } from "../../redux/actions/asyncAction";
 import { useSelector, useDispatch } from "react-redux";
+import Item from "../../components/ItemCard/Item";
+import "./ItemsList.scss";
 
 function ItemList() {
   const data = useSelector((state) => state);
@@ -15,7 +17,14 @@ function ItemList() {
         ) : data.error ? (
           <h4>{data.error}</h4>
         ) : data.items.length ? (
-          data.items.map((item, i) => <p key={i}> {item.name}</p>)
+          data.items.map((item, i) => (
+            <Item
+              key={i}
+              name={item.name}
+              img={item.img}
+              nickname={item.nickname}
+            />
+          ))
         ) : (
           "No data"
         )}

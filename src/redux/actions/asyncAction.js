@@ -32,14 +32,14 @@ export const fetchItems = () => {
   return (dispatch) => {
     dispatch(fetchItemsRequest());
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get("https://www.breakingbadapi.com/api/characters?limit=10")
       .then((res) => {
         console.log("fetchItems -> res", res);
         if (res.status === 200) {
           
-          setInterval(() => {
+         
             dispatch(fetchItemsSuccess(res.data));
-          }, 3000);
+         
         }
       })
       .catch((error) => {

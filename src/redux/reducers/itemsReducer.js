@@ -2,7 +2,7 @@ import {
   FETCH_ITEMS_REQUEST,
   FETCH_ITEMS_SUCCESS,
   FETCH_ITEMS_FAILURE,
-} from "../actions/itemAction";
+} from "../actions/asyncAction";
 
 const initState = {
   loading: false,
