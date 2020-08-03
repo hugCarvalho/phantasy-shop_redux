@@ -3,11 +3,24 @@ import { fetchItems } from "../../redux/actions/asyncAction";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "../../components/ItemCard/Item";
 import "./ItemsList.scss";
+// actions
+import {
+  populateDatabase,
+  // removeFromCart,
+} from "../../redux/actions/cartAction";
+// import Button from "../../Reusable/Button";
 
-function ItemList() {
-  const data = useSelector((state) => state);
+function ItemsList() {
+  const data = useSelector((state) => state.fetchItems);
+  const populatedData = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
-  console.log("data :>> ", data);
+  // console.log("POPdata :>> ", populatedData);
+
+  React.useEffect(() => {
+    console.log("POPULATE DATABASE");
+    dispatch(populateDatabase(data.items));
+  }, [data, dispatch]);
+
   return (
     <div>
       <h2>List of Items</h2>
@@ -16,13 +29,19 @@ function ItemList() {
           "LOADING..."
         ) : data.error ? (
           <h4>{data.error}</h4>
-        ) : data.items.length ? (
-          data.items.map((item, i) => (
+        ) : populatedData ? (
+          populatedData.map((item, i) => (
             <Item
               key={i}
+              id={item.char_id}
               name={item.name}
               img={item.img}
               nickname={item.nickname}
+              items={data.items}
+              price={item.price}
+              amount={item.amount}
+              stock={item.stock}
+              inCart={item.inCart}
             />
           ))
         ) : (
@@ -30,8 +49,9 @@ function ItemList() {
         )}
       </section>
       <button onClick={() => dispatch(fetchItems())}>Fetch Items</button>
+      {/* <Button action={() => dispatch(removeFromCart("HI"))}>boom</Button> */}
     </div>
   );
 }
 
-export default ItemList;
+export default ItemsList;

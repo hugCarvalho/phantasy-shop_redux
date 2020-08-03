@@ -36,10 +36,7 @@ export const fetchItems = () => {
       .then((res) => {
         console.log("fetchItems -> res", res);
         if (res.status === 200) {
-          
-         
-            dispatch(fetchItemsSuccess(res.data));
-         
+          dispatch(fetchItemsSuccess(res.data));
         }
       })
       .catch((error) => {

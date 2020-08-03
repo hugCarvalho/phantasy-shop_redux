@@ -4,12 +4,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 // import {connect} from "react-redux"
 
-import fetchReducer from "../redux/reducers/itemsReducer";
+import root from "./reducers/root";
 
 const middleware = [thunk];
 
 const store = createStore(
-  fetchReducer,
+  root,
   composeWithDevTools(
     applyMiddleware(...middleware)
     // other store enhancers if any
