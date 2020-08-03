@@ -1,8 +1,25 @@
+//Action types
+export const DECREMENT = "DECREMENT";
+export const INCREMENT = "INCREMENT";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const POPULATE_DATABASE = "POPULATE_DATABASE";
 
-//action
+//Action creators
+export const decrement = (id) => {
+  return {
+    type: DECREMENT,
+    payload: id,
+  };
+};
+
+export const increment = (id) => {
+  return {
+    type: INCREMENT,
+    payload: id,
+  };
+};
+
 export const removeFromCart = (id) => {
   return {
     type: REMOVE_FROM_CART,

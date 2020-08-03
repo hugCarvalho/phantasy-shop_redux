@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "./Cart.scss";
 import Button from "../../Reusable/Button";
-import { removeFromCart } from "../../redux/actions/cartAction";
+import {
+  removeFromCart,
+  increment,
+  decrement,
+} from "../../redux/actions/cartAction";
 
 const temp = {
   name: "First Person",
@@ -39,14 +43,18 @@ function Cart() {
         data.cart.map((item) => {
           return (
             //change tag of section
-            <section className="items-list" key={item.id}>
+            <section className="items-list" key={item.char_id}>
               <ul>
                 <li>Name: {item.name}</li>
                 <li>ID: {item.char_id}</li>
 
                 <li>Days: {item.amount}</li>
-                <button>+</button>
-                <button>-</button>
+                <Button action={() => dispatch(increment(item.char_id))}>
+                  &#43;
+                </Button>
+                <Button action={() => dispatch(decrement(item.char_id))}>
+                  &#45;
+                </Button>
                 <li>Available days: {item.stock}</li>
                 <li>Subtotal: {item.amount * item.price}</li>
 
@@ -60,18 +68,6 @@ function Cart() {
           );
         })}
       <section className="container_cart">Total</section>
-
-      <article>
-        <ul>
-          <li>Name: {temp.name}</li>
-          <li>Days: {temp.amount}</li>
-          <button>+</button>
-          <button>-</button>
-          {/* <li>Available days: {item.stock}</li> */}
-          <li>Subtotal: {temp.amount * temp.price}</li>
-          <li>Remove</li>
-        </ul>
-      </article>
     </div>
   );
 }
