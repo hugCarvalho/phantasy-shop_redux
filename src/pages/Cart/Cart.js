@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 function Cart() {
   const data = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
   //Not really necessary, could be omitted by using directly data.products. Just for practice purposes
   const [inCart, setInCart] = React.useState(false);
 
@@ -16,7 +15,7 @@ function Cart() {
       console.log("NO data");
     }
   }, [data.cart]);
-  console.log("FUCKKKKKKKKK", data);
+
   return (
     <div>
       <h3>Cart</h3>

@@ -6,14 +6,20 @@ export const POPULATE_DATABASE = "POPULATE_DATABASE";
 export const removeFromCart = (id) => {
   return {
     type: REMOVE_FROM_CART,
-    payload: id,
+    payload: {
+      id: id,
+      type: "remove",
+    },
   };
 };
 
-export const addToCart = (arrayOfFetchedItems, id) => {
+export const addToCart = (id) => {
   return {
     type: ADD_TO_CART,
-    payload: id,
+    payload: {
+      id,
+      type: "add",
+    },
   };
 };
 

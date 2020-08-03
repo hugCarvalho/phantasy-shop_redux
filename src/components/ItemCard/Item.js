@@ -26,9 +26,7 @@ function Item({
         <div className="additional-info">
           <p>Price per day: {price}€</p>
           <p>Days available: {stock}</p>
-          <Button
-            action={() => dispatch(addToCart(items, id))}
-            disabled={inCart}>
+          <Button action={() => dispatch(addToCart(id))} disabled={inCart}>
             add{" "}
           </Button>
           <Button
