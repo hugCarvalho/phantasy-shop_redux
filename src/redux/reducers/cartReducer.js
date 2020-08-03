@@ -22,7 +22,10 @@ const cartReducer = (state = initState, action) => {
   const toggleItemsInCart = () => {
     return state.items.map((item) => {
       const { id, type } = action.payload;
-      if (item.char_id === id && type === "add") item.inCart = true;
+      if (item.char_id === id && type === "add") {
+        item.inCart = true;
+        item.amount = 1;
+      }
       if (item.char_id === id && type === "remove") item.inCart = false;
       return item;
     });

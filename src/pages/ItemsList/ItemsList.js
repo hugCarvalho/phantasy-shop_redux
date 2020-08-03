@@ -12,7 +12,7 @@ import {
 
 function ItemsList() {
   const data = useSelector((state) => state.fetchItems);
-  const populatedData = useSelector((state) => state.cart.products);
+  const populatedData = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   // console.log("POPdata :>> ", populatedData);
 
