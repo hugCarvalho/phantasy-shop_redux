@@ -10,6 +10,7 @@ const initState = {
   error: "",
 };
 
+//TODO: put calcs in dif file & import them
 const makeRandomNum = (name) => {
   return name === "stock"
     ? (Math.random() * 10).toFixed()
@@ -24,6 +25,8 @@ const setPrice = (id) => {
   else return makeRandomNum();
 };
 
+///////////////
+
 const fetchItemsReducer = (state = initState, action) => {
   switch (action.type) {
     case FETCH_ITEMS_REQUEST:
@@ -36,9 +39,10 @@ const fetchItemsReducer = (state = initState, action) => {
       const addNecessaryObjEntries = () => {
         const data = action.payload;
         return data.map((item) => {
+          item.inCart = false;
           item.price = setPrice(item.char_id);
           item.amount = 0;
-          item.inCart = false;
+          item.total = 0;
           item.stock = makeRandomNum("stock");
           return item;
         });

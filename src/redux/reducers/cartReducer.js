@@ -12,15 +12,26 @@ const initState = {
   amount: 0,
   total: 0,
 };
-Object.freeze(initState.items[0]);
+
+//Just for control to prevent mutating state
+Object.freeze(initState.items);
 Object.freeze(initState.cart);
 Object.freeze(initState.cart[0]);
 Object.freeze(initState);
 
+const calcItemTotal = (amount, price) => amount * price;
+
 const cartReducer = (state = initState, action) => {
-  const filterInCart = () => {
+  const filterInCartAndComputeItemTotal = () => {
     console.log("FILTER IN CART");
-    return state.items.filter((item) => item.inCart);
+    let res = state.items.filter((item) => {
+      if (item.inCart) {
+        // item.total = calcItemTotal(item.amount, item.price);
+        item.total = item.amount * item.price; //necessary for subtotal when item is added to the cart
+      }
+      return item.inCart;
+    });
+    return res;
   };
 
   const toggleItemsInCart = () => {
@@ -37,12 +48,18 @@ const cartReducer = (state = initState, action) => {
 
   switch (action.type) {
     case DECREMENT:
+      const updateAmount = (amount) => amount - 1;
+
       const decrement = () => {
         return state.cart.map((item) => {
-          console.log("action.payload", action.payload, item.char_id);
+          // console.log("action.payload", action.payload, item.char_id);
           if (item.char_id === action.payload) {
             if (item.amount === 1) return item;
-            return { ...item, amount: item.amount - 1 };
+            return {
+              ...item,
+              amount: updateAmount(item.amount),
+              total: calcItemTotal(updateAmount(item.amount), item.price),
+            };
           }
           return item;
         });
@@ -51,12 +68,17 @@ const cartReducer = (state = initState, action) => {
         ...state,
         cart: decrement(),
       };
+
     case INCREMENT:
       const increment = () => {
         return state.cart.map((item) => {
-          console.log("action.payload", action.payload, item.char_id);
+          // console.log("action.payload", action.payload, item.char_id);
           if (item.char_id === action.payload) {
-            return { ...item, amount: item.amount + 1 };
+            return {
+              ...item,
+              amount: item.amount + 1,
+              total: calcItemTotal(item.amount + 1, item.price),
+            };
           }
           return item;
         });
@@ -65,18 +87,19 @@ const cartReducer = (state = initState, action) => {
         ...state,
         cart: increment(),
       };
+
     case REMOVE_FROM_CART:
       return {
         ...state,
         items: toggleItemsInCart(),
-        cart: filterInCart(),
+        cart: filterInCartAndComputeItemTotal(),
       };
 
     case ADD_TO_CART:
       return {
         ...state,
         items: toggleItemsInCart(),
-        cart: filterInCart(), //items: arr,
+        cart: filterInCartAndComputeItemTotal(), //items: arr,
       };
 
     case POPULATE_DATABASE:

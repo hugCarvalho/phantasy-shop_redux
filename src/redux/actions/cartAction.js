@@ -1,4 +1,5 @@
 //Action types
+export const CALCULATE_ITEM_TOTAL = "CALCULATE_ITEM_TOTAL";
 export const DECREMENT = "DECREMENT";
 export const INCREMENT = "INCREMENT";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
@@ -6,6 +7,16 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const POPULATE_DATABASE = "POPULATE_DATABASE";
 
 //Action creators
+export const calculateItemTotal = (amount, price) => {
+  return {
+    type: CALCULATE_ITEM_TOTAL,
+    payload: {
+      amount,
+      price,
+    },
+  };
+};
+
 export const decrement = (id) => {
   return {
     type: DECREMENT,
