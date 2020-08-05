@@ -8,14 +8,8 @@ import {
   removeFromCart,
   increment,
   decrement,
-} from "../../redux/actions/cartAction";
+} from "../../redux/actions/itemCartAction";
 import { calculateTotal } from "../../redux/actions/calculationsActions";
-
-const temp = {
-  name: "First Person",
-  amount: 1,
-  price: 100,
-};
 
 function Cart() {
   const data = useSelector((state) => state.cart);

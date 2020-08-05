@@ -1,7 +1,6 @@
 import { CALCULATE_TOTAL } from "../actions/calculationsActions";
 
 const initState = {
-  cart: [],
   total: 0,
 };
 
@@ -9,10 +8,10 @@ const calculationsReducer = (state = initState, action) => {
   switch (action.type) {
     case CALCULATE_TOTAL:
       const cart = action.payload.cart;
-      console.log(
-        "calculationsReducer -> action.payload.cart",
-        action.payload.cart
-      );
+      //   console.log(
+      //     "calculationsReducer -> action.payload.cart",
+      //     action.payload.cart
+      //   );
 
       const calculateTotal = () => {
         return cart.reduce((sum, item) => {

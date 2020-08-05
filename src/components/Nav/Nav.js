@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "../../pages/Home";
+import Home from "../../pages/Home/Home";
 import ItemsList from "../../pages/ItemsList/ItemsList";
 import Cart from "../../pages/Cart/Cart";
 import Login from "../../pages/Login/Login";

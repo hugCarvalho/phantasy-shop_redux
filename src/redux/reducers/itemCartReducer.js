@@ -4,7 +4,7 @@ import {
   POPULATE_DATABASE,
   INCREMENT,
   DECREMENT,
-} from "../actions/cartAction";
+} from "../actions/itemCartAction";
 
 const initState = {
   items: [],
@@ -21,13 +21,12 @@ Object.freeze(initState);
 
 const calcItemTotal = (amount, price) => amount * price;
 
-const cartReducer = (state = initState, action) => {
+const itemCartReducer = (state = initState, action) => {
   const filterInCartAndComputeItemTotal = () => {
     console.log("FILTER IN CART");
     let res = state.items.filter((item) => {
       if (item.inCart) {
-        // item.total = calcItemTotal(item.amount, item.price);
-        item.total = item.amount * item.price; //necessary for subtotal when item is added to the cart
+        item.total = calcItemTotal(item.amount, item.price); //necessary for subtotal when item is added to the cart;
       }
       return item.inCart;
     });
@@ -114,4 +113,4 @@ const cartReducer = (state = initState, action) => {
   }
 };
 
-export default cartReducer;
+export default itemCartReducer;

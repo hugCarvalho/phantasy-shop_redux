@@ -1,11 +1,11 @@
 import fetchItemsReducer from "./fetchItemsReducer";
-import cartReducer from "./cartReducer";
+import itemCartReducer from "./itemCartReducer";
 import { combineReducers } from "redux";
 import calculationsReducer from "./calculationsReducer";
 
 const rootReducer = combineReducers({
   fetchItems: fetchItemsReducer,
-  cart: cartReducer,
+  cart: itemCartReducer,
   calculate: calculationsReducer,
 });
 

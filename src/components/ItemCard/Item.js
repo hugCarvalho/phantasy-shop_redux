@@ -1,7 +1,7 @@
 import React from "react";
 import "./Item.scss";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../redux/actions/cartAction";
+import { addToCart, removeFromCart } from "../../redux/actions/itemCartAction";
 import Button from "../../Reusable/Button";
 
 function Item({

@@ -7,7 +7,7 @@ import "./ItemsList.scss";
 import {
   populateDatabase,
   // removeFromCart,
-} from "../../redux/actions/cartAction";
+} from "../../redux/actions/itemCartAction";
 // import Button from "../../Reusable/Button";
 
 function ItemsList() {
