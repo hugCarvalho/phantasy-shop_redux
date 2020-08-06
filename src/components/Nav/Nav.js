@@ -7,30 +7,35 @@ import Register from "../../pages/Register/Register";
 import NotFound from "../../pages/NotFound/NotFound";
 import { Link, Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "./Nav.scss";
 
 function Nav() {
   const numberOfItems = useSelector((state) => state.cart.cart.length);
 
   return (
-    <header>
-      <ul>
-        <li>
-          <Link to="/">HOME</Link>
-        </li>
-        <li>
-          <Link to="/items">Items List</Link>
-        </li>
-        <li>
-          <Link to="/cart">Cart {numberOfItems}</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
+    <>
+      <header className="Nav">
+        <nav className="container__navlinks">
+          <ul>
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <li>
+              <Link to="/items">Items List</Link>
+            </li>
+            <li>
+              <Link to="/cart">Cart {numberOfItems}</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
 
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-      </ul>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/items" component={ItemsList} />
@@ -39,7 +44,7 @@ function Nav() {
         <Route path="/register" component={Register} />
         <Route path="/" component={NotFound} />
       </Switch>
-    </header>
+    </>
   );
 }
 

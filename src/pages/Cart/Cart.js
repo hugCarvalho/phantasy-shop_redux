@@ -67,9 +67,14 @@ function Cart() {
             </section>
           );
         })}
-      <section className="container_cart">
-        <h3>Total: {calculations.total}</h3>
-      </section>
+
+      {inCart && (
+        <section className="container_cart">
+          <h4>Tax: </h4>
+          <h4>Shipping: </h4>
+          <h3>Total: {calculations.total}</h3>
+        </section>
+      )}
     </div>
   );
 }

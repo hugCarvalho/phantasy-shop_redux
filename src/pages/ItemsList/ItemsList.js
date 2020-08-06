@@ -49,6 +49,11 @@ function ItemsList() {
         )}
       </section>
       <button onClick={() => dispatch(fetchItems())}>Fetch Items</button>
+      <p>
+        Will load automatically in the future. The button behaviour is only to
+        prevent unnecessary http requests to the API during this stage of
+        production{" "}
+      </p>
       {/* <Button action={() => dispatch(removeFromCart("HI"))}>boom</Button> */}
     </div>
   );

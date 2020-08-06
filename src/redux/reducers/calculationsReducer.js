@@ -1,6 +1,8 @@
 import { CALCULATE_TOTAL } from "../actions/calculationsActions";
 
 const initState = {
+  tax: 0.1,
+  shipping: { normal: 6, express: 11, free: 0 },
   total: 0,
 };
 

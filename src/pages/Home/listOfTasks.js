@@ -13,19 +13,39 @@ export const listOfTasks = [
     completed: true,
   },
   {
-    title: "Item List: Displaying data in item overview",
+    title: "Itemlist: Displaying data in item overview",
     completed: true,
   },
   {
-    title: "Item List: Add `add to cart / remove from cart logic`",
+    title: "Itemlist: Add `add to cart / remove from cart logic`",
     completed: true,
   },
   {
-    title: "Item List: rate actor. Only if logged in",
+    title: "Itemlist: rate actor. Only if logged in",
     completed: false,
   },
   {
-    title: "Item List: add to favorites. Must be logged in",
+    title: "Itemlist: add to favorites. Must be logged in",
+    completed: false,
+  },
+  {
+    title: "Itemlist: pagination",
+    completed: false,
+  },
+  {
+    title: "Itemlist: filters",
+    completed: false,
+  },
+  {
+    title: "Itemlist: item discount - 2 prices: old & new",
+    completed: false,
+  },
+  {
+    title: "Itemlist: format currency",
+    completed: false,
+  },
+  {
+    title: "Cart: format currency",
     completed: false,
   },
   {
@@ -57,6 +77,11 @@ export const listOfTasks = [
     completed: false,
   },
   {
+    title:
+      "Cart: add buy button and mockup behaviour(is login success else ask for login)",
+    completed: false,
+  },
+  {
     title: "Register: do register form - html + css",
     completed: false,
   },
@@ -70,6 +95,10 @@ export const listOfTasks = [
   },
   {
     title: "Login: add logic to form - only frontend sim",
+    completed: false,
+  },
+  {
+    title: "Alerts: to be defined",
     completed: false,
   },
   {
@@ -98,14 +127,6 @@ export const listOfTasks = [
   },
   {
     title: "CSS: make things prettier - Home",
-    completed: false,
-  },
-  {
-    title: "CSS",
-    completed: false,
-  },
-  {
-    title: "",
     completed: false,
   },
 ];

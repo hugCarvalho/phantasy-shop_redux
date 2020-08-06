@@ -1,16 +1,15 @@
 *,
 *::after,
 *::before {
-  //padding: 0;
-  //margin: 0;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
-
   line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; //Prevent adjustments of font size after orientation changes in iOS.
 }
 
 body {
@@ -24,24 +23,49 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// code,
+// kbd,
+// samp,
+// pre {
+//   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
+//     monospace; /* 1 */
+//   font-size: 1em; /* 2 */
+// }
+
 * {
   -webkit-tap-highlight-color: transparent;
 }
-a,
-article,
-div,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-img,
-section,
-span {
-  -moz-user-select: none;
-  -webkit-user-select: none;
+
+/*
+Forms
+=====
+*/
+
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
+/* */
 input,
 select,
 textarea {
@@ -60,9 +84,40 @@ textarea {
   line-height: 1.15;
   margin: 0;
 }
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+// button,
+// [type="button"],
+// [type="reset"],
+// [type="submit"] {
+//   -webkit-appearance: button;
+// }
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+// [type='number']::-webkit-inner-spin-button,
+// [type='number']::-webkit-outer-spin-button {
+// 	height: auto;
+// }
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+// [type='search'] {
+// 	-webkit-appearance: textfield; /* 1 */
+// 	outline-offset: -2px; /* 2 */
+// }
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+// [type='search']::-webkit-search-decoration {
+// 	-webkit-appearance: none;
+// }
