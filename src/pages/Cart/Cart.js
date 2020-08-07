@@ -33,7 +33,7 @@ function Cart() {
   }, [data, dispatch]);
   console.log("calculations >>>", calculations);
   return (
-    <div className="container__cart">
+    <div className="Cart">
       <h3>Cart</h3>
       {}
       <h4>
@@ -44,34 +44,40 @@ function Cart() {
         data.cart.map((item) => {
           return (
             //change tag of section
-            <section className="items-list" key={item.char_id}>
-              <ul>
-                <li>Name: {item.name}</li>
-                <li>ID: {item.char_id}</li>
-
-                <li>Days: {item.amount}</li>
-                <Button action={() => dispatch(increment(item.char_id))}>
-                  &#43;
-                </Button>
-                <Button action={() => dispatch(decrement(item.char_id))}>
-                  &#45;
-                </Button>
-                <li>Available days: {item.stock}</li>
-                <li>Subtotal: {item.total}</li>
-                <Button
-                  action={() => dispatch(removeFromCart(item.char_id))}
-                  disabled={!inCart}>
-                  &times;
-                </Button>
-              </ul>
+            <section className="wrapper__items-list" key={item.char_id}>
+              <div>
+                <img src={item.img} alt={item.name} />
+              </div>
+              <div>
+                <ul>
+                  <li>{item.name}</li>
+                  <li>Price per day: {item.price}€</li>
+                  <div className="wrapper__days">
+                    <li>Available days: {item.stock}</li>
+                    <li>Booked days: {item.amount}</li>
+                    <Button action={() => dispatch(increment(item.char_id))}>
+                      &#43;
+                    </Button>
+                    <Button action={() => dispatch(decrement(item.char_id))}>
+                      &#45;
+                    </Button>
+                  </div>
+                  <Button
+                    action={() => dispatch(removeFromCart(item.char_id))}
+                    disabled={!inCart}>
+                    remove
+                  </Button>
+                  <li>Subtotal: {item.total}</li>
+                </ul>
+              </div>
             </section>
           );
         })}
 
       {inCart && (
         <section className="container_cart">
-          <h4>Tax: </h4>
-          <h4>Shipping: </h4>
+          {/* <h4>Tax: </h4>
+            <h4>Shipping: </h4> */}
           <h3>Total: {calculations.total}</h3>
         </section>
       )}

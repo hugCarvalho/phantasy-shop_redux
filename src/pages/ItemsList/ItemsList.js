@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchItems } from "../../redux/actions/asyncAction";
 import { useSelector, useDispatch } from "react-redux";
-import Item from "../../components/ItemCard/Item";
+import ItemCard from "../../components/ItemCard/ItemCard";
 import "./ItemsList.scss";
 // actions
 import {
@@ -22,16 +22,16 @@ function ItemsList() {
   }, [data, dispatch]);
 
   return (
-    <div>
-      <h2>List of Items</h2>
-      <section className="items-list">
+    <div className="ItemsList">
+      <h2>Actors List</h2>
+      <section className="wrapper__items-list">
         {data.loading ? (
           "LOADING..."
         ) : data.error ? (
           <h4>{data.error}</h4>
         ) : populatedData ? (
           populatedData.map((item, i) => (
-            <Item
+            <ItemCard
               key={i}
               id={item.char_id}
               name={item.name}

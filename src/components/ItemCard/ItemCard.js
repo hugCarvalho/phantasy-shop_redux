@@ -1,10 +1,10 @@
 import React from "react";
-import "./Item.scss";
+import "./ItemCard.scss";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/actions/itemCartAction";
 import Button from "../../Reusable/Button";
 
-function Item({
+function ItemCard({
   name,
   nickname,
   img,
@@ -18,11 +18,11 @@ function Item({
   const dispatch = useDispatch();
 
   return (
-    <section className="container__item-details">
+    <section className="ItemCard">
       <div className="item-details">
-        <h4>{name}</h4>
+        <h3>{name}</h3>
         <img src={img} alt={name} width="200" height="280" />
-        <h5>{nickname}</h5>
+        <h4>{nickname}</h4>
         <div className="additional-info">
           <p>Price per day: {price}€</p>
           <p>Days available: {stock}</p>
@@ -39,4 +39,4 @@ function Item({
     </section>
   );
 }
-export default Item;
+export default ItemCard;
