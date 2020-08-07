@@ -1,3 +1,20 @@
+$background-main: #575d90ff;
+$background-main: #595f72ff;
+$background-main: #84a07cff;
+/* SCSS HEX */
+/* $indigo-dye: #08415cff;
+$slate-gray: #6b818cff;
+$peach-crayola: #f1bf98ff;
+$lavender-blush: #eee5e9ff; */
+
+// https://coolors.co/595f72-575d90-84a07c-c3d350-e6f14a
+$dark-blue-gray: #575d90ff;
+$asparagus: #84a07cff;
+$june-bud: #c3d350ff;
+$maximum-green-yellow: #e6f14aff;
+
+//$background-main: #c3d350ff;
+
 *,
 *::after,
 *::before {
@@ -16,7 +33,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial",
     sans-serif;
-  background-color: beige;
+  $background-color: $background-main;
   font-family: Arial, "sans-serif";
   font-size: 1.2rem;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +43,7 @@ body {
 html,
 body {
   height: 100%;
+  $background-color: $background-main;
 }
 
 // html,

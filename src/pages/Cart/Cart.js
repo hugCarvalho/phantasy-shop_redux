@@ -98,7 +98,7 @@ function Cart() {
       {inCart && (
         <section className="container_cart">
           {/* <h4>Tax: </h4>
-            <h4>Shipping: </h4> */}
+            <h4>Extras: select... </h4> */}
           <h3>Total: €{formatPrice(calculations.total)}</h3>
         </section>
       )}
