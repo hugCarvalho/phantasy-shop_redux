@@ -30,12 +30,14 @@ function ItemCard({
           <p>Price per day: {price}€</p>
           <p>Days available: {stock}</p>
           <Button
+            className={inCart || !stock ? "button-unavailable" : null}
             action={() => dispatch(addToCart(id))}
             disabled={inCart || !stock}>
             add{" "}
           </Button>
           {console.log("name", name, "stock", stock)}
           <Button
+            className={!inCart || !stock ? "button-unavailable" : null}
             action={() => dispatch(removeFromCart(id))}
             disabled={!inCart}>
             &times;

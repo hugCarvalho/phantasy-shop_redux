@@ -56,6 +56,9 @@ function Cart() {
                     <li>Available days: {item.stock}</li>
                     <li>Booked days: {item.amount}</li>
                     <Button
+                      className={
+                        item.stock === item.amount ? "button-unavailable" : null
+                      }
                       disabled={item.stock === item.amount}
                       action={() =>
                         dispatch(
@@ -65,6 +68,7 @@ function Cart() {
                       &#43;
                     </Button>
                     <Button
+                      className={item.amount <= 1 ? "button-unavailable" : null}
                       disabled={item.amount <= 1}
                       action={() => dispatch(decrement(item.char_id))}>
                       &#45;

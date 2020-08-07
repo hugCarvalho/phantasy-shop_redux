@@ -7,6 +7,7 @@
 //   height: 100%;
 // }
 
+//shared
 a:hover {
   opacity: 0.8;
 }
@@ -14,6 +15,10 @@ a:hover {
 button {
   cursor: pointer;
   padding: 0 2px;
+}
+
+.button-unavailable {
+  cursor: not-allowed;
 }
 
 /* SCSS HEX */
