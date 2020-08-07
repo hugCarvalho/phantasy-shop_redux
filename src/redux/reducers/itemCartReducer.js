@@ -19,8 +19,10 @@ Object.freeze(initState.cart);
 Object.freeze(initState.cart[0]);
 Object.freeze(initState);
 
+//Fn
 const calcItemTotal = (amount, price) => amount * price;
 
+//Reducer
 const itemCartReducer = (state = initState, action) => {
   const filterInCartAndComputeItemTotal = () => {
     console.log("FILTER IN CART");
@@ -71,8 +73,9 @@ const itemCartReducer = (state = initState, action) => {
     case INCREMENT:
       const increment = () => {
         return state.cart.map((item) => {
-          // console.log("action.payload", action.payload, item.char_id);
-          if (item.char_id === action.payload) {
+          const { id, amount, stock } = action.payload;
+          console.log("action.payload", action.payload);
+          if (item.char_id === id && amount < stock) {
             return {
               ...item,
               amount: item.amount + 1,
@@ -103,7 +106,7 @@ const itemCartReducer = (state = initState, action) => {
 
     case POPULATE_DATABASE:
       const copyOfArray = [...action.payload];
-      console.log("POP", action.payload);
+      // console.log("POP", action.payload);
       return {
         ...state,
         items: copyOfArray,

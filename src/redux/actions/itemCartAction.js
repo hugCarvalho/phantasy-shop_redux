@@ -24,10 +24,10 @@ export const decrement = (id) => {
   };
 };
 
-export const increment = (id) => {
+export const increment = (id, amount, stock) => {
   return {
     type: INCREMENT,
-    payload: id,
+    payload: { id, stock, amount },
   };
 };
 

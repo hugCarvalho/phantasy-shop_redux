@@ -17,7 +17,7 @@ function ItemsList() {
   // console.log("POPdata :>> ", populatedData);
 
   React.useEffect(() => {
-    console.log("POPULATE DATABASE");
+    // console.log("POPULATE DATABASE");
     dispatch(populateDatabase(data.items));
   }, [data, dispatch]);
 

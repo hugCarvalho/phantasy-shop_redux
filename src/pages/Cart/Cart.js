@@ -20,18 +20,18 @@ function Cart() {
   const [inCart, setInCart] = React.useState(false);
   useEffect(() => {
     if (data.cart.length) {
-      console.log("data");
+      // console.log("data");
       setInCart(true);
     } else {
       setInCart(false);
-      console.log("NO data");
+      // console.log("NO data");
     }
   }, [data.cart]);
 
   useEffect(() => {
     dispatch(calculateTotal(data));
   }, [data, dispatch]);
-  console.log("calculations >>>", calculations);
+  // console.log("calculations >>>", calculations);
   return (
     <div className="Cart">
       <h3>Cart</h3>
@@ -55,16 +55,22 @@ function Cart() {
                   <div className="wrapper__days">
                     <li>Available days: {item.stock}</li>
                     <li>Booked days: {item.amount}</li>
-                    <Button action={() => dispatch(increment(item.char_id))}>
+                    <Button
+                      disabled={item.stock === item.amount}
+                      action={() =>
+                        dispatch(
+                          increment(item.char_id, item.amount, item.stock)
+                        )
+                      }>
                       &#43;
                     </Button>
-                    <Button action={() => dispatch(decrement(item.char_id))}>
+                    <Button
+                      disabled={item.amount <= 1}
+                      action={() => dispatch(decrement(item.char_id))}>
                       &#45;
                     </Button>
                   </div>
-                  <Button
-                    action={() => dispatch(removeFromCart(item.char_id))}
-                    disabled={!inCart}>
+                  <Button action={() => dispatch(removeFromCart(item.char_id))}>
                     remove
                   </Button>
                   <li>Subtotal: {item.total}</li>
