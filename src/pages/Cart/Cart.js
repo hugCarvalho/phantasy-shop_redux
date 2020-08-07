@@ -11,6 +11,17 @@ import {
 } from "../../redux/actions/itemCartAction";
 import { calculateTotal } from "../../redux/actions/calculationsActions";
 
+//make reducer
+const formatPrice = (price) => {
+  const arr = [...String(price)];
+  if (arr.length > 3) {
+    arr.splice(arr.length - 3, 0, ",");
+
+    return arr.join("");
+  }
+  return price;
+};
+
 function Cart() {
   const data = useSelector((state) => state.cart);
   const calculations = useSelector((state) => state.calculate);
@@ -51,7 +62,7 @@ function Cart() {
               <div>
                 <ul>
                   <li>{item.name}</li>
-                  <li>Price per day: {item.price}€</li>
+                  <li>Price per day: {formatPrice(item.price)}€</li>
                   <div className="wrapper__days">
                     <li>Available days: {item.stock}</li>
                     <li>Booked days: {item.amount}</li>
@@ -77,7 +88,7 @@ function Cart() {
                   <Button action={() => dispatch(removeFromCart(item.char_id))}>
                     remove
                   </Button>
-                  <li>Subtotal: {item.total}</li>
+                  <li>Subtotal: €{formatPrice(item.total)}</li>
                 </ul>
               </div>
             </section>
@@ -88,7 +99,7 @@ function Cart() {
         <section className="container_cart">
           {/* <h4>Tax: </h4>
             <h4>Shipping: </h4> */}
-          <h3>Total: {calculations.total}</h3>
+          <h3>Total: €{formatPrice(calculations.total)}</h3>
         </section>
       )}
     </div>

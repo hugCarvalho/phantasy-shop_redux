@@ -4,6 +4,19 @@ import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/actions/itemCartAction";
 import Button from "../../Reusable/Button";
 
+const formatPrice = (price) => {
+  const arr = [...String(price)];
+  if (arr.length > 3) {
+    arr.splice(arr.length - 3, 0, ",");
+
+    return arr.join("");
+  }
+  return price;
+};
+
+const styleNonAvailable = (stock) =>
+  !stock ? { opacity: 0.5, cursor: "not-allowed" } : null;
+
 function ItemCard({
   name,
   nickname,
@@ -17,17 +30,14 @@ function ItemCard({
 }) {
   const dispatch = useDispatch();
 
-  const styleNonAvailable = () =>
-    !stock ? { opacity: 0.5, cursor: "not-allowed" } : null;
-
   return (
-    <section className="ItemCard" style={styleNonAvailable()}>
+    <section className="ItemCard" style={styleNonAvailable(stock)}>
       <div className="item-details">
         <h3>{name}</h3>
         <img src={img} alt={name} width="200" height="280" />
         <h4>{nickname}</h4>
         <div className="additional-info">
-          <p>Price per day: {price}€</p>
+          <p>Price per day: €{formatPrice(price)}</p>
           <p>Days available: {stock}</p>
           <Button
             className={inCart || !stock ? "button-unavailable" : null}
