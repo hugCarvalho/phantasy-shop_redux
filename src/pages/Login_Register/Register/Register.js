@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./Register.scss";
 import { useForm } from "react-hook-form";
+import "../../Login_Register/Login_Register_shared.scss";
 
 const initDatabase = [
   {
@@ -57,7 +57,7 @@ function Register() {
   }, [userDatabase, newsletter]);
   return (
     <>
-      <div className="Register">
+      <div className="container__form">
         <div className="wrapper__form">
           <h2>Register</h2>
 
