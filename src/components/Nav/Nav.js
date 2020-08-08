@@ -9,6 +9,9 @@ import { Link, Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Nav.scss";
 
+import { FaShoppingCart } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
+
 function Nav() {
   const numberOfItems = useSelector((state) => state.cart.cart.length);
 
@@ -18,13 +21,24 @@ function Nav() {
         <nav className="container__navlinks">
           <ul>
             <li>
-              <Link to="/">HOME</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/items">Items List</Link>
             </li>
             <li>
-              <Link to="/cart">Cart {numberOfItems}</Link>
+              <div className="wrapper__cart-icon">
+                <Link to="/cart">
+                  <FaShoppingCart size="30" />
+                  <span
+                    className="num-items-cart"
+                    style={
+                      numberOfItems >= 10 ? { left: "13px" } : { left: "15px" }
+                    }>
+                    {numberOfItems}
+                  </span>
+                </Link>
+              </div>
             </li>
             <li>
               <Link to="/login">Login</Link>

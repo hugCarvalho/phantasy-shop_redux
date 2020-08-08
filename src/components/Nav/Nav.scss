@@ -1,17 +1,36 @@
 .Nav {
   background-color: rgb(228, 214, 23);
-  background-color: #08415cff;
-
+  background-color: rgb(200, 233, 214);
+  //display: flex;
   font-size: 1.5rem;
-  padding: 9px 4px;
+  padding: 9px 0;
   height: 100%;
-
+  font-size: 2rem;
   .container__navlinks {
     // background-color: pink;
 
     ul {
       display: flex;
       justify-content: space-around;
+      align-items: center;
+    }
+  }
+  .wrapper__cart-icon {
+    position: relative;
+    .num-items-cart {
+      font-weight: bold;
+      color: white;
+      background-color: rgba(30, 231, 238, 0.829);
+      background-color: transparent;
+      font-size: 1.2rem;
+
+      border-radius: 100%;
+      position: absolute;
+      top: 4px;
+      //right: 20px;
+      left: 13px;
+      //right: 0;
+      z-index: 10;
     }
   }
 }
