@@ -30,8 +30,11 @@ function Home() {
       <article>
         <h1>Important:</h1>
         <p>
-          This is an <u>ongoing</u> project whose focus is, primarily, behaviour
-          with REACT and REDUX.
+          This is an{" "}
+          <u>
+            <span style={{ backgroundColor: "lightpink" }}>ongoing</span>
+          </u>{" "}
+          project whose focus is, primarily, behaviour with REACT and REDUX.
         </p>
         <p>
           Graphical enhancements and responsiveness optimization will be added
@@ -40,22 +43,29 @@ function Home() {
         <br></br>
 
         <p>
-          This project consists on a phantasy online shop, where you can book
-          days with actors of the Breaking Bad series (one of my favorites! ) in
-          order to simulate an online shop. For that, the data consists on a
-          mixture of data from the Breaking Bad API and object manipulation to
-          add the necessary entries.
+          <strong>Descr:</strong> This project consists on a{" "}
+          <span style={{ backgroundColor: "lightpink" }}>
+            phantasy online shop
+          </span>{" "}
+          where you can book days with actors of the Breaking Bad series (one of
+          my favorites! ).{" "}
+          <u>
+            {" "}
+            The data consists on a mixture of the Breaking Bad API data and
+            object manipulation in order to add the necessary entries for a shop
+            behaviour.
+          </u>
         </p>
         <br></br>
         <p>
-          Below a list of the used main concepts, a dynamic list of the tasks
+          Below, a list of the main libraries used, a dynamic list of the tasks
           for the project and also a simple dynamic report, just for fun...
         </p>
         <hr></hr>
       </article>
       <div className="tecs">
         <i>
-          <strong>React-redux / React-router</strong>
+          <strong>React-redux / React-router / React-hook-form</strong>
         </i>
       </div>
       <hr></hr>

@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
 import "./Cart.scss";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../Reusable/Button";
+import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 import {
   removeFromCart,
@@ -11,6 +12,7 @@ import {
 } from "../../redux/actions/itemCartAction";
 import { calculateTotal } from "../../redux/actions/calculationsActions";
 
+// toast.configure();
 //make reducer
 const formatPrice = (price) => {
   const arr = [...String(price)];
@@ -20,6 +22,13 @@ const formatPrice = (price) => {
     return arr.join("");
   }
   return price;
+};
+
+const notifyUser = () => {
+  toast.success(
+    "Do some logic here, IS LOGGED IN ? conclude buy : redirect to the register page",
+    { position: toast.POSITION.TOP_CENTER, autoclose: 3000 }
+  );
 };
 
 function Cart() {
@@ -88,7 +97,7 @@ function Cart() {
                   <Button action={() => dispatch(removeFromCart(item.char_id))}>
                     remove
                   </Button>
-                  <li>Subtotal: €{formatPrice(item.total)}</li>
+                  <li>Subtotal: {formatPrice(item.total)} €</li>
                 </ul>
               </div>
             </section>
@@ -99,7 +108,9 @@ function Cart() {
         <section className="container_cart">
           {/* <h4>Tax: </h4>
             <h4>Extras: select... </h4> */}
-          <h3>Total: €{formatPrice(calculations.total)}</h3>
+          <h3>Total: {formatPrice(calculations.total)} €</h3>
+          <button>Buy</button>
+          <button onClick={notifyUser}> Notify </button>
         </section>
       )}
     </div>
