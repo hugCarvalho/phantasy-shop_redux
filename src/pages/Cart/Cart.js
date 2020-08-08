@@ -26,8 +26,8 @@ const formatPrice = (price) => {
 
 const notifyUser = () => {
   toast.success(
-    "Do some logic here, IS LOGGED IN ? conclude buy : redirect to the register page",
-    { position: toast.POSITION.TOP_CENTER, autoclose: 3000 }
+    "Do some logic here, IS LOGGED IN ? conclude buy : ask if already user and redirect to the login or register page",
+    { position: toast.POSITION.TOP_CENTER, autoclose: 4000 }
   );
 };
 
@@ -110,7 +110,7 @@ function Cart() {
             <h4>Extras: select... </h4> */}
           <h3>Total: {formatPrice(calculations.total)} €</h3>
           <button>Buy</button>
-          <button onClick={notifyUser}> Notify </button>
+          <button onClick={() => notifyUser()}> buy </button>
         </section>
       )}
     </div>

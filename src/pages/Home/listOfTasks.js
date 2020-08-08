@@ -42,11 +42,7 @@ export const listOfTasks = [
   },
   {
     title: "Itemlist: format currency",
-    completed: false,
-  },
-  {
-    title: "Cart: format currency",
-    completed: false,
+    completed: true,
   },
   {
     title: "Cart: displaying number of products in cart on the fly ",
@@ -54,7 +50,7 @@ export const listOfTasks = [
   },
   {
     title: "Cart: add cart icon",
-    completed: false,
+    completed: true,
   },
   {
     title: "Cart: display items",
@@ -70,7 +66,7 @@ export const listOfTasks = [
   },
   {
     title: "Cart: add inventory logic",
-    completed: false,
+    completed: true,
   },
   {
     title: "Cart: add tax + item discount + cart discount + enter voucher",
@@ -83,7 +79,7 @@ export const listOfTasks = [
   },
   {
     title: "Register: do register form - html + css",
-    completed: false,
+    completed: true,
   },
   {
     title: "Register: add logic - only frontend sim",
@@ -91,7 +87,7 @@ export const listOfTasks = [
   },
   {
     title: "Login: do login form - html + css ",
-    completed: false,
+    completed: true,
   },
   {
     title: "Login: add logic to form - only frontend sim",
@@ -99,7 +95,7 @@ export const listOfTasks = [
   },
   {
     title: "Alerts: to be defined",
-    completed: false,
+    completed: "in progress",
   },
   {
     title: "Responsive: add media queries",

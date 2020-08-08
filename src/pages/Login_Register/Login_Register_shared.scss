@@ -9,109 +9,142 @@
   //background-color: #08415c;
   //background-color: #595f72;
   background-color: $background-main;
-}
 
-.wrapper__form {
-  display: flex;
-  flex-direction: column;
-  width: 290px;
-  max-width: 80%;
-  min-width: 100px;
-  min-height: 400px;
-  padding: 20px 40px;
-  border-radius: 6px;
-  box-shadow: 0px 8px 20px #222;
-  background-color: #fefefe;
-
-  h2 {
-    display: flex;
-    justify-content: center;
-    font-family: Lato, Helvetica, sans-serif;
-    font-size: x-large;
-    font-weight: lighter;
-    margin-top: 5px;
-    color: #222;
-  }
-
-  form {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  label {
-    margin-bottom: 5px;
-    color: #444;
-    font-weight: lighter;
-  }
-  .info {
-    //padding-bottom: 20px;
-  }
-
-  input {
-    padding: 5px 5px;
-    border-radius: 5px;
-    outline: none;
-    border: 1px solid #d6d1d5;
-  }
-
-  input::placeholder {
-    font-size: 1.2rem;
-    font-weight: lighter;
-    color: #bbb;
-  }
-
-  button {
-    min-width: 100%;
-    cursor: pointer;
-    margin: 8px 5px 8px 0;
-    padding: 1rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #22223b;
-    color: #fefefe;
-  }
-  button:hover {
-    opacity: 0.8;
-  }
-
-  .extended {
-    padding-bottom: 15px;
-    padding-top: 5px;
-  }
-  .error {
-    color: #db2269;
-    font-size: 1.2rem;
-    display: relative;
-  }
-  small {
-    //background-color: mediumseagreen;
-    display: block;
-    padding-bottom: 10px;
-  }
-
-  .fullName,
-  .userName,
-  .email,
-  .password {
+  .wrapper__form {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
-    width: 100%;
-  }
+    width: 290px;
+    max-width: 80%;
+    min-width: 100px;
+    min-height: 400px;
+    padding: 20px 40px;
+    border-radius: 6px;
+    box-shadow: 0px 8px 20px #222;
+    background-color: #fefefe;
 
-  .submit {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-  }
+    h2 {
+      display: flex;
+      justify-content: center;
+      font-family: Lato, Helvetica, sans-serif;
+      font-size: x-large;
+      font-weight: lighter;
+      margin-top: 5px;
+      color: #222;
+    }
 
-  #label-newsletter {
-    //background-color: limegreen;
-    padding-right: 4px;
-  }
-  .choices {
-    width: 100%;
-    text-align: center;
-    padding-bottom: 10px;
+    form {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    label {
+      margin-bottom: 5px;
+      color: #444;
+      font-weight: lighter;
+    }
+    .info {
+      //padding-bottom: 20px;
+    }
+
+    input {
+      padding: 5px 5px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid #d6d1d5;
+    }
+
+    input::placeholder {
+      font-size: 1.2rem;
+      font-weight: lighter;
+      color: #bbb;
+    }
+
+    button {
+      min-width: 100%;
+      cursor: pointer;
+      margin: 15px 5px 8px 0;
+      padding: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #22223b;
+      color: #fefefe;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .extended {
+      padding-bottom: 15px;
+      padding-top: 5px;
+    }
+    .error {
+      color: #db2269;
+      font-size: 1.2rem;
+      display: relative;
+    }
+    small {
+      //background-color: mediumseagreen;
+      display: block;
+      padding-bottom: 10px;
+    }
+
+    .fullName,
+    .userName,
+    .email,
+    .password,
+    .wrapper__retrieve-password {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    .submit {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    #label-newsletter {
+      //background-color: limegreen;
+      padding-right: 4px;
+    }
+    .choices {
+      width: 100%;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    .display-errorMsg {
+      //background-color: greenyellow;
+
+      p {
+        color: red;
+        text-align: center;
+      }
+    }
+
+    //LOGIN
+    .forgot-password > p {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      text-align: center;
+      text-decoration: underline;
+    }
+    .wrapper__retrieve-password input {
+      padding-top: 10px;
+      width: 100%;
+      //background-color: greenyellow;
+    }
+
+    .forgot-password button {
+      //appearance: none;
+      background-color: transparent;
+      text-decoration: underline;
+
+      color: black;
+      cursor: pointer;
+      padding: 0;
+    }
   }
 }

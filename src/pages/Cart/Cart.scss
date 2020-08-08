@@ -5,7 +5,8 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  height: 95vh;
+  height: 100%;
+  min-height: 92vh;
 
   .wrapper__items-list {
     border: 1px solid black;

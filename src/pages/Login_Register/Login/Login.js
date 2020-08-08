@@ -1,6 +1,6 @@
 import React from "react";
-// import "./Login.scss";
-// import "../../Login_Register/Login_Register_shared.scss";
+import "./Login.scss";
+import "../../Login_Register/Login_Register_shared.scss";
 import { useForm } from "react-hook-form";
 const initDatabase = [
   {
@@ -38,8 +38,14 @@ function Login() {
     if (!validUser) setInputIsWrong(true);
     else setInputIsWrong(false);
   };
+
+  const checkForExistingEmail = (email) => {
+    if (email === "email in database") console.log("email sent");
+    else console.log("this email doesn't exist in our database");
+  };
+
   return (
-    <div>
+    <>
       <div className="container__form">
         <div className="wrapper__form">
           <h2>Log in</h2>
@@ -75,15 +81,38 @@ function Login() {
                 })}
               />
             </div>
-            <button>Submit</button>
+            <div className="display-errorMsg">
+              <p>{inputIsWrong && "Incorrect user name or password"}</p>
+              {/* <p>{errors.userName && errors.userName.message}</p>
+            <p>{errors.password && errors.password.message}</p> */}
+            </div>
+            <button type="submit">Submit</button>
             <br />
-            <p>{inputIsWrong && "Incorrect user or password."}</p>
-            <p>{errors.userName && errors.userName.message}</p>
-            <p>{errors.password && errors.password.message}</p>
+            <div>
+              <div className="forgot-password">
+                {/* TODO: don't forget to change this for using FN */}
+                <button onClick={() => setInputIsWrong(true)}>
+                  forgot password?
+                </button>
+              </div>
+            </div>
+            {inputIsWrong && (
+              <div className="wrapper__retrieve-password">
+                <input
+                  type="text"
+                  name="retrieve-password"
+                  id="retrieve-password"
+                  placeholder="your email..."
+                />
+                <button className="btn-send" type="submit">
+                  Send
+                </button>
+              </div>
+            )}
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
