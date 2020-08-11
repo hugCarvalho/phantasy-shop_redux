@@ -3,8 +3,7 @@ import "./Cart.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../../Reusable/Button";
 import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
-
+//actions
 import {
   removeFromCart,
   increment,
@@ -12,13 +11,11 @@ import {
 } from "../../redux/actions/itemCartAction";
 import { calculateTotal } from "../../redux/actions/calculationsActions";
 
-// toast.configure();
-//make reducer
+// TODO: in cart and ItemCart -> DRY
 const formatPrice = (price) => {
   const arr = [...String(price)];
   if (arr.length > 3) {
     arr.splice(arr.length - 3, 0, ",");
-
     return arr.join("");
   }
   return price;
@@ -40,26 +37,22 @@ function Cart() {
   const [inCart, setInCart] = React.useState(false);
   useEffect(() => {
     if (data.cart.length) {
-      // console.log("data");
       setInCart(true);
     } else {
       setInCart(false);
-      // console.log("NO data");
     }
   }, [data.cart]);
 
   useEffect(() => {
     dispatch(calculateTotal(data));
   }, [data, dispatch]);
-  // console.log("calculations >>>", calculations);
+
   return (
     <div className="Cart">
-      <h3>Cart</h3>
+      <h1>Cart</h1>
       {}
-      <h4>
-        Items in your cart: {data.cart.length}
-        <p>{!inCart && "You cart is empty!"}</p>
-      </h4>
+      <h2>Items in your cart: {data.cart.length}</h2>
+      <h3>{!inCart && "You cart is empty! :-("}</h3>
       {inCart &&
         data.cart.map((item) => {
           return (

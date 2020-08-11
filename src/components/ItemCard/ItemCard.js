@@ -21,6 +21,7 @@ function ItemCard({
 }) {
   const dispatch = useDispatch();
 
+  // TODO: in cart and ItemCart -> DRY
   const formatPrice = (price) => {
     console.log("format price");
     const arr = [...String(price)];
