@@ -5,8 +5,7 @@ export const FETCH_ITEMS_REQUEST = "FETCH_ITEMS_REQUEST";
 export const FETCH_ITEMS_SUCCESS = "FETCH_ITEMS_SUCCESS";
 export const FETCH_ITEMS_FAILURE = "FETCH_ITEMS_FAILURE";
 
-//actions creator
-
+//action creators
 export const fetchItemsRequest = () => {
   console.log("loading");
   return { type: FETCH_ITEMS_REQUEST };
@@ -27,6 +26,7 @@ export const fetchItemsFailure = (error) => {
 };
 
 //async action creator
+//NOTE: being limited to 10 res
 
 export const fetchItems = () => {
   return (dispatch) => {

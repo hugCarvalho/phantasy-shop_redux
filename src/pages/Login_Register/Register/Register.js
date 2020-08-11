@@ -1,53 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "../../Login_Register/Login_Register_shared.scss";
-
-const initDatabase = [
-  {
-    userName: "pepito",
-    firstName: "",
-    lastName: "",
-    password: "123a",
-    email: "",
-  },
-  {
-    userName: "Arggg",
-    firstName: "",
-    lastName: "",
-    password: "",
-    email: "",
-  },
-];
+import { useSelector, useDispatch } from "react-redux";
 
 function Register() {
-  const { register, handleSubmit, watch, errors } = useForm({ mode: "onBlur" }); //onChange | onSubmit | all
-  const newsletter = watch("newsletter"); //will listen to changes on the input name field "newsletter"
-  const [userDatabase, setUserDatabase] = useState(initDatabase);
+  const dispatch = useDispatch();
+  const userDatabase = useSelector((state) => state.userDatabase);
+  //UseForm
+  const { register, handleSubmit, watch, errors } = useForm({
+    mode: "onChange",
+  }); //onChange | onSubmit | onBlur | all
+  const newsletter = watch("newsletter"); //listens to changes on the input name field "newsletter"
 
   // console.log(useForm());
 
+  console.log("userDatabase", userDatabase);
+
   const onSubmit = (data) => {
-    const copy = [...userDatabase];
-    console.log("data :>> ", data);
+    console.log("data", data);
+    return;
+  };
+
+  const verifyUserInput = (userDatabase, userInput) => {
     // console.log(useForm().control.mode);
-
-    //validate userName - make fn
-    const checkUsername = copy.filter((item) => {
-      return item.userName.toLowerCase() === data.userName.toLowerCase();
-    });
-    if (checkUsername) {
-      console.log("RETURNED, USER ALREADY EXISTS");
-      //return;
-    }
-
-    copy.push({
-      userName: data.userName,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      password: data.password,
-      email: data.email,
-    });
-    setUserDatabase(copy);
+    console.log("copy", userDatabase);
   };
 
   useEffect(() => {
@@ -69,7 +45,7 @@ function Register() {
                 name="firstName"
                 id="first-name"
                 placeholder="First Name..."
-                ref={register(handleSubmit)}
+                ref={register}
               />
             </div>
             <br />
@@ -80,18 +56,19 @@ function Register() {
                 name="lastName"
                 id="last-name"
                 placeholder="Last Name..."
-                ref={register(handleSubmit)}
+                ref={register}
               />
             </div>
             <br />
             <div className="email">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">Email*</label>
               <input
+                required
                 type="email"
                 name="email"
                 id="email"
                 placeholder="your@email.com"
-                ref={register(handleSubmit)}
+                ref={register}
               />
             </div>
             <div className="userName">
@@ -103,7 +80,7 @@ function Register() {
                 id="user-name"
                 placeholder="User name"
                 required
-                ref={register(handleSubmit)}
+                ref={register}
               />
             </div>
             <br />
@@ -124,12 +101,17 @@ function Register() {
                 })}
               />
             </div>
+
             <div className="info">
-              <small>{errors.password && errors.password.message}</small>
+              <small style={{ color: "red" }}>
+                {errors.password && errors.password.message}
+              </small>
+              <p>* required fields</p>
             </div>
 
             {/* Extended */}
             <div className="extended">
+              <br></br>
               <label htmlFor="newsletter" id="label-newsletter">
                 Receive newsletter
               </label>
@@ -141,6 +123,7 @@ function Register() {
               />
             </div>
             <br />
+
             <br />
             {newsletter && (
               <div className="choices">

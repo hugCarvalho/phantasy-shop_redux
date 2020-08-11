@@ -1,18 +1,9 @@
 import React from "react";
 import "./ItemCard.scss";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../redux/actions/itemCartAction";
 import Button from "../../Reusable/Button";
-
-const formatPrice = (price) => {
-  const arr = [...String(price)];
-  if (arr.length > 3) {
-    arr.splice(arr.length - 3, 0, ",");
-
-    return arr.join("");
-  }
-  return price;
-};
+//actions
+import { addToCart, removeFromCart } from "../../redux/actions/itemCartAction";
 
 const styleNonAvailable = (stock) =>
   !stock ? { opacity: 0.5, cursor: "not-allowed" } : null;
@@ -30,6 +21,16 @@ function ItemCard({
 }) {
   const dispatch = useDispatch();
 
+  const formatPrice = (price) => {
+    console.log("format price");
+    const arr = [...String(price)];
+    if (arr.length > 3) {
+      arr.splice(arr.length - 3, 0, ",");
+      return arr.join("");
+    }
+    return price;
+  };
+
   return (
     <section className="ItemCard" style={styleNonAvailable(stock)}>
       <div className="item-details">
@@ -45,12 +46,13 @@ function ItemCard({
             disabled={inCart || !stock}>
             add{" "}
           </Button>
-          {console.log("name", name, "stock", stock)}
+          {/* {console.log("name", name, "stock", stock)} */}
           <Button
             className={!inCart || !stock ? "button-unavailable" : null}
             action={() => dispatch(removeFromCart(id))}
             disabled={!inCart}>
-            &times;
+            remove
+            {/* &times; */}
           </Button>
         </div>
       </div>

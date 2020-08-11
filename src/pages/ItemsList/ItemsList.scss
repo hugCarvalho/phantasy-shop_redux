@@ -1,16 +1,18 @@
 @import "../../index.scss";
 
 .ItemsList {
-  background-color: mediumseagreen;
+  // background-color: mediumseagreen;
   background-color: $background-main;
+  color: whitesmoke;
+  text-align: center;
   h2 {
-    padding-top: 20px;
+    padding-top: 2rem;
   }
 
   .wrapper__items-list {
     display: flex;
-    padding-top: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 2rem;
   }
 }

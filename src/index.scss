@@ -1,11 +1,9 @@
 $background-main: #575d90ff;
 $background-main: #595f72ff;
-$background-main: #84a07cff;
-/* SCSS HEX */
-/* $indigo-dye: #08415cff;
-$slate-gray: #6b818cff;
-$peach-crayola: #f1bf98ff;
-$lavender-blush: #eee5e9ff; */
+// $background-main: #84a07cff;
+// $background-main: #0d3e10;
+// $background-main: #093009;
+// $background-main: #29773e;
 
 // https://coolors.co/595f72-575d90-84a07c-c3d350-e6f14a
 $dark-blue-gray: #575d90ff;
@@ -14,6 +12,14 @@ $june-bud: #c3d350ff;
 $maximum-green-yellow: #e6f14aff;
 
 //$background-main: #c3d350ff;
+
+// $darkgreen: #093009;
+// $forest: green;
+// $traditional: #0d3e10;
+// $mughal: #1f6032;
+// $japanese: #29773e;
+// $sea-green: #369457;
+// $smoky-black: #032202;
 
 *,
 *::after,
@@ -33,7 +39,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Arial",
     sans-serif;
-  $background-color: $background-main;
+  // $background-color: $background-main;
+  // $background-color: $smoky-black;
   font-family: Arial, "sans-serif";
   font-size: 1.2rem;
   -webkit-font-smoothing: antialiased;
@@ -137,6 +144,6 @@ button,
 // Remove the inner padding in Chrome and Safari on macOS.
 // */
 
-// [type="search"]::-webkit-search-decoration {
-//   -webkit-appearance: none;
-// }
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}

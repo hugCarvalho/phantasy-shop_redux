@@ -1,24 +1,25 @@
-import React from "react";
-import { fetchItems } from "../../redux/actions/asyncAction";
+import React, { useEffect } from "react";
+import "./ItemsList.scss";
 import { useSelector, useDispatch } from "react-redux";
 import ItemCard from "../../components/ItemCard/ItemCard";
-import "./ItemsList.scss";
 // actions
-import {
-  populateDatabase,
-  // removeFromCart,
-} from "../../redux/actions/itemCartAction";
-// import Button from "../../Reusable/Button";
+import { fetchItems } from "../../redux/actions/asyncAction";
+import { populateDatabase } from "../../redux/actions/itemCartAction";
 
 function ItemsList() {
-  const data = useSelector((state) => state.fetchItems);
+  const data = useSelector((state) => state.fetchItems.items);
   const populatedData = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
-  // console.log("POPdata :>> ", populatedData);
 
-  React.useEffect(() => {
-    // console.log("POPULATE DATABASE");
-    dispatch(populateDatabase(data.items));
+  useEffect(() => {
+    console.log("FETCH");
+    if (data.length === 0) dispatch(fetchItems());
+  }, [dispatch, data]);
+
+  useEffect(() => {
+    console.log("POPULATE DATABASE");
+    //adds extra entries for shop logic
+    dispatch(populateDatabase(data));
   }, [data, dispatch]);
 
   return (
@@ -26,6 +27,7 @@ function ItemsList() {
       <h2>Actors List</h2>
       <section className="wrapper__items-list">
         {data.loading ? (
+          // TODO: spinner
           "LOADING..."
         ) : data.error ? (
           <h4>{data.error}</h4>
@@ -48,13 +50,7 @@ function ItemsList() {
           "No data"
         )}
       </section>
-      <button onClick={() => dispatch(fetchItems())}>Fetch Items</button>
-      <p>
-        Will load automatically in the future. The button behaviour is only to
-        prevent unnecessary http requests to the API during this stage of
-        production{" "}
-      </p>
-      {/* <Button action={() => dispatch(removeFromCart("HI"))}>boom</Button> */}
+      {/* <button onClick={() => dispatch(fetchItems())}>Fetch Items</button>*/}
     </div>
   );
 }
