@@ -2,47 +2,56 @@ import React from "react";
 import "./Login.scss";
 import "../../Login_Register/Login_Register_shared.scss";
 import { useForm } from "react-hook-form";
-const initDatabase = [
-  {
-    userName: "pepito",
-    firstName: "",
-    lastName: "",
-    password: "123a",
-    email: "",
-  },
-  {
-    userName: "Arggg",
-    firstName: "",
-    lastName: "",
-    password: "",
-    email: "",
-  },
-];
+import { toast } from "react-toastify";
+
+// const initDatabase = [
+//   {
+//     userName: "pepito",
+//     firstName: "",
+//     lastName: "",
+//     password: "123a",
+//     email: "",
+//   },
+//   {
+//     userName: "Arggg",
+//     firstName: "",
+//     lastName: "",
+//     password: "",
+//     email: "",
+//   },
+// ];
+
+const notifyUser = () => {
+  toast.error("This component is still under construction.", {
+    position: toast.POSITION.TOP_CENTER,
+    autoclose: 3000,
+  });
+};
 
 function Login() {
-  const [obj] = React.useState(initDatabase);
-  const [inputIsWrong, setInputIsWrong] = React.useState(false);
-  const { register, handleSubmit, errors } = useForm();
+  // const [obj] = React.useState(initDatabase);
+  const [inputIsWrong] = React.useState(false);
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     console.log("DATA", data);
-    const userData = Object.values(obj);
-    const validUser = userData.find((item) => {
-      console.log(item.password, data.password);
-      return (
-        item.userName.toLowerCase() === data.userName.toLowerCase() &&
-        item.password === data.password
-      );
-    });
+    // const userData = Object.values(obj);
+    // const validUser = userData.find((item) => {
+    //   console.log(item.password, data.password);
+    //   return (
+    //     item.userName.toLowerCase() === data.userName.toLowerCase() &&
+    //     item.password === data.password
+    //   );
+    // });
     // const res = validUser();
-    if (!validUser) setInputIsWrong(true);
-    else setInputIsWrong(false);
+    // if (!validUser) setInputIsWrong(true);
+    // else setInputIsWrong(false);
   };
 
-  const checkForExistingEmail = (email) => {
-    if (email === "email in database") console.log("email sent");
-    else console.log("this email doesn't exist in our database");
-  };
+  // const checkForExistingEmail = (email) => {
+  //   if (email === "email in database") console.log("email sent");
+  //   else console.log("this email doesn't exist in our database");
+  // };
 
   return (
     <>
@@ -71,7 +80,7 @@ function Login() {
                 name="password"
                 id="password2"
                 placeholder="password"
-                //required
+                required
                 ref={register({
                   // required: true,
                   // minLength: {
@@ -86,14 +95,16 @@ function Login() {
               {/* <p>{errors.userName && errors.userName.message}</p>
             <p>{errors.password && errors.password.message}</p> */}
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" onClick={notifyUser}>
+              Submit
+            </button>
             <br />
             <div>
               <div className="forgot-password">
                 {/* TODO: don't forget to change this for using FN */}
-                <button onClick={() => setInputIsWrong(true)}>
+                {/* <button onClick={() => setInputIsWrong(true)}>
                   forgot password?
-                </button>
+                </button> */}
               </div>
             </div>
             {inputIsWrong && (

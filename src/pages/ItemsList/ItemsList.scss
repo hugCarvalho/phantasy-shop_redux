@@ -4,6 +4,8 @@
   // background-color: mediumseagreen;
   background-color: $background-main;
   color: whitesmoke;
+  min-height: calc(100vh - 54px);
+
   text-align: center;
   h2 {
     padding-top: 2rem;

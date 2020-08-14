@@ -21,6 +21,8 @@ $maximum-green-yellow: #e6f14aff;
 // $sea-green: #369457;
 // $smoky-black: #032202;
 
+$header: 53;
+
 *,
 *::after,
 *::before {
@@ -47,17 +49,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
-  height: 100%;
-  $background-color: $background-main;
-}
-
 // html,
-// body,
-// .App,
-// .App > div {
+// body {
 //   height: 100%;
+//   $background-color: $background-main;
 // }
 
 li {
@@ -68,15 +63,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-// code,
-// kbd,
-// samp,
-// pre {
-//   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo,
-//     monospace; /* 1 */
-//   font-size: 1em; /* 2 */
-// }
 
 * {
   -webkit-tap-highlight-color: transparent;

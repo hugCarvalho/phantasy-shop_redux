@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import "../../Login_Register/Login_Register_shared.scss";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function Register() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const userDatabase = useSelector((state) => state.userDatabase);
   //UseForm
   const { register, handleSubmit, watch, errors } = useForm({
@@ -14,16 +15,25 @@ function Register() {
 
   // console.log(useForm());
 
-  console.log("userDatabase", userDatabase);
+  // console.log("userDatabase", userDatabase);
 
   const onSubmit = (data) => {
+    console.log("ONSUBMIT");
     console.log("data", data);
     return;
   };
 
-  const verifyUserInput = (userDatabase, userInput) => {
-    // console.log(useForm().control.mode);
-    console.log("copy", userDatabase);
+  // const verifyUserInput = (userDatabase, userInput) => {
+  //   // console.log(useForm().control.mode);
+  //   console.log("copy", userDatabase);
+  // };
+
+  //Toast
+  const notifyUser = () => {
+    toast.error("This component is still under construction.", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 3000,
+    });
   };
 
   useEffect(() => {
@@ -137,7 +147,7 @@ function Register() {
               </div>
             )}
 
-            <button>Submit</button>
+            <button onClick={notifyUser}>Submit</button>
           </form>
         </div>
       </div>

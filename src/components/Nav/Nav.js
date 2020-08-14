@@ -1,16 +1,9 @@
 import React from "react";
-import Home from "../../pages/Home/Home";
-import ItemsList from "../../pages/ItemsList/ItemsList";
-import Cart from "../../pages/Cart/Cart";
-import Login from "../../pages/Login_Register/Login/Login";
-import Register from "../../pages/Login_Register/Register/Register";
-import NotFound from "../../pages/NotFound/NotFound";
-import { Link, Switch, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
 import "./Nav.scss";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { FaShoppingCart } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
 
 function Nav() {
   const numberOfItems = useSelector((state) => state.cart.cart.length);
@@ -50,14 +43,6 @@ function Nav() {
           </ul>
         </nav>
       </header>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/items" component={ItemsList} />
-        <Route path="/cart" component={Cart} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/" component={NotFound} />
-      </Switch>
     </>
   );
 }

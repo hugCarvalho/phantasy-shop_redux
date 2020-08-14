@@ -14,6 +14,7 @@ function ItemsList() {
   useEffect(() => {
     console.log("FETCH");
     if (data.length === 0) dispatch(fetchItems());
+    console.log("DATA ON FETCH", data.loading);
   }, [dispatch, data]);
 
   useEffect(() => {

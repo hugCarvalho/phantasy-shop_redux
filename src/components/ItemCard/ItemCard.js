@@ -23,7 +23,7 @@ function ItemCard({
 
   // TODO: in cart and ItemCart -> DRY
   const formatPrice = (price) => {
-    console.log("format price");
+    // console.log("format price");
     const arr = [...String(price)];
     if (arr.length > 3) {
       arr.splice(arr.length - 3, 0, ",");
