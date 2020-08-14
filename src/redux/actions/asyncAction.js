@@ -7,7 +7,7 @@ export const FETCH_ITEMS_FAILURE = "FETCH_ITEMS_FAILURE";
 
 //action creators
 export const fetchItemsRequest = () => {
-  console.log("loading");
+  // console.log("loading");
   return { type: FETCH_ITEMS_REQUEST };
 };
 

@@ -25,7 +25,7 @@ const calcItemTotal = (amount, price) => amount * price;
 //Reducer
 const itemCartReducer = (state = initState, action) => {
   const filterInCartAndComputeItemTotal = () => {
-    console.log("FILTER IN CART");
+    // console.log("FILTER IN CART");
     let res = state.items.filter((item) => {
       if (item.inCart) {
         item.total = calcItemTotal(item.amount, item.price); //necessary for subtotal when item is added to the cart;

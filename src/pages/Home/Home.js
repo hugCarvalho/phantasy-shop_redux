@@ -34,11 +34,12 @@ function Home() {
           <u>
             <span style={{ backgroundColor: "lightpink" }}>ongoing</span>
           </u>{" "}
-          project whose focus is, primarily, behaviour with REACT and REDUX.
+          project whose focus is, primarily, behaviour with REACT (hooks) and
+          REDUX.
         </p>
         <p>
-          Graphical enhancements and responsiveness optimization will be added
-          at a later stage as well as optimized css code.
+          Graphical enhancements and responsive optimization will be added at a
+          later stage, as well as optimized code.
         </p>
         <br></br>
 

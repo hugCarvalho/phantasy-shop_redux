@@ -7,21 +7,20 @@ import { fetchItems } from "../../redux/actions/asyncAction";
 import { populateDatabase } from "../../redux/actions/itemCartAction";
 
 function ItemsList() {
-  const data = useSelector((state) => state.fetchItems.items);
+  const data = useSelector((state) => state.fetchItems);
   const populatedData = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("FETCH");
-    if (data.length === 0) dispatch(fetchItems());
-    console.log("DATA ON FETCH", data.loading);
-  }, [dispatch, data]);
+    // console.log("FETCH");
+    if (data.items.length === 0) dispatch(fetchItems());
+  }, [dispatch, data.items]);
 
   useEffect(() => {
-    console.log("POPULATE DATABASE");
+    // console.log("POPULATE DATABASE");
     //adds extra entries for shop logic
-    dispatch(populateDatabase(data));
-  }, [data, dispatch]);
+    dispatch(populateDatabase(data.items));
+  }, [data.items, dispatch]);
 
   return (
     <div className="ItemsList">
@@ -29,7 +28,7 @@ function ItemsList() {
       <section className="wrapper__items-list">
         {data.loading ? (
           // TODO: spinner
-          "LOADING..."
+          <h3> "LOADING..."</h3>
         ) : data.error ? (
           <h4>{data.error}</h4>
         ) : populatedData ? (
