@@ -1,9 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Fantasie online shop !!Ongoing project!!
 
 This is an _ongoing_ project whose focus is, primarily, behaviour with **REACT (hooks)** and **REDUX**.
 Graphical enhancements and responsive optimization will be added at a later stage, as well as optimized code.
+
+(Live:)[https://stoic-almeida-257f01.netlify.app/]
 
 ### Description
 
