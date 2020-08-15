@@ -3,7 +3,7 @@
 This is an _ongoing_ project whose focus is, primarily, behaviour with **REACT (hooks)** and **REDUX**.
 Graphical enhancements and responsive optimization will be added at a later stage, as well as optimized code.
 
-(Live:)[https://stoic-almeida-257f01.netlify.app/]
+Live: https://stoic-almeida-257f01.netlify.app/ (<code>ctrl + click </code> to open in a new window)
 
 ### Description
 
