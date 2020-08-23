@@ -14,10 +14,9 @@ const initState = {
 };
 
 //Just for control to prevent mutating state
+Object.freeze(initState);
 Object.freeze(initState.items);
 Object.freeze(initState.cart);
-Object.freeze(initState.cart[0]);
-Object.freeze(initState);
 
 //Fn
 const calcItemTotal = (amount, price) => amount * price;
@@ -25,7 +24,7 @@ const calcItemTotal = (amount, price) => amount * price;
 //Reducer
 const itemCartReducer = (state = initState, action) => {
   const filterInCartAndComputeItemTotal = () => {
-    // console.log("FILTER IN CART");
+    console.log("FILTER IN CART, STATE", state);
     let res = state.items.filter((item) => {
       if (item.inCart) {
         item.total = calcItemTotal(item.amount, item.price); //necessary for subtotal when item is added to the cart;
@@ -53,7 +52,7 @@ const itemCartReducer = (state = initState, action) => {
 
       const decrement = () => {
         return state.cart.map((item) => {
-          // console.log("action.payload", action.payload, item.char_id);
+          console.log("action.payload", action.payload, item.char_id);
           if (item.char_id === action.payload) {
             if (item.amount === 1) return item;
             return {

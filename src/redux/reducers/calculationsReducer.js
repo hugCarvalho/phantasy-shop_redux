@@ -10,12 +10,15 @@ const calculationsReducer = (state = initState, action) => {
   switch (action.type) {
     case CALCULATE_TOTAL:
       const cart = action.payload.cart;
-      //   console.log(
-      //     "calculationsReducer -> action.payload.cart",
-      //     action.payload.cart
-      //   );
+      // console.log(
+      //   "STATE",
+      //   state,
+      //   "calculationsReducer -> action.payload.cart",
+      //   action.payload
+      // );
 
       const calculateTotal = () => {
+        // console.log("cart", cart);
         return cart.reduce((sum, item) => {
           sum += item.amount * item.price;
           return sum;

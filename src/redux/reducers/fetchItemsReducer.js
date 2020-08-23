@@ -37,6 +37,7 @@ const fetchItemsReducer = (state = initState, action) => {
         ...state,
         loading: true,
       };
+
     case FETCH_ITEMS_SUCCESS:
       const addNecessaryObjEntries = () => {
         const data = action.payload;
@@ -56,14 +57,16 @@ const fetchItemsReducer = (state = initState, action) => {
         loading: false,
         items: finalData,
       };
-    default:
-      return state;
+
     case FETCH_ITEMS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
+
+    default:
+      return state;
   }
 };
 
