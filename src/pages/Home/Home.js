@@ -28,7 +28,7 @@ function Home() {
   return (
     <div className="Home">
       <article>
-        <h1>Important:</h1>
+        <h1>Important</h1>
         <p>
           This is an{" "}
           <u>
@@ -45,11 +45,8 @@ function Home() {
 
         <p>
           <strong>Descr:</strong> This project consists on a{" "}
-          <span style={{ backgroundColor: "lightpink" }}>
-            phantasy online shop
-          </span>{" "}
-          where you can book days with actors of the Breaking Bad series (one of
-          my favorites! ).{" "}
+          <span>phantasy online shop</span> where you can book days with actors
+          of the Breaking Bad series (one of my favorites! ).{" "}
           <u>
             {" "}
             The data consists on a mixture of the Breaking Bad API data and

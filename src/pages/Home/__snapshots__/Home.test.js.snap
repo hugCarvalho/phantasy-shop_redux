@@ -1,0 +1,470 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`make snapshot component 1`] = `ShallowWrapper {}`;
+
+exports[`snapshot 1`] = `
+<div
+  className="Home"
+>
+  <article>
+    <h1>
+      Important
+    </h1>
+    <p>
+      This is an
+       
+      <u>
+        <span
+          style={
+            Object {
+              "backgroundColor": "lightpink",
+            }
+          }
+        >
+          ongoing
+        </span>
+      </u>
+       
+      project whose focus is, primarily, behaviour with REACT (hooks) and REDUX.
+    </p>
+    <p>
+      Graphical enhancements and responsive optimization will be added at a later stage, as well as optimized code.
+    </p>
+    <br />
+    <p>
+      <strong>
+        Descr:
+      </strong>
+       This project consists on a
+       
+      <span>
+        phantasy online shop
+      </span>
+       where you can book days with actors of the Breaking Bad series (one of my favorites! ).
+       
+      <u>
+         
+        The data consists on a mixture of the Breaking Bad API data and object manipulation in order to add the necessary entries for a shop behaviour.
+      </u>
+    </p>
+    <br />
+    <p>
+      Below, a list of the main libraries used, a dynamic list of the tasks for the project and also a simple dynamic report, just for fun...
+    </p>
+    <hr />
+  </article>
+  <div
+    className="tecs"
+  >
+    <i>
+      <strong>
+        React-redux / React-router / React-hook-form
+      </strong>
+    </i>
+  </div>
+  <hr />
+  <div
+    className="legend"
+  >
+    <h5>
+      Tasks
+    </h5>
+    <div
+      className="wrapper"
+    >
+      <span
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        green: completed
+      </span>
+      <span
+        style={
+          Object {
+            "color": "orange",
+          }
+        }
+      >
+        orange: partially completed
+      </span>
+      <span
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        red: not began
+      </span>
+    </div>
+  </div>
+  <hr />
+  <section
+    className="list"
+  >
+    <h5>
+      List
+    </h5>
+    <ul>
+      <li
+        style={
+          Object {
+            "color": "orange",
+          }
+        }
+      >
+        Router: Setting React-router logic for page navigation
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Async: fetching logic for fetching data from Breaking Bad API 
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Async: Adapting received data to online shop concept by adding entries to it, amount, price, etc
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Itemlist: Displaying data in item overview
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Itemlist: Add \`add to cart / remove from cart logic\`
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Itemlist: rate actor. Only if logged in
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Itemlist: add to favorites. Must be logged in
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Itemlist: pagination
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Itemlist: filters
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Itemlist: item discount - 2 prices: old & new
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Itemlist: format currency
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Cart: displaying number of products in cart on the fly 
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Cart: add cart icon
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Cart: display items
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Cart: increase / decrease quantities 
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Cart: calc item subtotal + calc cart total
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Cart: add inventory logic
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Cart: add tax + item discount + cart discount + enter voucher
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Cart: add buy button and mockup behaviour(is login success else ask for login)
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Register: do register form - html + css
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Register: add logic - only frontend sim
+      </li>
+      <li
+        style={
+          Object {
+            "color": "green",
+          }
+        }
+      >
+        Login: do login form - html + css 
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Login: add logic to form - only frontend sim
+      </li>
+      <li
+        style={
+          Object {
+            "color": "orange",
+          }
+        }
+      >
+        Alerts: to be defined
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        Responsive: add media queries
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        CSS: make things prettier - Item List
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        CSS: make things prettier - Cart
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        CSS: make things prettier - Register
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        CSS: make things prettier - Login
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        CSS: make things prettier - Nav Bar
+      </li>
+      <li
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        CSS: make things prettier - Home
+      </li>
+    </ul>
+  </section>
+  <section
+    className="statistics"
+  >
+    <h5>
+      Report
+    </h5>
+    <p>
+      There are a total of 31 tasks, from which 15 are completed (48%)  
+    </p>
+    <p>
+      There are 9 categories:
+    </p>
+    <p>
+      Router
+       : 
+      1
+       
+      task
+    </p>
+    <p>
+      Async
+       : 
+      2
+       
+      tasks
+    </p>
+    <p>
+      Itemlist
+       : 
+      8
+       
+      tasks
+    </p>
+    <p>
+      Cart
+       : 
+      8
+       
+      tasks
+    </p>
+    <p>
+      Register
+       : 
+      2
+       
+      tasks
+    </p>
+    <p>
+      Login
+       : 
+      2
+       
+      tasks
+    </p>
+    <p>
+      Alerts
+       : 
+      1
+       
+      task
+    </p>
+    <p>
+      Responsive
+       : 
+      1
+       
+      task
+    </p>
+    <p>
+      CSS
+       : 
+      6
+       
+      tasks
+    </p>
+  </section>
+</div>
+`;

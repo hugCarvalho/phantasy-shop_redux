@@ -11,7 +11,7 @@ const state = {
   error: "",
 };
 
-describe("fetch items reducer", () => {
+describe("fetchItemReducer", () => {
   test("should return the initial state", () => {
     expect(fetchReducer(undefined, {})).toEqual(state);
   });
@@ -27,7 +27,32 @@ describe("fetch items reducer", () => {
     });
   });
 
-  test("should handle FETCH_ITEMS_FAILURE", () => {
+  describe("FETCH_ITEMS_SUCCESS tests", () => {
+    test("returns the data", () => {
+      const res = fetchReducer(state, {
+        type: FETCH_ITEMS_SUCCESS,
+        payload: [{}],
+      });
+      // console.log(res);
+
+      expect(res.items.length).toBeGreaterThan(0);
+    });
+
+    test("adds the additional properties to the original data", () => {
+      const res = fetchReducer(state, {
+        type: FETCH_ITEMS_SUCCESS,
+        payload: [{}],
+      });
+      expect(res.items[0]).not.toHaveProperty("stocks");
+      expect(res.items[0]).toHaveProperty("stock");
+      expect(res.items[0]).toHaveProperty("inCart");
+      expect(res.items[0]).toHaveProperty("price");
+      expect(res.items[0]).toHaveProperty("amount");
+      expect(res.items[0]).toHaveProperty("total");
+    });
+  });
+
+  test("handles FETCH_ITEMS_FAILURE", () => {
     expect(
       fetchReducer(state, {
         type: FETCH_ITEMS_FAILURE,
@@ -39,13 +64,5 @@ describe("fetch items reducer", () => {
       error: "Error!",
     });
     expect();
-  });
-
-  test("FETCH_ITEMS_SUCCESS", () => {
-    const res = fetchReducer(state, {
-      type: FETCH_ITEMS_SUCCESS,
-      payload: [{}],
-    });
-    expect(res.items.length).toBeGreaterThan(0);
   });
 });

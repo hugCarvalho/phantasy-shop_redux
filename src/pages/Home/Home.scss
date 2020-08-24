@@ -1,6 +1,8 @@
 .Home {
   text-align: center;
   font-size: 1.9rem;
+  word-break: keep-all;
+
   article {
     // background-color: darkseagreen;
     p {
@@ -31,6 +33,4 @@
       list-style: disc;
     }
   }
-
-  word-break: keep-all;
 }

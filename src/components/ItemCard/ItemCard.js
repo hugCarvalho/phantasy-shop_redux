@@ -36,7 +36,9 @@ function ItemCard({
     <section className="ItemCard" style={styleNonAvailable(stock)}>
       <div className="item-details">
         <h3>{name}</h3>
-        <img src={img} alt={name} width="200" height="280" />
+        <div className="container__img">
+          <img src={img} alt={name} width="100%" height="100%" />
+        </div>
         <h4>{nickname}</h4>
         <div className="additional-info">
           <p>Price per day: €{formatPrice(price)}</p>
