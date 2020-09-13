@@ -5,6 +5,7 @@ import ItemCard from "../../components/ItemCard/ItemCard";
 // actions
 import { fetchItems } from "../../redux/actions/asyncAction";
 import { populateDatabase } from "../../redux/actions/itemCartAction";
+import LoaderSpinner from "../../utils/LoaderSpinner/LoaderSpinner";
 
 function ItemsList() {
   const data = useSelector((state) => state.fetchItems);
@@ -28,8 +29,9 @@ function ItemsList() {
       <div className="wrapper__items-list">
         {data.loading ? (
           // TODO: spinner
-          <h3> "LOADING..."</h3>
-        ) : data.error ? (
+          <LoaderSpinner />
+        ) : // <h3> "LOADING..."</h3>
+        data.error ? (
           <h4>{data.error}</h4>
         ) : populatedData ? (
           populatedData.map((item, i) => {
