@@ -8,17 +8,7 @@ import { addToCart, removeFromCart } from "../../redux/actions/itemCartAction";
 const styleNonAvailable = (stock) =>
   !stock ? { opacity: 0.5, cursor: "not-allowed" } : null;
 
-function ItemCard({
-  name,
-  nickname,
-  img,
-  items,
-  id,
-  price,
-  amount,
-  inCart,
-  stock,
-}) {
+function ItemCard({ name, nickname, img, items, id, price, amount, inCart, stock }) {
   const dispatch = useDispatch();
 
   // TODO: in cart and ItemCart -> DRY

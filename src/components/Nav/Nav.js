@@ -20,18 +20,16 @@ function Nav() {
               <Link to="/items">Items List</Link>
             </li>
             <li>
-              <div className="wrapper__cart-icon">
+              <figure className="wrapper__cart-icon">
                 <Link to="/cart">
                   <FaShoppingCart size="30" />
-                  <span
+                  <figcaption
                     className="num-items-cart"
-                    style={
-                      numberOfItems >= 10 ? { left: "13px" } : { left: "15px" }
-                    }>
+                    style={numberOfItems >= 10 ? { left: "13px" } : { left: "15px" }}>
                     {numberOfItems}
-                  </span>
+                  </figcaption>
                 </Link>
-              </div>
+              </figure>
             </li>
             <li>
               <Link to="/login">Login</Link>

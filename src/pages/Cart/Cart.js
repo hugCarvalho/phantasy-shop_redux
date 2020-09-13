@@ -4,11 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from "../../Reusable/Button";
 import { toast } from "react-toastify";
 //actions
-import {
-  removeFromCart,
-  increment,
-  decrement,
-} from "../../redux/actions/itemCartAction";
+import { removeFromCart, increment, decrement } from "../../redux/actions/itemCartAction";
 import { calculateTotal } from "../../redux/actions/calculationsActions";
 
 // const arr = [
@@ -76,7 +72,7 @@ function Cart() {
 
       {inCart && (
         <section className="container__cart-list">
-          <main className="container__actors-data">
+          <section className="container__actors-data">
             {data.cart.map((item) => {
               return (
                 // LEFT SIDE
@@ -93,10 +89,7 @@ function Cart() {
                           <p>Price per day: {formatPrice(item.price)}€</p>
                         </div>
                         <div className="buttons">
-                          <Button
-                            action={() =>
-                              dispatch(removeFromCart(item.char_id))
-                            }>
+                          <Button action={() => dispatch(removeFromCart(item.char_id))}>
                             remove
                           </Button>
                           {/* <button>wishlist</button> */}
@@ -115,32 +108,25 @@ function Cart() {
                         </p>
                         <div className="buttons">
                           <Button
-                            className={
-                              item.amount <= 1 ? "button-unavailable" : null
-                            }
+                            className={item.amount <= 1 ? "button-unavailable" : null}
                             disabled={item.amount <= 1}
                             action={() => dispatch(decrement(item.char_id))}>
                             &#45;
                           </Button>
                           <Button
                             className={
-                              item.stock === item.amount
-                                ? "button-unavailable"
-                                : null
+                              item.stock === item.amount ? "button-unavailable" : null
                             }
                             disabled={item.stock === item.amount}
                             action={() =>
-                              dispatch(
-                                increment(item.char_id, item.amount, item.stock)
-                              )
+                              dispatch(increment(item.char_id, item.amount, item.stock))
                             }>
                             &#43;
                           </Button>
                         </div>
                       </div>
                       <div className="subtotal">
-                        <span>Subtotal: </span>{" "}
-                        <span>{formatPrice(item.total)}€</span>
+                        <span>Subtotal: </span> <span>{formatPrice(item.total)}€</span>
                       </div>
                     </section>
                   </div>
@@ -150,12 +136,12 @@ function Cart() {
                 </div>
               );
             })}
-          </main>
+          </section>
 
           {/* RIGHT */}
           {inCart && (
-            <div className="container__cart-total">
-              <section className="total">
+            <section className="container__cart-total">
+              <div className="total">
                 <h3>Total</h3>
                 <p>
                   <span>Subtotal </span>
@@ -175,9 +161,9 @@ function Cart() {
                   </p>
                 </h4>
                 <Button action={notifyUser}>Checkout</Button>
-              </section>
+              </div>
               {/* <section className="voucher">Add a voucher</section> */}
-            </div>
+            </section>
           )}
         </section>
       )}

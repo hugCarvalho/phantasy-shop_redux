@@ -23,35 +23,38 @@ function ItemsList() {
   }, [data.items, dispatch]);
 
   return (
-    <div className="ItemsList">
+    <main className="ItemsList">
       <h2>Actors List</h2>
-      <section className="wrapper__items-list">
+      <div className="wrapper__items-list">
         {data.loading ? (
           // TODO: spinner
           <h3> "LOADING..."</h3>
         ) : data.error ? (
           <h4>{data.error}</h4>
         ) : populatedData ? (
-          populatedData.map((item, i) => (
-            <ItemCard
-              key={i}
-              id={item.char_id}
-              name={item.name}
-              img={item.img}
-              nickname={item.nickname}
-              items={data.items}
-              price={item.price}
-              amount={item.amount}
-              stock={item.stock}
-              inCart={item.inCart}
-            />
-          ))
+          populatedData.map((item, i) => {
+            console.log(item.img);
+            return (
+              <ItemCard
+                key={i}
+                id={item.char_id}
+                name={item.name}
+                img={item.img}
+                nickname={item.nickname}
+                items={data.items}
+                price={item.price}
+                amount={item.amount}
+                stock={item.stock}
+                inCart={item.inCart}
+              />
+            );
+          })
         ) : (
           "No data"
         )}
-      </section>
+      </div>
       {/* <button onClick={() => dispatch(fetchItems())}>Fetch Items</button>*/}
-    </div>
+    </main>
   );
 }
 
