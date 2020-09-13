@@ -32,33 +32,29 @@ function Home() {
         <p>
           This is an{" "}
           <u>
-            <span style={{ backgroundColor: "lightpink" }}>ongoing</span>
+            <span className="ongoing"> !!! ongoing !!! </span>
           </u>{" "}
-          project whose focus is, primarily, behaviour with REACT (hooks) and
+          project whose focus is, primarily, <u>behaviour</u> with REACT (hooks) and
           REDUX.
         </p>
         <p>
-          Graphical enhancements and responsive optimization will be added at a
-          later stage, as well as optimized code.
+          Graphical enhancements and responsive optimization will be added at a later
+          stage, as well as optimized code.
         </p>
         <br></br>
 
         <p>
           <strong>Descr:</strong> This project consists on a{" "}
-          <span>phantasy online shop</span> where you can book days with actors
-          of the Breaking Bad series (one of my favorites! ).{" "}
+          <span>phantasy online shop</span> where you can book days with actors of the
+          Breaking Bad series (one of my favorites! ).{" "}
           <u>
             {" "}
-            The data consists on a mixture of the Breaking Bad API data and
-            object manipulation in order to add the necessary entries for a shop
-            behaviour.
+            The data consists on a mixture of the Breaking Bad API data and object
+            manipulation in order to add the necessary entries for a shop behaviour.
           </u>
         </p>
         <br></br>
-        <p>
-          Below, a list of the main libraries used, a dynamic list of the tasks
-          for the project and also a simple dynamic report, just for fun...
-        </p>
+
         <hr></hr>
       </article>
       <div className="tecs">
@@ -88,9 +84,7 @@ function Home() {
       </section>
       <section className="statistics">
         <h5>Report</h5>
-        <p>{`There are a total of ${
-          listOfTasks.length
-        } tasks, from which ${calcCompleted(
+        <p>{`There are a total of ${listOfTasks.length} tasks, from which ${calcCompleted(
           listOfTasks
         )} are completed (${calcCompletedPercent(listOfTasks)}%)  `}</p>
         <p>{`There are ${calcCategories(listOfTasks).length} categories:`}</p>

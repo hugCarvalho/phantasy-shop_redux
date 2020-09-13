@@ -1,6 +1,6 @@
 import React from "react";
 import "./Nav.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { FaShoppingCart } from "react-icons/fa";
@@ -14,29 +14,29 @@ function Nav() {
         <nav className="container__navlinks">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Info</Link>
             </li>
             <li>
-              <Link to="/items">Items List</Link>
+              <NavLink to="/items">Items List</NavLink>
             </li>
             <li>
               <figure className="wrapper__cart-icon">
-                <Link to="/cart">
+                <NavLink to="/cart">
                   <FaShoppingCart size="30" />
                   <figcaption
                     className="num-items-cart"
                     style={numberOfItems >= 10 ? { left: "13px" } : { left: "15px" }}>
                     {numberOfItems}
                   </figcaption>
-                </Link>
+                </NavLink>
               </figure>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <NavLink to="/login">Login</NavLink>
             </li>
 
             <li>
-              <Link to="/register">Register</Link>
+              <NavLink to="/register">Register</NavLink>
             </li>
           </ul>
         </nav>

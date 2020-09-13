@@ -28,14 +28,11 @@ function ItemsList() {
       <h2>Actors List</h2>
       <div className="wrapper__items-list">
         {data.loading ? (
-          // TODO: spinner
           <LoaderSpinner />
-        ) : // <h3> "LOADING..."</h3>
-        data.error ? (
+        ) : data.error ? (
           <h4>{data.error}</h4>
         ) : populatedData ? (
           populatedData.map((item, i) => {
-            console.log(item.img);
             return (
               <ItemCard
                 key={i}
