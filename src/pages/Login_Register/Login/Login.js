@@ -4,28 +4,39 @@ import "../../Login_Register/Login_Register_shared.scss";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-// const initDatabase = [
-//   {
-//     userName: "pepito",
-//     firstName: "",
-//     lastName: "",
-//     password: "123a",
-//     email: "",
-//   },
-//   {
-//     userName: "Arggg",
-//     firstName: "",
-//     lastName: "",
-//     password: "",
-//     email: "",
-//   },
-// ];
+const initDatabase = [
+  {
+    userName: "ab",
+    firstName: "",
+    lastName: "",
+    password: "123",
+    email: "",
+  },
+  {
+    userName: "cd",
+    firstName: "",
+    lastName: "",
+    password: "345",
+    email: "",
+  },
+];
 
-const notifyUser = () => {
-  toast.error("This component is still under construction.", {
-    position: toast.POSITION.TOP_CENTER,
-    autoclose: 3000,
-  });
+const notifyUser = (type) => {
+  if (type === "userDoesNotExist")
+    toast.error("Username not found!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 2000,
+    });
+  if (type === "passwordIncorrect")
+    toast.error("password doesn't exist!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 2000,
+    });
+  if (type === "loginSuccess")
+    toast.success("Login successful!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 2000,
+    });
 };
 
 function Login() {
@@ -35,7 +46,18 @@ function Login() {
 
   const onSubmit = (data) => {
     console.log("DATA", data);
-    // const userData = Object.values(obj);
+
+    const checkIfUserNameExists = initDatabase.find(({ userName }) => {
+      return userName.toLowerCase() === data.userName.toLowerCase();
+    });
+    if (!checkIfUserNameExists) return notifyUser("userDoesNotExist");
+    const checkIfPasswordIsCorrect = initDatabase.find(({ password }) => {
+      console.log(password);
+      return password === data.password ? notifyUser("loginSuccess") : null;
+    });
+    if (!checkIfPasswordIsCorrect) notifyUser("passwordIncorrect");
+    console.log(checkIfUserNameExists);
+    console.log(checkIfPasswordIsCorrect);
     // const validUser = userData.find((item) => {
     //   console.log(item.password, data.password);
     //   return (
@@ -68,7 +90,7 @@ function Login() {
                 name="userName"
                 id="user-name"
                 placeholder="User name"
-                required
+                // required
                 ref={register(handleSubmit)}
               />
             </div>
@@ -80,13 +102,9 @@ function Login() {
                 name="password"
                 id="password2"
                 placeholder="password"
-                required
+                // required
                 ref={register({
                   // required: true,
-                  // minLength: {
-                  //   value: 7,
-                  //   message: "must be at least 7 characters long",
-                  // },
                 })}
               />
             </div>
@@ -95,9 +113,7 @@ function Login() {
               {/* <p>{errors.userName && errors.userName.message}</p>
             <p>{errors.password && errors.password.message}</p> */}
             </div>
-            <button type="submit" onClick={notifyUser}>
-              Submit
-            </button>
+            <button type="submit">Submit</button>
             <br />
             <div>
               <div className="forgot-password">
