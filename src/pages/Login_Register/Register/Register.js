@@ -4,6 +4,29 @@ import "../../Login_Register/Login_Register_shared.scss";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
+const database = [
+  {
+    userName: "ai",
+    password: "",
+    email: "aa@gmail.com",
+  },
+  {
+    userName: "qw",
+    password: "",
+    email: "bb@gmail.com",
+  },
+];
+
+//Toast
+const notifyUser = (type) => {
+  if (type === "userName") {
+    return toast.error("User already exists, please choose another name", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 3000,
+    });
+  }
+};
+
 function Register() {
   // const dispatch = useDispatch();
   const userDatabase = useSelector((state) => state.userDatabase);
@@ -14,27 +37,43 @@ function Register() {
   const newsletter = watch("newsletter"); //listens to changes on the input name field "newsletter"
 
   // console.log(useForm());
-
   // console.log("userDatabase", userDatabase);
 
   const onSubmit = (data) => {
-    console.log("ONSUBMIT");
+    const { userName, password, email } = data;
+
+    const checkIfUserExists = database.filter((item) => {
+      console.log("MEEEEE");
+      return item.userName === userName;
+    });
+    //aborts before running the next search if match is found - improves performance
+    if (checkIfUserExists.length !== 0) {
+      return notifyUser("userName");
+    }
+
+    const checkIfEmailExists = database.filter((item) => item.email === email);
+    if (checkIfEmailExists.length !== 0) {
+      console.log("Email already exists, please choose another email");
+      return;
+    }
+
+    database.push({
+      firstName: "",
+      lastName: "",
+      userName: userName,
+      password: password,
+      email: email,
+    });
+
+    console.log(database);
     console.log("data", data);
-    return;
+    return document.querySelector("form").reset();
   };
 
   // const verifyUserInput = (userDatabase, userInput) => {
   //   // console.log(useForm().control.mode);
   //   console.log("copy", userDatabase);
   // };
-
-  //Toast
-  const notifyUser = () => {
-    toast.error("This component is still under construction.", {
-      position: toast.POSITION.TOP_CENTER,
-      autoclose: 3000,
-    });
-  };
 
   useEffect(() => {
     //console.log("userDatabase :>> ", userDatabase);
@@ -46,7 +85,7 @@ function Register() {
       <div className="container__form">
         <div className="wrapper__form">
           <h2>Register</h2>
-
+          {/* FIRST NAME */}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="fullName">
               <label htmlFor="first-name">First Name</label>
@@ -59,6 +98,7 @@ function Register() {
               />
             </div>
             <br />
+            {/* LAST NAME */}
             <div className="fullName">
               <label htmlFor="last-name">Last name</label>
               <input
@@ -70,6 +110,7 @@ function Register() {
               />
             </div>
             <br />
+            {/* EMAIL */}
             <div className="email">
               <label htmlFor="email">Email*</label>
               <input
@@ -81,22 +122,25 @@ function Register() {
                 ref={register}
               />
             </div>
+            {/* USERNAME */}
             <div className="userName">
               <br />
               <label htmlFor="user-name">User name*</label>
               <input
+                required
                 type="text"
                 name="userName"
                 id="user-name"
                 placeholder="User name"
-                required
                 ref={register}
               />
             </div>
             <br />
+            {/* PASSWORD */}
             <div className="password">
               <label htmlFor="password">Password*</label>
               <input
+                required
                 type="password"
                 name="password"
                 id="password"
@@ -119,18 +163,13 @@ function Register() {
               <p>* required fields</p>
             </div>
 
-            {/* Extended */}
+            {/* Extended NEWSLETTER */}
             <div className="extended">
               <br></br>
               <label htmlFor="newsletter" id="label-newsletter">
                 Receive newsletter
               </label>
-              <input
-                type="checkbox"
-                name="newsletter"
-                id="newsletter"
-                ref={register}
-              />
+              <input type="checkbox" name="newsletter" id="newsletter" ref={register} />
             </div>
             <br />
 
@@ -146,8 +185,8 @@ function Register() {
                 </select>
               </div>
             )}
-
-            <button onClick={notifyUser}>Submit</button>
+            {/* //ONCLICK */}
+            <button onClick={null}>Submit</button>
           </form>
         </div>
       </div>
