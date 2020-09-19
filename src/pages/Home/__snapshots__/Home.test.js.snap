@@ -15,17 +15,17 @@ exports[`snapshot 1`] = `
        
       <u>
         <span
-          style={
-            Object {
-              "backgroundColor": "lightpink",
-            }
-          }
+          className="ongoing"
         >
-          ongoing
+           !!! ongoing !!! 
         </span>
       </u>
        
-      project whose focus is, primarily, behaviour with REACT (hooks) and REDUX.
+      project whose focus is, primarily, 
+      <u>
+        behaviour
+      </u>
+       with REACT (hooks) and REDUX.
     </p>
     <p>
       Graphical enhancements and responsive optimization will be added at a later stage, as well as optimized code.
@@ -48,9 +48,6 @@ exports[`snapshot 1`] = `
       </u>
     </p>
     <br />
-    <p>
-      Below, a list of the main libraries used, a dynamic list of the tasks for the project and also a simple dynamic report, just for fun...
-    </p>
     <hr />
   </article>
   <div

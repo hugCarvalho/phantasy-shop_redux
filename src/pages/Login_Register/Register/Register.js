@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
 import "../../Login_Register/Login_Register_shared.scss";
+import { Redirect, Route } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { Redirect, Route } from "react-router-dom";
 
 //TO DELETE
 const database = [
@@ -75,9 +75,9 @@ function Register() {
       email: email,
     });
     notifyUser("success");
-    console.log(database);
-    console.log("data", data);
-    document.querySelector("form").reset();
+    //console.log(database);
+    //console.log("data", data);
+    //document.querySelector("form").reset();
     return setIsRegistered(true);
   };
 
@@ -197,7 +197,7 @@ function Register() {
               </div>
             )}
             {/* //ONCLICK */}
-            <button onClick={null}>Submit</button>
+            <button type="submit">Submit</button>
           </form>
         </div>
         <Route>{isRegistered && <Redirect push to="/login" />}</Route>
