@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import "../../Login_Register/Login_Register_shared.scss";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { Redirect, Route } from "react-router-dom";
 
+//TO DELETE
 const database = [
   {
     userName: "ai",
@@ -16,6 +18,7 @@ const database = [
     email: "bb@gmail.com",
   },
 ];
+// console.log(useForm());
 
 //Toast
 const notifyUser = (type) => {
@@ -25,25 +28,33 @@ const notifyUser = (type) => {
       autoclose: 3000,
     });
   }
+  if (type === "email") {
+    return toast.error("Email already exists, log in or choose another email", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 3000,
+    });
+  }
+  if (type === "success") {
+    return toast.success("Account created! Please login", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 1000,
+    });
+  }
 };
 
 function Register() {
   // const dispatch = useDispatch();
   const userDatabase = useSelector((state) => state.userDatabase);
-  //UseForm
+  const [isRegistered, setIsRegistered] = React.useState(false);
+  //FORM
   const { register, handleSubmit, watch, errors } = useForm({
     mode: "onChange",
   }); //onChange | onSubmit | onBlur | all
   const newsletter = watch("newsletter"); //listens to changes on the input name field "newsletter"
 
-  // console.log(useForm());
-  // console.log("userDatabase", userDatabase);
-
   const onSubmit = (data) => {
     const { userName, password, email } = data;
-
     const checkIfUserExists = database.filter((item) => {
-      console.log("MEEEEE");
       return item.userName === userName;
     });
     //aborts before running the next search if match is found - improves performance
@@ -53,8 +64,7 @@ function Register() {
 
     const checkIfEmailExists = database.filter((item) => item.email === email);
     if (checkIfEmailExists.length !== 0) {
-      console.log("Email already exists, please choose another email");
-      return;
+      return notifyUser("email");
     }
 
     database.push({
@@ -64,10 +74,11 @@ function Register() {
       password: password,
       email: email,
     });
-
+    notifyUser("success");
     console.log(database);
     console.log("data", data);
-    return document.querySelector("form").reset();
+    document.querySelector("form").reset();
+    return setIsRegistered(true);
   };
 
   // const verifyUserInput = (userDatabase, userInput) => {
@@ -189,6 +200,7 @@ function Register() {
             <button onClick={null}>Submit</button>
           </form>
         </div>
+        <Route>{isRegistered && <Redirect push to="/login" />}</Route>
       </div>
     </>
   );
