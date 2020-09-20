@@ -38,6 +38,11 @@ const notifyUser = (type) => {
       position: toast.POSITION.TOP_CENTER,
       autoclose: 2000,
     });
+  if (type === "emailSent")
+    toast.info("Email has been sent!... but not really... ", {
+      position: toast.POSITION.TOP_CENTER,
+      autoclose: 2000,
+    });
 };
 
 const inputIsWrongInit = {
@@ -79,10 +84,10 @@ function Login() {
     }
 
     //only runs if username exists. Better performant solution.
-    const checkIfPasswordIsCorrect = initDatabase.some(({ password }) => {
+    const isPasswordCorrect = initDatabase.some(({ password }) => {
       return password === data.password;
     });
-    if (checkIfPasswordIsCorrect) {
+    if (isPasswordCorrect) {
       dispatch({ type: "password", value: false });
       return notifyUser("loginSuccess");
     } else {
@@ -97,8 +102,11 @@ function Login() {
     });
     if (emailExists) {
       console.log("ok");
-      //setInputIsWrong({ ...inputIsWrong, email: false });
-    } //else setInputIsWrong({ ...inputIsWrong, email: true });
+      notifyUser("emailSent");
+      return dispatch({ type: "email", value: false });
+    } else {
+      return dispatch({ type: "email", value: true });
+    }
   };
 
   useEffect(() => {
