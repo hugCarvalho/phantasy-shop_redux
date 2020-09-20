@@ -23,20 +23,24 @@ const initDatabase = [
 ];
 
 const notifyUser = (type) => {
-  if (type === "userDoesNotExist")
-    toast.error("Username not found!", {
-      position: toast.POSITION.TOP_CENTER,
-      autoclose: 2000,
-    });
-  if (type === "passwordIncorrect")
-    toast.error("password incorrect!", {
-      position: toast.POSITION.TOP_CENTER,
-      autoclose: 2000,
-    });
+  console.log(toast.options);
+  if (type === "4demoPurposes")
+    toast.warning(
+      "Maybe you need to register first. For demo purposes, you can login using `ab` as username and `123` as password ",
+      {
+        position: toast.POSITION.TOP_CENTER,
+        autoclose: false,
+      }
+    );
+  // if (type === "passwordIncorrect")
+  //   toast.error("password incorrect!", {
+  //     position: toast.POSITION.TOP_CENTER,
+  //     autoclose: 2000,
+  //   });
   if (type === "loginSuccess")
-    toast.success("Login successful!", {
+    toast.success("Login successful! Rest of login logic will be added soon", {
       position: toast.POSITION.TOP_CENTER,
-      autoclose: 2000,
+      autoclose: 6000,
     });
   if (type === "emailSent")
     toast.info("Email has been sent!... but not really... ", {
@@ -91,6 +95,7 @@ function Login() {
       dispatch({ type: "password", value: false });
       return notifyUser("loginSuccess");
     } else {
+      notifyUser("4demoPurposes");
       return dispatch({ type: "password", value: true });
     }
   };
@@ -101,7 +106,6 @@ function Login() {
       return user.email === email;
     });
     if (emailExists) {
-      console.log("ok");
       notifyUser("emailSent");
       return dispatch({ type: "email", value: false });
     } else {
@@ -109,10 +113,6 @@ function Login() {
     }
   };
 
-  useEffect(() => {
-    console.log(forgotPassword);
-  }, [forgotPassword]);
-  console.log(inputIsWrong);
   return (
     <>
       <div className="container__form">
@@ -122,10 +122,9 @@ function Login() {
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* USERNAME */}
             <div className="userName">
-              <br />
               <label htmlFor="user-name">Username*</label>
               <input
-                // required
+                required
                 type="text"
                 name="userName"
                 id="user-name"
@@ -134,24 +133,19 @@ function Login() {
               />
               <div className="display-errorMsg">
                 <p>{inputIsWrong.username && "Incorrect username"}</p>
-                {/* <p>{errors.userName && errors.userName.message}</p> */}
-                <p>{errors.password && errors.password.message}</p>
               </div>
             </div>
-            <br />
 
             {/* PASSWORD */}
             <div className="password">
               <label htmlFor="password2">Password*</label>
               <input
-                // required
+                required
                 type="password"
                 name="password"
                 id="password2"
                 placeholder="password"
-                ref={register({
-                  // required: true,
-                })}
+                ref={register}
               />
             </div>
 
@@ -160,12 +154,10 @@ function Login() {
               <p>{inputIsWrong.password && "Incorrect password"}</p>
             </div>
             <button type="submit">Submit</button>
-            <br />
 
-            {/* FORGOT PASSWORD BUTTON */}
+            {/* FORGOT PASSWORD TEXT */}
             <div>
               <div className="forgot-password">
-                {/* TODO: don't forget to change this for using FN */}
                 <button
                   type="button"
                   onClick={(e) => {
@@ -176,33 +168,25 @@ function Login() {
                 </button>
               </div>
             </div>
-
-            {/* FORGOT PASSWORD FORM */}
           </form>
+
+          {/* FORGOT PASSWORD FORM */}
           <form onSubmit={handleSubmit(submitSendPassword)}>
             {forgotPassword && (
               <div className="wrapper__retrieve-password">
                 <label htmlFor="retrieve-password-email">Email*</label>
 
                 <input
-                  // type="email"
+                  type="email"
                   name="retrievePasswordEmail"
                   id="retrieve-password-email"
                   placeholder="email to retrieve password"
                   ref={register}
                 />
-                <p>{inputIsWrong.email && "Incorrect email!"}</p>
-                <button
-                  className="btn-send"
-                  type="submit"
-                  // onClick={(e, data) => {
-                  //   console.log("DATA2", data);
-                  //   console.log(e.target.textContent);
-                  //   initDatabase.find((user) => {
-                  //     return user.email === "";
-                  //   });
-                  // }}
-                >
+                <div className="display-errorMsg">
+                  <p>{inputIsWrong.email && "Incorrect email"}</p>
+                </div>
+                <button className="btn-send" type="submit">
                   Send
                 </button>
               </div>

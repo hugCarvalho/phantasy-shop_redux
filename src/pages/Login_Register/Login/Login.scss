@@ -4,18 +4,21 @@
   div.wrapper__form {
     min-height: 330px;
   }
-  // .display-errorMsg {
-  //   //background-color: greenyellow;
-  //   margin-top: 10px;
 
-  //   p {
-  //     color: red;
-  //   }
-  // }
-  // .forgot-password {
-  //   padding-top: 7px;
-  //   padding-bottom: 7px;
-  //   text-align: right;
-  //   text-decoration: underline;
-  // }
+  .display-errorMsg {
+    // background-color: greenyellow;
+    padding-top: 5px;
+    min-height: 20px;
+
+    p {
+      color: red;
+    }
+  }
+
+  .forgot-password {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-align: right;
+    text-decoration: underline;
+  }
 }
