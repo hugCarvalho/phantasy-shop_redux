@@ -46,42 +46,59 @@ const inputIsWrongInit = {
   email: false,
 };
 
+const reducer = (state = inputIsWrongInit, action) => {
+  switch (action.type) {
+    case "username":
+      return { ...state, username: action.value };
+    case "password":
+      return { ...state, password: action.value };
+    case "email":
+      return { ...state, email: action.value };
+    default:
+      throw new Error();
+  }
+};
+
 function Login() {
   // const [obj] = React.useState(initDatabase);
   const { register, handleSubmit, errors } = useForm();
-  const [inputIsWrong, setInputIsWrong] = React.useState(inputIsWrongInit);
+  const [inputIsWrong, dispatch] = React.useReducer(reducer, inputIsWrongInit);
+  // const [inputIsWrong, dispatch] = React.useReducer(reducer(inputIsWrongInit));
+
   const [forgotPassword, setForgotPassword] = React.useState(false);
 
+  //SUBMIT
   const onSubmit = (data) => {
-    const checkIfUserNameExists = initDatabase.find(({ userName }) => {
+    const usernameExists = initDatabase.some(({ userName }) => {
       return userName.toLowerCase() === data.userName.toLowerCase();
     });
-    if (!checkIfUserNameExists) return notifyUser("userDoesNotExist");
-    //only runs if username exists. Performance gain.
-    const checkIfPasswordIsCorrect = initDatabase.find(({ password }) => {
-      return password === data.password ? notifyUser("loginSuccess") : null;
-    });
-    if (!checkIfPasswordIsCorrect) notifyUser("passwordIncorrect");
+    if (usernameExists) {
+      dispatch({ type: "username", value: false });
+    } else {
+      return dispatch({ type: "username", value: true });
+    }
 
-    console.log("DATA", data);
-    // console.log(checkIfUserNameExists);
-    // console.log(checkIfPasswordIsCorrect);
-    // const res = validUser();
-    // if (!validUser) setInputIsWrong(true);
-    // else setInputIsWrong(false);
+    //only runs if username exists. Better performant solution.
+    const checkIfPasswordIsCorrect = initDatabase.some(({ password }) => {
+      return password === data.password;
+    });
+    if (checkIfPasswordIsCorrect) {
+      dispatch({ type: "password", value: false });
+      return notifyUser("loginSuccess");
+    } else {
+      return dispatch({ type: "password", value: true });
+    }
   };
 
   const submitSendPassword = (data) => {
     const { retrievePasswordEmail: email } = data;
-    console.log("MEMEE", data);
     const emailExists = initDatabase.some((user) => {
-      console.log(user, email);
       return user.email === email;
     });
-    console.log(inputIsWrong.email.error);
-    return emailExists
-      ? console.log("ok")
-      : setInputIsWrong({ ...inputIsWrong, email: true });
+    if (emailExists) {
+      console.log("ok");
+      //setInputIsWrong({ ...inputIsWrong, email: false });
+    } //else setInputIsWrong({ ...inputIsWrong, email: true });
   };
 
   useEffect(() => {
@@ -108,7 +125,7 @@ function Login() {
                 ref={register(handleSubmit)}
               />
               <div className="display-errorMsg">
-                <p>{inputIsWrong && "Incorrect user name"}</p>
+                <p>{inputIsWrong.username && "Incorrect username"}</p>
                 {/* <p>{errors.userName && errors.userName.message}</p> */}
                 <p>{errors.password && errors.password.message}</p>
               </div>
@@ -132,9 +149,7 @@ function Login() {
 
             {/* SUBMIT BUTTON */}
             <div className="display-errorMsg">
-              <p>{inputIsWrong && "Incorrect password"}</p>
-              <p>{errors.userName && errors.userName.message}</p>
-              <p>{errors.password && errors.password.message}</p>
+              <p>{inputIsWrong.password && "Incorrect password"}</p>
             </div>
             <button type="submit">Submit</button>
             <br />
