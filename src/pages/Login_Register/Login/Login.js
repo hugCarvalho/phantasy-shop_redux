@@ -8,24 +8,7 @@ import { toast } from "react-toastify";
 import { toggleLogIn } from "../../../redux/actions/loginActions";
 import { Redirect, Route } from "react-router-dom";
 
-//To delete
-const initDatabase = [
-  {
-    userName: "ab",
-    firstName: "",
-    lastName: "",
-    password: "123",
-    email: "test@gmail.com",
-  },
-  {
-    userName: "cd",
-    firstName: "",
-    lastName: "",
-    password: "345",
-    email: "t2@gmail.com",
-  },
-];
-
+//Toast
 const notifyUser = (type) => {
   console.log(toast.options);
   if (type === "4demoPurposes")
@@ -74,17 +57,18 @@ const reducer = (state = inputIsWrongInit, action) => {
 
 function Login() {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const userDatabase = useSelector((state) => state.database.userDatabase);
+  console.log(userDatabase);
   const [logIn, setLogIn] = React.useState(false); //to be removed
-  // const [obj] = React.useState(initDatabase);
-  const { register, handleSubmit, errors } = useForm();
   const [inputIsWrong, setInputIsWrong] = React.useReducer(reducer, inputIsWrongInit);
   // const [inputIsWrong, dispatch] = React.useReducer(reducer(inputIsWrongInit));
   const dispatch = useDispatch();
   const [forgotPassword, setForgotPassword] = React.useState(false);
+  const { register, handleSubmit, errors } = useForm();
 
   //SUBMIT
   const onSubmit = (data) => {
-    const usernameExists = initDatabase.some(({ userName }) => {
+    const usernameExists = userDatabase.some(({ userName }) => {
       return userName.toLowerCase() === data.userName.toLowerCase();
     });
     if (usernameExists) {
@@ -95,7 +79,7 @@ function Login() {
     }
 
     //only runs if username exists. Better performant solution.
-    const isPasswordCorrect = initDatabase.some(({ password }) => {
+    const isPasswordCorrect = userDatabase.some(({ password }) => {
       return password === data.password;
     });
     if (isPasswordCorrect) {
@@ -112,7 +96,7 @@ function Login() {
 
   const submitSendPassword = (data) => {
     const { retrievePasswordEmail: email } = data;
-    const emailExists = initDatabase.some((user) => {
+    const emailExists = userDatabase.some((user) => {
       return user.email === email;
     });
     if (emailExists) {
