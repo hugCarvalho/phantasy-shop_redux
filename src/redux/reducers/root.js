@@ -1,7 +1,7 @@
 import fetchItemsReducer from "./fetchItemsReducer";
 import itemCartReducer from "./itemCartReducer";
 import calculationsReducer from "./calculationsReducer";
-import LoginRegisterReducer from "./LoginRegisterReducer";
+import databaseReducer from "./databaseReducer";
 import toggleLogInOutReducer from "./toggleLogInOutReducer";
 
 import { combineReducers } from "redux";
@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   fetchItems: fetchItemsReducer,
   cart: itemCartReducer,
   calculate: calculationsReducer,
-  userDatabase: LoginRegisterReducer,
+  database: databaseReducer,
   toggleLogInOut: toggleLogInOutReducer,
 });
 

@@ -204,6 +204,7 @@ function Login() {
           </form>
         </div>
       </div>
+      {/* To be changed or removed */}
       <Route>{logIn && <Redirect push to="/items" />}</Route>
     </>
   );

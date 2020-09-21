@@ -1,5 +1,4 @@
 import {
-  TOGGLE_LOG_IN_OUT,
   VALIDATE_USER_DATA,
   // PUSH_USER_DATA,
 } from "../actions/LoginRegisterActions";

@@ -6,19 +6,6 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 //TO DELETE
-const database = [
-  {
-    userName: "ai",
-    password: "",
-    email: "aa@gmail.com",
-  },
-  {
-    userName: "qw",
-    password: "",
-    email: "bb@gmail.com",
-  },
-];
-// console.log(useForm());
 
 //Toast
 const notifyUser = (type) => {
@@ -44,7 +31,7 @@ const notifyUser = (type) => {
 
 function Register() {
   // const dispatch = useDispatch();
-  const userDatabase = useSelector((state) => state.userDatabase);
+  const userDatabase = useSelector((state) => state.database.userDatabase);
   const [isRegistered, setIsRegistered] = React.useState(false);
   //FORM
   const { register, handleSubmit, watch, errors } = useForm({
@@ -52,9 +39,10 @@ function Register() {
   }); //onChange | onSubmit | onBlur | all
   const newsletter = watch("newsletter"); //listens to changes on the input name field "newsletter"
 
+  console.log(userDatabase);
   const onSubmit = (data) => {
     const { userName, password, email } = data;
-    const checkIfUserExists = database.filter((item) => {
+    const checkIfUserExists = userDatabase.filter((item) => {
       return item.userName === userName;
     });
     //aborts before running the next search if match is found - improves performance
@@ -62,12 +50,12 @@ function Register() {
       return notifyUser("userName");
     }
 
-    const checkIfEmailExists = database.filter((item) => item.email === email);
+    const checkIfEmailExists = userDatabase.filter((item) => item.email === email);
     if (checkIfEmailExists.length !== 0) {
       return notifyUser("email");
     }
 
-    database.push({
+    userDatabase.push({
       firstName: "",
       lastName: "",
       userName: userName,
@@ -75,7 +63,7 @@ function Register() {
       email: email,
     });
     notifyUser("success");
-    //console.log(database);
+    //console.log(userDatabase);
     //console.log("data", data);
     //document.querySelector("form").reset();
     return setIsRegistered(true);
