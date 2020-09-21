@@ -1,4 +1,5 @@
 import {
+  TOGGLE_LOG_IN_OUT,
   VALIDATE_USER_DATA,
   // PUSH_USER_DATA,
 } from "../actions/LoginRegisterActions";
@@ -11,6 +12,12 @@ const initState = {
       lastName: "",
       password: "test21",
       email: "test@gmail.com",
+      // emails: {
+      //   inbox: [],
+      //   new: [],
+      //   draft: [],
+      //   deleted: []
+      // }
     },
     {
       userName: "Arggg",
@@ -33,4 +40,5 @@ const loginRegisterReducer = (state = initState, action) => {
       return state;
   }
 };
+
 export default loginRegisterReducer;

@@ -28,8 +28,8 @@ const notifyUser = (type) => {
     toast.warning(
       "Maybe you need to register first. For demo purposes, you can login using `ab` as username and `123` as password ",
       {
-        position: toast.POSITION.TOP_CENTER,
-        autoclose: false,
+        // position: toast.POSITION.TOP_CENTER,
+        autoclose: 4000,
       }
     );
   // if (type === "passwordIncorrect")
@@ -39,7 +39,7 @@ const notifyUser = (type) => {
   //   });
   if (type === "loginSuccess")
     toast.success("Login successful! Rest of login logic will be added soon", {
-      position: toast.POSITION.TOP_CENTER,
+      position: toast.POSITION.TOP_LEFT,
       autoclose: 6000,
     });
   if (type === "emailSent")
@@ -84,6 +84,7 @@ function Login() {
     if (usernameExists) {
       dispatch({ type: "username", value: false });
     } else {
+      notifyUser("4demoPurposes");
       return dispatch({ type: "username", value: true });
     }
 

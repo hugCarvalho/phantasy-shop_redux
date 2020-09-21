@@ -17,6 +17,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 
+const logged = false;
+
 function App() {
   return (
     <Provider store={store}>

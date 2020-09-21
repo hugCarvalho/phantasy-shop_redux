@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { FaShoppingCart } from "react-icons/fa";
 
 function Nav() {
+  const { isLoggedIn } = useSelector((state) => state.toggleLogInOut);
+  console.log(isLoggedIn);
   const numberOfItems = useSelector((state) => state.cart.cart.length);
 
   return (
@@ -31,13 +33,25 @@ function Nav() {
                 </NavLink>
               </figure>
             </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
+            {isLoggedIn ? (
+              <>
+                <li>
+                  <NavLink to="/user/:username/email">email</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/user/:username/">USERNAME</NavLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </header>
