@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import "./Login.scss";
 import "../../Login_Register/Login_Register_shared.scss";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { toggleLogIn } from "../../../redux/actions/loginActions";
+import { Redirect, Route } from "react-router-dom";
 
 //To delete
 const initDatabase = [
@@ -69,11 +73,13 @@ const reducer = (state = inputIsWrongInit, action) => {
 };
 
 function Login() {
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const [logIn, setLogIn] = React.useState(false); //to be removed
   // const [obj] = React.useState(initDatabase);
   const { register, handleSubmit, errors } = useForm();
-  const [inputIsWrong, dispatch] = React.useReducer(reducer, inputIsWrongInit);
+  const [inputIsWrong, setInputIsWrong] = React.useReducer(reducer, inputIsWrongInit);
   // const [inputIsWrong, dispatch] = React.useReducer(reducer(inputIsWrongInit));
-
+  const dispatch = useDispatch();
   const [forgotPassword, setForgotPassword] = React.useState(false);
 
   //SUBMIT
@@ -82,10 +88,10 @@ function Login() {
       return userName.toLowerCase() === data.userName.toLowerCase();
     });
     if (usernameExists) {
-      dispatch({ type: "username", value: false });
+      setInputIsWrong({ type: "username", value: false });
     } else {
       notifyUser("4demoPurposes");
-      return dispatch({ type: "username", value: true });
+      return setInputIsWrong({ type: "username", value: true });
     }
 
     //only runs if username exists. Better performant solution.
@@ -93,11 +99,14 @@ function Login() {
       return password === data.password;
     });
     if (isPasswordCorrect) {
-      dispatch({ type: "password", value: false });
-      return notifyUser("loginSuccess");
+      setInputIsWrong({ type: "password", value: false });
+      notifyUser("loginSuccess");
+      setLogIn(true);
+      return dispatch(toggleLogIn());
     } else {
       notifyUser("4demoPurposes");
-      return dispatch({ type: "password", value: true });
+
+      return setInputIsWrong({ type: "password", value: true });
     }
   };
 
@@ -108,9 +117,9 @@ function Login() {
     });
     if (emailExists) {
       notifyUser("emailSent");
-      return dispatch({ type: "email", value: false });
+      return setInputIsWrong({ type: "email", value: false });
     } else {
-      return dispatch({ type: "email", value: true });
+      return setInputIsWrong({ type: "email", value: true });
     }
   };
 
@@ -195,6 +204,7 @@ function Login() {
           </form>
         </div>
       </div>
+      <Route>{logIn && <Redirect push to="/items" />}</Route>
     </>
   );
 }

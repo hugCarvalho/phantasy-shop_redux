@@ -36,10 +36,10 @@ function Nav() {
             {isLoggedIn ? (
               <>
                 <li>
-                  <NavLink to="/user/:username/email">email</NavLink>
+                  <NavLink to="/user/:username/">username</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/user/:username/">USERNAME</NavLink>
+                  <NavLink to="/">log out</NavLink>
                 </li>
               </>
             ) : (
