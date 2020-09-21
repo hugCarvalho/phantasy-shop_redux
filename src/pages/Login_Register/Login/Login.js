@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
+import React from "react";
 import "./Login.scss";
 import "../../Login_Register/Login_Register_shared.scss";
+import { Redirect, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+//actions
 import { toggleLogIn } from "../../../redux/actions/loginActions";
-import { Redirect, Route } from "react-router-dom";
+import reducer, { inputIsWrongInit } from "./reducer.js";
 
 //Toast
 const notifyUser = (type) => {
@@ -19,11 +20,6 @@ const notifyUser = (type) => {
         autoclose: 4000,
       }
     );
-  // if (type === "passwordIncorrect")
-  //   toast.error("password incorrect!", {
-  //     position: toast.POSITION.TOP_CENTER,
-  //     autoclose: 2000,
-  //   });
   if (type === "loginSuccess")
     toast.success("Login successful! Rest of login logic will be added soon", {
       position: toast.POSITION.TOP_LEFT,
@@ -36,35 +32,14 @@ const notifyUser = (type) => {
     });
 };
 
-const inputIsWrongInit = {
-  username: false,
-  password: false,
-  email: false,
-};
-
-const reducer = (state = inputIsWrongInit, action) => {
-  switch (action.type) {
-    case "username":
-      return { ...state, username: action.value };
-    case "password":
-      return { ...state, password: action.value };
-    case "email":
-      return { ...state, email: action.value };
-    default:
-      throw new Error();
-  }
-};
-
 function Login() {
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  // const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const userDatabase = useSelector((state) => state.database.userDatabase);
-  console.log(userDatabase);
+  const dispatch = useDispatch();
   const [logIn, setLogIn] = React.useState(false); //to be removed
   const [inputIsWrong, setInputIsWrong] = React.useReducer(reducer, inputIsWrongInit);
-  // const [inputIsWrong, dispatch] = React.useReducer(reducer(inputIsWrongInit));
-  const dispatch = useDispatch();
   const [forgotPassword, setForgotPassword] = React.useState(false);
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
 
   //SUBMIT
   const onSubmit = (data) => {
@@ -89,11 +64,11 @@ function Login() {
       return dispatch(toggleLogIn());
     } else {
       notifyUser("4demoPurposes");
-
       return setInputIsWrong({ type: "password", value: true });
     }
   };
 
+  //On Submit email
   const submitSendPassword = (data) => {
     const { retrievePasswordEmail: email } = data;
     const emailExists = userDatabase.some((user) => {

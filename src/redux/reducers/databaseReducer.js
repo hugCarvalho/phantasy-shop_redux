@@ -19,11 +19,11 @@ const initState = {
       // }
     },
     {
-      userName: "Arggg",
+      userName: "ab",
       firstName: "",
       lastName: "",
-      password: "arggg21",
-      email: "arggg@gmail.com",
+      password: "123",
+      email: "aa@gmail.com",
     },
   ],
 };

@@ -39,7 +39,7 @@ function Nav() {
                   <NavLink to="/user/:username/">username</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/">log out</NavLink>
+                  <Link to="/">log out</Link>
                 </li>
               </>
             ) : (
