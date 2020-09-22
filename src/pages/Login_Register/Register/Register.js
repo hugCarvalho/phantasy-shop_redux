@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { pushUserData } from "../../../redux/actions/databaseActions";
 
+// TODO: replace <br>s with css code
+// TODO: move newsletter to new component
+
 //Toast
 const notifyUser = (type) => {
   if (type === "userName") {
@@ -32,6 +35,7 @@ function Register() {
   const dispatch = useDispatch();
   const userDatabase = useSelector((state) => state.database.userDatabase);
   const [isRegistered, setIsRegistered] = React.useState(false);
+  const [emailDotWarning, setEmailDotWarning] = React.useState(false);
   //FORM
   const { register, handleSubmit, watch, errors } = useForm({
     mode: "onChange",
@@ -44,10 +48,24 @@ function Register() {
     const checkIfUserExists = userDatabase.filter((item) => {
       return item.userName === userName;
     });
-    //aborts before running the next search if match is found - improves performance
+
     if (checkIfUserExists.length !== 0) {
+      //Performance gain - aborts before running the next search if match is found
       return notifyUser("userName");
     }
+
+    const checkEmailHasDot = (() => {
+      const firstSlice = data.email.slice(data.email.indexOf("@"));
+      const dotIndex = firstSlice.indexOf(".");
+      const secondSlice = firstSlice.slice(dotIndex + 1);
+      if (dotIndex === -1) return false; //no "."
+      if (secondSlice.length < 2) return false;
+      //less than 2 letters after "."
+      else return true;
+    })();
+
+    if (checkEmailHasDot) setEmailDotWarning(false);
+    if (!checkEmailHasDot) return setEmailDotWarning(true);
 
     const checkIfEmailExists = userDatabase.filter((item) => item.email === email);
     if (checkIfEmailExists.length !== 0) {
@@ -81,7 +99,6 @@ function Register() {
                 ref={register}
               />
             </div>
-            {/* TODO: replace <br>s with css code */}
             <br />
             {/* LAST NAME */}
             <div className="fullName">
@@ -99,20 +116,23 @@ function Register() {
             <div className="email">
               <label htmlFor="email">Email*</label>
               <input
-                // required
+                required
                 type="email"
                 name="email"
                 id="email"
                 placeholder="your@email.com"
                 ref={register}
               />
+              <div className="display-errorMsg">
+                <p>{emailDotWarning && "email format not accepted"}</p>
+              </div>
             </div>
             {/* USERNAME */}
             <div className="userName">
               <br />
               <label htmlFor="user-name">User name*</label>
               <input
-                required
+                // required
                 type="text"
                 name="userName"
                 id="user-name"
@@ -125,14 +145,14 @@ function Register() {
             <div className="password">
               <label htmlFor="password">Password*</label>
               <input
-                required
+                // required
                 type="password"
                 name="password"
                 id="password"
                 placeholder="password"
                 //required
                 ref={register({
-                  required: true,
+                  required: false,
                   minLength: {
                     value: 7,
                     message: "must be at least 7 characters long",
