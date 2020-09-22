@@ -7,7 +7,6 @@ import { FaShoppingCart } from "react-icons/fa";
 
 function Nav() {
   const { isLoggedIn } = useSelector((state) => state.toggleLogInOut);
-  console.log(isLoggedIn);
   const numberOfItems = useSelector((state) => state.cart.cart.length);
 
   return (

@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import "../../Login_Register/Login_Register_shared.scss";
 import { Redirect, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-
-//TO DELETE
+import { pushUserData } from "../../../redux/actions/databaseActions";
 
 //Toast
 const notifyUser = (type) => {
@@ -30,7 +29,7 @@ const notifyUser = (type) => {
 };
 
 function Register() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const userDatabase = useSelector((state) => state.database.userDatabase);
   const [isRegistered, setIsRegistered] = React.useState(false);
   //FORM
@@ -39,9 +38,9 @@ function Register() {
   }); //onChange | onSubmit | onBlur | all
   const newsletter = watch("newsletter"); //listens to changes on the input name field "newsletter"
 
-  console.log(userDatabase);
+  // console.log(userDatabase);
   const onSubmit = (data) => {
-    const { userName, password, email } = data;
+    const { userName, password, email, firstName, lastName } = data;
     const checkIfUserExists = userDatabase.filter((item) => {
       return item.userName === userName;
     });
@@ -54,29 +53,15 @@ function Register() {
     if (checkIfEmailExists.length !== 0) {
       return notifyUser("email");
     }
+    dispatch(pushUserData(userName, password, email));
 
-    userDatabase.push({
-      firstName: "",
-      lastName: "",
-      userName: userName,
-      password: password,
-      email: email,
-    });
     notifyUser("success");
-    //console.log(userDatabase);
-    //console.log("data", data);
+
     //document.querySelector("form").reset();
     return setIsRegistered(true);
   };
 
-  // const verifyUserInput = (userDatabase, userInput) => {
-  //   // console.log(useForm().control.mode);
-  //   console.log("copy", userDatabase);
-  // };
-
   useEffect(() => {
-    //console.log("userDatabase :>> ", userDatabase);
-    //console.log("watch", watch());
     // console.log(newsletter);
   }, [userDatabase, newsletter]);
   return (
@@ -96,6 +81,7 @@ function Register() {
                 ref={register}
               />
             </div>
+            {/* TODO: replace <br>s with css code */}
             <br />
             {/* LAST NAME */}
             <div className="fullName">
@@ -113,7 +99,7 @@ function Register() {
             <div className="email">
               <label htmlFor="email">Email*</label>
               <input
-                required
+                // required
                 type="email"
                 name="email"
                 id="email"

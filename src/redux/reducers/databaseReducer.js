@@ -1,7 +1,7 @@
 import {
-  VALIDATE_USER_DATA,
-  // PUSH_USER_DATA,
-} from "../actions/LoginRegisterActions";
+  // VALIDATE_USER_DATA,
+  PUSH_USER_DATA,
+} from "../actions/databaseActions";
 
 const initState = {
   userDatabase: [
@@ -28,9 +28,11 @@ const initState = {
   ],
 };
 
-const loginRegisterReducer = (state = initState, action) => {
+const databaseReducer = (state = initState, action) => {
   switch (action.type) {
-    case VALIDATE_USER_DATA:
+    case PUSH_USER_DATA:
+      console.log(action.payload);
+      state.userDatabase.push(action.payload);
       return {
         ...state,
       };
@@ -40,4 +42,4 @@ const loginRegisterReducer = (state = initState, action) => {
   }
 };
 
-export default loginRegisterReducer;
+export default databaseReducer;
