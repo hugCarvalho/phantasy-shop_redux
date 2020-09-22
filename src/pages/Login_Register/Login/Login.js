@@ -21,10 +21,13 @@ const notifyUser = (type) => {
       }
     );
   if (type === "loginSuccess")
-    toast.success("Login successful! Please note this is an unfinished project", {
-      position: toast.POSITION.TOP_LEFT,
-      autoclose: 6000,
-    });
+    toast.success(
+      "Login successful! Please note this is an ongoing project, some functionalities are still being implemented",
+      {
+        position: toast.POSITION.TOP_LEFT,
+        autoclose: 6000,
+      }
+    );
   if (type === "emailSent")
     toast.info("Email has been sent!... but not really... ", {
       position: toast.POSITION.TOP_CENTER,
