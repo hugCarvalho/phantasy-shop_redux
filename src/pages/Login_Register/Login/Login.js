@@ -21,7 +21,7 @@ const notifyUser = (type) => {
       }
     );
   if (type === "loginSuccess")
-    toast.success("Login successful! Rest of login logic will be added soon", {
+    toast.success("Login successful! Please note this is an unfinished project", {
       position: toast.POSITION.TOP_LEFT,
       autoclose: 6000,
     });

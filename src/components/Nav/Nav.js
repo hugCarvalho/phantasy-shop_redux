@@ -18,7 +18,7 @@ function Nav() {
               <Link to="/">Info</Link>
             </li>
             <li>
-              <NavLink to="/items">Items List</NavLink>
+              <NavLink to="/items">Actors</NavLink>
             </li>
             <li>
               <figure className="wrapper__cart-icon">
@@ -35,7 +35,7 @@ function Nav() {
             {isLoggedIn ? (
               <>
                 <li>
-                  <NavLink to="/user/:username/">username</NavLink>
+                  <NavLink to="/user/:username/">My Conto</NavLink>
                 </li>
                 <li>
                   <Link to="/">log out</Link>

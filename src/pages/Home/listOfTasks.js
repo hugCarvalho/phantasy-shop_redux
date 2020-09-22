@@ -83,7 +83,7 @@ export const listOfTasks = [
   },
   {
     title: "Register: add logic - only frontend sim",
-    completed: false,
+    completed: true,
   },
   {
     title: "Login: do login form - html + css ",
@@ -91,7 +91,7 @@ export const listOfTasks = [
   },
   {
     title: "Login: add logic to form - only frontend sim",
-    completed: false,
+    completed: true,
   },
   {
     title: "Alerts: to be defined",
