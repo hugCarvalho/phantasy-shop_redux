@@ -19,28 +19,28 @@ import { createBrowserHistory } from "history";
 import ReactGA from "react-ga";
 
 toast.configure();
-const history = createBrowserHistory();
+// const history = createBrowserHistory();
 
-const trackingId = "UA-178829660-1"; // Replace with your Google Analytics tracking ID
+// const trackingId = "UA-178829660-1"; // Replace with your Google Analytics tracking ID
 
-// Initialize google analytics page view tracking
-ReactGA.initialize(trackingId);
+// // Initialize google analytics page view tracking
+// ReactGA.initialize(trackingId);
 
-console.log(history);
-history.listen((location) => {
-  // ReactGA.set({
-  //   // any data that is relevant to the user session
-  //   // that you would like to track with google analytics
-  // });
-  ReactGA.set({ page: location.pathname }); // Update the user's current page
-  ReactGA.pageview(location.pathname); // Record a pageview for the given page
-});
+// console.log(history);
+// history.listen((location) => {
+//   // ReactGA.set({
+//   //   // any data that is relevant to the user session
+//   //   // that you would like to track with google analytics
+//   // });
+//   ReactGA.set({ page: location.pathname }); // Update the user's current page
+//   ReactGA.pageview(location.pathname); // Record a pageview for the given page
+// });
 
 function App() {
-  React.useEffect(() => {
-    ReactGA.pageview("/");
-    // ReactGA.initialize(trackingId);
-  }, []);
+  // React.useEffect(() => {
+  //   ReactGA.pageview("/");
+  //   // ReactGA.initialize(trackingId);
+  // }, []);
   return (
     <Provider store={store}>
       <Router history={history}>
