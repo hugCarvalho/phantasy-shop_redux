@@ -15,14 +15,30 @@ import { Switch, Route } from "react-router-dom";
 //toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-toast.configure();
+import { createBrowserHistory } from "history";
+import ReactGA from "react-ga";
 
-const logged = false;
+toast.configure();
+const history = createBrowserHistory();
+
+const trackingId = "UA-178829660-1"; // Replace with your Google Analytics tracking ID
+ReactGA.initialize(trackingId);
+ReactGA.set({
+  // any data that is relevant to the user session
+  // that you would like to track with google analytics
+});
+
+// Initialize google analytics page view tracking
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+  console.log(location);
+});
 
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <div className="App">
           <Nav />
           <Switch>
