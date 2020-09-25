@@ -15,11 +15,9 @@ function Nav() {
       <header className="Nav">
         <nav className="container__navlinks">
           <ul>
-            <div>
-              <li>
-                <Link to="/">Info</Link>
-              </li>
-            </div>
+            <li>
+              <Link to="/">Info</Link>
+            </li>
             <li>
               <NavLink to="/items">
                 <span>Actors</span>
@@ -31,7 +29,7 @@ function Nav() {
                   <FaShoppingCart size="30" />
                   <figcaption
                     className="num-items-cart"
-                    style={numberOfItems >= 10 ? { left: "13px" } : { left: "15px" }}>
+                    style={numberOfItems >= 10 ? { left: "20px" } : { left: "22px" }}>
                     {numberOfItems}
                   </figcaption>
                 </NavLink>
