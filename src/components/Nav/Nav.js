@@ -15,11 +15,15 @@ function Nav() {
       <header className="Nav">
         <nav className="container__navlinks">
           <ul>
+            <div>
+              <li>
+                <Link to="/">Info</Link>
+              </li>
+            </div>
             <li>
-              <Link to="/">Info</Link>
-            </li>
-            <li>
-              <NavLink to="/items">Actors</NavLink>
+              <NavLink to="/items">
+                <span>Actors</span>
+              </NavLink>
             </li>
             <li>
               <figure className="wrapper__cart-icon">

@@ -1,18 +1,57 @@
 .Nav {
-  background-color: rgb(228, 214, 23);
-  background-color: rgb(200, 233, 214);
+  // background-color: black;
+  background-color: rgb(21, 35, 22); //RGB(56, 101, 59)
   //display: flex;
   font-size: 1.5rem;
-  padding: 9px 0;
+  padding: 10px 0;
   // height: 100%;
-  font-size: 2rem;
+  font-size: 26px;
   .container__navlinks {
     // background-color: pink;
 
     ul {
+      // background-color: lightcoral;
+      height: 60px; //40
       display: flex;
       justify-content: space-around;
       align-items: center;
+
+      li {
+        // background-color: lightgreen;
+        color: olive;
+        color: rgba(255, 255, 255, 0.829);
+        display: flex;
+        line-height: 60px;
+        height: 100%;
+        display: block;
+        a {
+          // border-radius: 4px;
+          padding: 0 8px;
+          display: inline-block;
+          // background-color: rgb(5, 96, 170);
+          width: 100%;
+          height: 60px;
+        }
+        &:hover {
+          background-color: white;
+          background-color: RGB(56, 101, 59);
+        }
+        transition: all 0.4s ease;
+      }
+      // transform: translateY(-10px);
+      transition: all 0.4s ease;
+    }
+    figure {
+      //background-color: yellow;
+      min-width: 35px;
+      height: 100%;
+
+      display: flex;
+
+      justify-content: center;
+      // align-items: center;
+      line-height: 70px;
+      // background-color: yellow;
     }
   }
   .wrapper__cart-icon {
@@ -26,7 +65,7 @@
 
       border-radius: 100%;
       position: absolute;
-      top: 4px;
+      top: 40px;
       //right: 20px;
       left: 13px;
       //right: 0;
@@ -36,6 +75,7 @@
 }
 
 .active {
-  // color: green;
-  border-bottom: 2px solid black;
+  background-color: RGB(56, 101, 59);
+  // color: rgb(51, 175, 48);
+  // border-bottom: 2px solid black;
 }
