@@ -25,7 +25,7 @@ function ItemsList() {
 
   return (
     <main className="ItemsList">
-      <h2>Actors List</h2>
+      <h1>Actors List</h1>
       <div className="wrapper__items-list">
         {data.loading ? (
           <LoaderSpinner />

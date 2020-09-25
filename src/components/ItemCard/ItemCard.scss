@@ -1,7 +1,13 @@
 @import "../../index.scss";
 
 .ItemCard {
-  //background-color: gray;
+  background-color: gray;
+  // background-color: #093009;
+  // background-color: #369457;
+  background-color: #29773e;
+  background-color: #0d3e10;
+  background-color: #1f6032;
+
   display: flex;
   margin: 1rem;
   border-radius: 6px;
@@ -15,6 +21,7 @@
       height: 100%;
     }
   }
+
   h3 {
     padding: 5px;
   }
