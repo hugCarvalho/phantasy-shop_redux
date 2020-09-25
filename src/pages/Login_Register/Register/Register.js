@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../../Login_Register/Login_Register_shared.scss";
+import "./Register.scss";
 import { Redirect, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
