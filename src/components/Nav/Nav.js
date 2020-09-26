@@ -2,6 +2,7 @@ import React from "react";
 import "./Nav.scss";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Pic from "../../img/logo_02.png";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { toggleLogOut } from "../../redux/actions/loginActions";
@@ -14,6 +15,9 @@ function Nav() {
     <>
       <header className="Nav">
         <nav className="container__navlinks">
+          {/* <figure className="logo">
+            <img src={Pic} alt="breaking bad logo"></img>
+          </figure> */}
           <ul>
             <li>
               <Link to="/">Info</Link>

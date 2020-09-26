@@ -24,44 +24,62 @@ const calcCompleted = (list) => list.filter((item) => item.completed).length;
 const calcCompletedPercent = (list) =>
   Math.round((calcCompleted(list) * 100) / list.length);
 
+const ongoingText = `This is an ONGOING project, still NOT optimized for mobile.`;
+//Some features are still being added
+
 function Home() {
+  const [{ content, cursor: index }, setContent] = React.useState({
+    content: "",
+    cursor: 0,
+  });
+
+  React.useEffect(() => {
+    if (index === ongoingText.length) return;
+
+    const delay = setTimeout(() => {
+      setContent({ content: content + ongoingText[index], cursor: index + 1 });
+    }, 0 || 150);
+
+    return () => {
+      clearTimeout(delay);
+    };
+  }, [content, index]);
+
   return (
     <div className="Home">
       <article>
-        <h1>Important</h1>
-        <p>
-          This is an{" "}
-          <u>
-            <span className="ongoing"> !!! ongoing !!! </span>
-          </u>{" "}
-          project whose focus is, primarily, <u>behaviour</u> with REACT (hooks) and
-          REDUX.
-        </p>
-        <p>
-          Graphical enhancements and responsive optimization will be added at a later
-          stage, as well as optimized code.
-        </p>
-        <br></br>
+        <h1>Important!</h1>
 
-        <p>
-          <strong>Descr:</strong> This project consists on a{" "}
-          <span>phantasy online shop</span> where you can book days with actors of the
-          Breaking Bad series (one of my favorites! ).{" "}
-          <u>
-            {" "}
-            The data consists on a mixture of the Breaking Bad API data and object
-            manipulation in order to add the necessary entries for a shop behaviour.
-          </u>
-        </p>
-        <br></br>
-
+        <h3 className="typing">
+          {" "}
+          <span>{content}</span>
+        </h3>
         <hr></hr>
+
+        <article className="built-with">
+          <strong>
+            Built with{" "}
+            <span className="bb-style">
+              REACT <sup>hooks</sup>
+            </span>{" "}
+            + <span className="bb-style">REDUX</span> +{" "}
+            <span className="bb-style">SASS</span>
+          </strong>
+        </article>
+        <article className="left">
+          <p>
+            This project consists on a <b>phantasy online shop</b> where you can book days
+            with actors of the Breaking Bad series (one of my favorites). The data
+            consists on a mixture of the{" "}
+            <span className="bb-style">
+              Breaking Bad <b>API</b>
+            </span>{" "}
+            data and object manipulation in order to add the necessary entries for a shop
+            behaviour.
+          </p>
+        </article>
       </article>
-      <div className="tecs">
-        <i>
-          <strong>React-redux / React-router / React-hook-form</strong>
-        </i>
-      </div>
+
       <hr></hr>
       <div className="legend">
         <h5>Tasks</h5>

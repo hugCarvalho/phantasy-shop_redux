@@ -1,14 +1,67 @@
 .Home {
+  background-color: gray;
+  background-image: url("../../img/bb_02.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: 100%;
+  color: rgba(255, 255, 255, 0.85);
   text-align: center;
   font-size: 1.9rem;
   word-break: keep-all;
 
+  h1 {
+    padding: 20px 0;
+    font-size: 4rem;
+  }
+
+  .typing {
+    position: relative;
+    // margin-left: 10px;
+    // background-color: yellowgreen;
+    margin-bottom: 25px;
+  }
+
+  .left {
+    padding: 30px 30px;
+    font-size: 2rem;
+    line-height: 8rem;
+  }
+  .built-with {
+    padding: 50px 0 30px;
+  }
   article {
     // background-color: darkseagreen;
     p {
       line-height: 3rem;
     }
   }
+  .bb-style {
+    background-color: #36603c;
+    padding: 10px 6px;
+    border: 1px solid white;
+    line-height: 3.7rem;
+  }
+
+  .typing::after {
+    content: "";
+    position: absolute;
+    padding-left: 1px;
+    width: 2px;
+    height: 79%;
+    top: 1px;
+    border-right: 2px solid white;
+    animation: blink 0.4s infinite ease;
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .tecs {
     padding: 10px 0;
   }
@@ -38,4 +91,8 @@
     padding: 0 5px;
     font-size: 2.2rem;
   }
+}
+
+.left {
+  text-align: left;
 }
