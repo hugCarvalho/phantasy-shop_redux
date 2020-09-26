@@ -1,16 +1,26 @@
-@import "../../index.scss";
+// @import "../../index.scss";
 
 .ItemsList {
-  // background-color: mediumseagreen;
-  background-color: $background-main;
-  background-image: url("../../img/bb_02.jpg");
+  background: radial-gradient(
+    circle,
+    rgba(54, 94, 59, 0.938) 0%,
+    rgba(36, 61, 40, 1) 20%,
+    rgba(29, 51, 31, 1) 35%,
+    rgb(31, 54, 35) 40%,
+    #000 100%
+  );
   color: whitesmoke;
   min-height: calc(100vh - 54px);
+  padding-bottom: 21px;
 
   text-align: center;
   h1 {
     font-size: x-large;
     padding-top: 2rem;
+  }
+
+  h4 {
+    padding: 4px 0 0 0;
   }
 
   .wrapper__items-list {
