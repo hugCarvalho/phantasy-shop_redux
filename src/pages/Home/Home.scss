@@ -1,10 +1,11 @@
 .Home {
-  background-color: gray;
+  background-color: #0b150d;
   background-image: url("../../img/bb_02.jpg");
-  background-repeat: no-repeat;
+
   background-attachment: scroll;
-  background-size: 100%;
-  color: rgba(255, 255, 255, 0.85);
+  background-repeat: repeat-y;
+  // background-size: 100%;
+  color: rgba(255, 255, 255, 0.94);
   text-align: center;
   font-size: 1.9rem;
   word-break: keep-all;
