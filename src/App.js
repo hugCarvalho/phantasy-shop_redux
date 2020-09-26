@@ -15,6 +15,7 @@ import { Switch, Route } from "react-router-dom";
 //toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MyAccount from "./components/Nav/MyAccount/MyAccount";
 
 toast.configure();
 
@@ -24,6 +25,7 @@ function App() {
       <Router>
         <div className="App">
           <Nav />
+          <MyAccount />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/items" component={ItemsList} />
