@@ -10,6 +10,14 @@ const styleNonAvailable = (stock) =>
 
 function ItemCard({ name, nickname, img, items, id, price, amount, inCart, stock }) {
   const dispatch = useDispatch();
+  const [inHover, setHover] = React.useState(false);
+
+  {
+    /* <button
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+      ></button> */
+  }
 
   // TODO: in cart and ItemCart -> DRY
   const formatPrice = (price) => {
@@ -22,15 +30,34 @@ function ItemCard({ name, nickname, img, items, id, price, amount, inCart, stock
     return price;
   };
 
+  const showUnavailableMsg = () => {
+    setHover(true);
+  };
+
+  React.useEffect(() => {
+    console.log("inHover", inHover);
+  }, [inHover]);
+
   return (
     <section className="ItemCard" style={styleNonAvailable(stock)}>
-      <div className="item-details">
+      <div
+        className="item-details"
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}>
         <h3>{name}</h3>
         <div className="container__img">
           <img src={img} alt={name} width="100%" height="100%" />
+          <span
+            className={[
+              !stock && inHover ? "unavailable-show" : "unavailable-hide",
+              "",
+              "init",
+            ].join(" ")}>
+            unavailable
+          </span>
         </div>
         <h4>{nickname}</h4>
-        <div className="additional-info">
+        <div className="additional-info more">
           <p>Price per day: €{formatPrice(price)}</p>
           <p>Days available: {stock}</p>
           <Button
