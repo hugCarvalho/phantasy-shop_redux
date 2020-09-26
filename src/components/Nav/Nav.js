@@ -33,7 +33,7 @@ function Nav() {
                   <FaShoppingCart size="30" />
                   <figcaption
                     className="num-items-cart"
-                    style={numberOfItems >= 10 ? { left: "20px" } : { left: "22px" }}>
+                    style={numberOfItems >= 10 ? { left: "20px" } : { left: "23px" }}>
                     {numberOfItems}
                   </figcaption>
                 </NavLink>

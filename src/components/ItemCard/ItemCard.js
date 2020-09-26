@@ -12,13 +12,6 @@ function ItemCard({ name, nickname, img, items, id, price, amount, inCart, stock
   const dispatch = useDispatch();
   const [inHover, setHover] = React.useState(false);
 
-  {
-    /* <button
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      ></button> */
-  }
-
   // TODO: in cart and ItemCart -> DRY
   const formatPrice = (price) => {
     // console.log("format price");
@@ -28,10 +21,6 @@ function ItemCard({ name, nickname, img, items, id, price, amount, inCart, stock
       return arr.join("");
     }
     return price;
-  };
-
-  const showUnavailableMsg = () => {
-    setHover(true);
   };
 
   React.useEffect(() => {
