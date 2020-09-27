@@ -1,36 +1,77 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import "./MyAccount.scss";
+
+export const initState = {
+  isSubMenuSettingsOpen: false,
+  isSubMenuHelpOpen: false,
+};
+
+export const myAccountMenusReducer = (state, action) => {
+  switch (action.type) {
+    case "settings_open":
+      return {
+        ...state,
+        isSubMenuHelpOpen: false,
+        isSubMenuSettingsOpen: true,
+      };
+    case "settings_close":
+      return {
+        ...state,
+        isSubMenuHelpOpen: false,
+        isSubMenuSettingsOpen: false,
+      };
+    case "help_open":
+      return {
+        ...state,
+        isSubMenuHelpOpen: true,
+        isSubMenuSettingsOpen: false,
+      };
+    case "help_close":
+      return {
+        ...state,
+        isSubMenuHelpOpen: false,
+        isSubMenuSettingsOpen: false,
+      };
+    default:
+      return state;
+  }
+};
+const styleShow = {
+  display: "block",
+  marginLeft: "0",
+  //transform: "translate(0%, 0%)",
+};
+const styleHide = {
+  display: "none",
+  marginLeft: "-280px",
+  //transform: "translate(-50%, -50%)",
+};
 
 function MyAccount() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const [{ isSubMenuHelpOpen, isSubMenuSettingsOpen }, setSubmenuOpen] = useReducer(
+    myAccountMenusReducer,
+    initState
+  );
+  // useEffect(() => {
+  //   console.log("isMenuOpen", isSubMenuOpen);
+  // }, [isSubMenuOpen]);
 
   useEffect(() => {
-    console.log("isMenuOpen", isSubMenuOpen);
-  }, [isSubMenuOpen]);
-
-  const styleShow = {
-    display: "block",
-    marginLeft: "0",
-    transform: "translate(0%, 0%)",
-  };
-  const styleHide = {
-    // display: "none",
-    marginLeft: "-440px",
-    transform: "translate(-50%, -50%)",
-  };
+    console.log("1", isSubMenuSettingsOpen, "2", isSubMenuHelpOpen);
+  }, [isSubMenuHelpOpen, isSubMenuSettingsOpen]);
 
   return (
     <nav className="MyAccount">
       <div className="drop-btn" onClick={() => setIsMenuOpen((state) => !state)}>
-        My Account <i class="fas fa-angle-down"></i>
+        My Account <i className="fas fa-angle-down"></i>
       </div>
       <div
         className="tooltip"
         style={isMenuOpen ? { display: "block" } : { display: "none" }}
       ></div>
 
-      {/* DROPDOWN MENU */}
+      {/*********************** * DROPDOWN MENU */}
       <div
         className="wrapper"
         style={isMenuOpen ? { display: "flex" } : { display: "none" }}
@@ -38,7 +79,11 @@ function MyAccount() {
         {/* GOES RIGHT */}
         <ul
           className="menu-bar"
-          style={isMenuOpen && !isSubMenuOpen ? styleShow : styleHide}
+          style={
+            isMenuOpen && !isSubMenuSettingsOpen && !isSubMenuHelpOpen
+              ? styleShow
+              : styleHide
+          }
         >
           <li>
             <a href="#">
@@ -48,9 +93,10 @@ function MyAccount() {
               Home
             </a>
           </li>
+          {/******************* SUBMENU1 *********************/}
           <li
             className="setting-item"
-            onClick={() => setIsSubMenuOpen((state) => !state)}
+            onClick={() => setSubmenuOpen({ type: "settings_open" })}
           >
             <a href="#">
               <div className="icon">
@@ -59,7 +105,8 @@ function MyAccount() {
               Settings <i className="fas fa-angle-right"></i>
             </a>
           </li>
-          <li className="help-item">
+          {/* SUBMENU 2 */}
+          <li className="help-item" onClick={() => setSubmenuOpen({ type: "help_open" })}>
             <a href="#">
               <div className="icon">
                 <span className="fas fa-question-circle"></span>
@@ -84,14 +131,16 @@ function MyAccount() {
             </a>
           </li>
         </ul>
+
         {/* <!-- Settings Menu-items --> */}
         {/* GOES LEFT */}
-        <ul className="setting-drop" style={isSubMenuOpen ? styleShow : styleHide}>
+        <ul
+          className="setting-drop"
+          style={isSubMenuSettingsOpen ? styleShow : styleHide}
+        >
           <li
             className="arrow back-setting-btn"
-            onClick={() => setIsSubMenuOpen(false)}
-
-            // onClick={() => setIsSubMenuOpen(false)}
+            onClick={() => setSubmenuOpen({ type: "settings_close" })}
           >
             <span className="fas fa-arrow-left"></span>Settings
           </li>
@@ -120,9 +169,13 @@ function MyAccount() {
             </a>
           </li>
         </ul>
+
         {/* <!-- Help & support Menu-items --> */}
-        <ul className="help-drop">
-          <li className="arrow back-help-btn">
+        <ul className="help-drop" style={isSubMenuHelpOpen ? styleShow : styleHide}>
+          <li
+            className="arrow back-help-btn"
+            onClick={() => setSubmenuOpen({ type: "help_close" })}
+          >
             <span className="fas fa-arrow-left"></span>Help & support
           </li>
 

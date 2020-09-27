@@ -5,7 +5,7 @@
     position: absolute;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
   }
 
   .drop-btn {
@@ -21,57 +21,57 @@
     background: #242526;
     background: green;
     transform: rotate(45deg);
+    // border: 1px solid white;
   }
 
   .wrapper {
+    border: 1px solid green;
     position: absolute;
     right: -20px;
     top: 71px;
     display: flex;
-    width: 320px;
+    width: 280px;
     overflow: hidden;
-    border-radius: 5px;
+    // border-radius: 5px;
     background: #242526;
-    background: green;
     // display: none;
     transition: all 0.3s ease;
     z-index: 500;
     height: 296px;
+
+    & ul {
+      width: 280px;
+      list-style: none;
+      padding: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 100;
+    }
+    & ul li {
+      line-height: 55px;
+    }
+    & ul li a {
+      position: relative;
+      color: #b0b3b8;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 0 10px;
+      display: flex;
+      border-radius: 8px;
+      align-items: center;
+      text-decoration: none;
+    }
   }
   // nav .wrapper.show {
   //   display: block;
   //   display: flex;
   // }
-  .wrapper ul {
-    width: 400px;
-    list-style: none;
-    padding: 10px;
-    transition: all 0.3s ease;
-    position: relative;
-    z-index: 100;
-  }
-  .wrapper ul li {
-    line-height: 55px;
-  }
-  .wrapper ul li a {
-    position: relative;
-    color: #b0b3b8;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 0 10px;
-    display: flex;
-    border-radius: 8px;
-    align-items: center;
-    text-decoration: none;
-  }
-  .wrapper ul li:hover a {
-    background: #3a3b3c;
-  }
+
   .icon {
+    background: #ffffff1a;
     height: 40px;
     width: 40px;
     margin-right: 13px;
-    background: #ffffff1a;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -93,13 +93,18 @@
     display: none;
   }
   .wrapper .arrow {
-    padding-left: 10px;
+    padding-left: 23px;
     font-size: 20px;
     font-weight: 500;
     color: #b0b3b8;
     cursor: pointer;
   }
   .wrapper .arrow span {
-    margin-right: 15px;
+    margin-right: 22px;
   }
+}
+
+.fa-arrow-left {
+  background-color: orange;
+  line-height: -10px;
 }
