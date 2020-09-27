@@ -44,7 +44,7 @@ function Nav() {
             {isLoggedIn ? (
               <>
                 <li>
-                  <button>
+                  <button className="btn__my-account">
                     <MyAccount />
                   </button>
                 </li>

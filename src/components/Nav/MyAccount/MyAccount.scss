@@ -1,34 +1,32 @@
 .MyAccount {
   position: relative;
-  nav {
-    background-color: mediumvioletred;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    // transform: translate(-50%, -50%);
-  }
 
-  .drop-btn {
-    background-color: navajowhite;
+  .dropdown-btn {
+    // background-color: orange;
+    display: flex;
+    height: 79px;
+    align-items: center;
+    overflow: visible;
   }
 
   .tooltip {
     position: absolute;
-    right: 2px;
-    bottom: -47px;
+    right: 0;
+    bottom: -19px;
     height: 15px;
     width: 15px;
     background: #242526;
     background: green;
     transform: rotate(45deg);
     // border: 1px solid white;
+    z-index: 30;
   }
 
   .wrapper {
     border: 1px solid green;
     position: absolute;
-    right: -20px;
-    top: 71px;
+    right: -21px;
+    top: 91px; // 71
     display: flex;
     width: 280px;
     overflow: hidden;
@@ -39,7 +37,7 @@
     z-index: 500;
     height: 296px;
 
-    & ul {
+    ul {
       width: 280px;
       list-style: none;
       padding: 10px;
@@ -47,10 +45,10 @@
       position: relative;
       z-index: 100;
     }
-    & ul li {
+    ul li {
       line-height: 55px;
     }
-    & ul li a {
+    ul li a {
       position: relative;
       color: #b0b3b8;
       font-size: 18px;
@@ -62,10 +60,6 @@
       text-decoration: none;
     }
   }
-  // nav .wrapper.show {
-  //   display: block;
-  //   display: flex;
-  // }
 
   .icon {
     background: #ffffff1a;
