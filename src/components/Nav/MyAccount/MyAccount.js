@@ -2,6 +2,11 @@ import React, { useEffect, useState, useReducer } from "react";
 import "./MyAccount.scss";
 import myAccountSubmenuReducer, { myAccountSubmenuInitState } from "./reducer";
 
+//TODO: refactor
+//TODO: smooth transition from menus
+//TODO: menus active onHOVER or onCLICK?
+//TODO: set message "this is as far as the rabbit hole goes. For now..."
+
 const styleShow = {
   display: "block",
   marginLeft: "0",
@@ -56,9 +61,9 @@ function MyAccount() {
           <li>
             <a href="#">
               <div className="icon">
-                <span className="fas fa-home"></span>
+                <span className="fas fa-envelope"></span>
               </div>
-              Home
+              Inbox
             </a>
           </li>
 
@@ -136,6 +141,22 @@ function MyAccount() {
                 <span className="fas fa-address-book"></span>
               </div>
               Activity log
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon">
+                <span class="fas fa-globe-asia"></span>
+              </div>
+              Languages{" "}
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="icon">
+                <span class="fas fa-globe-asia"></span>
+              </div>
+              Languages{" "}
             </a>
           </li>
         </ul>

@@ -1,3 +1,6 @@
+//TODO: refactor
+//TODO: border & arrow, green or white?
+
 .MyAccount {
   position: relative;
 
@@ -12,21 +15,23 @@
   .tooltip {
     position: absolute;
     right: 0;
-    bottom: -19px;
+    bottom: -22px;
     height: 15px;
     width: 15px;
     background: #242526;
     background: green;
+    background: white;
     transform: rotate(45deg);
     // border: 1px solid white;
     z-index: 30;
   }
 
   .wrapper {
-    border: 1px solid green;
+    border: 1px solid RGB(56, 101, 59);
+    border: 1px solid white;
     position: absolute;
     right: -21px;
-    top: 91px; // 71
+    top: 93px; // 71
     display: flex;
     width: 280px;
     overflow: hidden;
@@ -35,7 +40,7 @@
     // display: none;
     transition: all 0.3s ease;
     z-index: 500;
-    height: 296px;
+    min-height: 296px;
   }
 
   .wrapper ul {
@@ -70,6 +75,16 @@
     }
   }
 
+  .wrapper .arrow {
+    padding-left: 23px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #b0b3b8;
+
+    span {
+      margin-right: 22px;
+    }
+  }
   .icon {
     background: #ffffff1a;
     height: 40px;
@@ -86,21 +101,10 @@
       color: #b0b3b8;
     }
   }
-
-  .wrapper .arrow {
-    padding-left: 23px;
-    font-size: 20px;
-    font-weight: 500;
-    color: #b0b3b8;
-    cursor: pointer;
-  }
-  .wrapper .arrow span {
-    margin-right: 22px;
-  }
 }
 
 .fa-arrow-left {
-  background-color: orange;
+  line-height: 55px;
 }
 
 .fa-angle-down,

@@ -24,7 +24,7 @@ const calcCompleted = (list) => list.filter((item) => item.completed).length;
 const calcCompletedPercent = (list) =>
   Math.round((calcCompleted(list) * 100) / list.length);
 
-const ongoingText = `This is an ONGOING project, still NOT optimized for mobile.`;
+const ongoingText = `This is an ONGOING project, NOT yet optimized for mobile.`;
 //Some features are still being added
 
 function Home() {
@@ -69,8 +69,11 @@ function Home() {
         <article className="left">
           <p>
             This project consists on a <b>phantasy online shop</b> where you can book days
-            with actors of the Breaking Bad series (one of my favorites). The data
-            consists on a mixture of the{" "}
+            with actors of the Breaking Bad series (one of my favorites).
+          </p>
+
+          <p>
+            The data consists on a mixture of the{" "}
             <span className="bb-style">
               Breaking Bad <b>API</b>
             </span>{" "}
