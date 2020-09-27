@@ -15,9 +15,12 @@ import { Switch, Route } from "react-router-dom";
 //toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import MyAccount from "./components/Nav/MyAccount/MyAccount";
 
 toast.configure();
+
+//TODO: fix background display in firefox
+//TODO: optimize pictures
+//TODO: write toaster instructions
 
 function App() {
   return (
