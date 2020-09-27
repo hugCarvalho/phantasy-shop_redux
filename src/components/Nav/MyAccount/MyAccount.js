@@ -1,14 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./MyAccount.scss";
 
 function MyAccount() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+
+  useEffect(() => {
+    console.log("isMenuOpen", isSubMenuOpen);
+  }, [isSubMenuOpen]);
+
+  const styleShow = {
+    display: "block",
+    marginLeft: "0",
+    transform: "translate(0%, 0%)",
+  };
+  const styleHide = {
+    // display: "none",
+    marginLeft: "-440px",
+    transform: "translate(-50%, -50%)",
+  };
+
   return (
     <nav className="MyAccount">
-      <div className="drop-btn">
-        Drop down <span className="fas fa-caret-down"></span>
+      <div className="drop-btn" onClick={() => setIsMenuOpen((state) => !state)}>
+        My Account <i class="fas fa-angle-down"></i>
       </div>
-      <div className="tooltip"></div>
-      <div className="wrapper">
-        <ul className="menu-bar">
+      <div
+        className="tooltip"
+        style={isMenuOpen ? { display: "block" } : { display: "none" }}
+      ></div>
+
+      {/* DROPDOWN MENU */}
+      <div
+        className="wrapper"
+        style={isMenuOpen ? { display: "flex" } : { display: "none" }}
+      >
+        {/* GOES RIGHT */}
+        <ul
+          className="menu-bar"
+          style={isMenuOpen && !isSubMenuOpen ? styleShow : styleHide}
+        >
           <li>
             <a href="#">
               <div className="icon">
@@ -17,7 +48,10 @@ function MyAccount() {
               Home
             </a>
           </li>
-          <li className="setting-item">
+          <li
+            className="setting-item"
+            onClick={() => setIsSubMenuOpen((state) => !state)}
+          >
             <a href="#">
               <div className="icon">
                 <span className="fas fa-cog"></span>
@@ -51,8 +85,14 @@ function MyAccount() {
           </li>
         </ul>
         {/* <!-- Settings Menu-items --> */}
-        <ul className="setting-drop">
-          <li className="arrow back-setting-btn">
+        {/* GOES LEFT */}
+        <ul className="setting-drop" style={isSubMenuOpen ? styleShow : styleHide}>
+          <li
+            className="arrow back-setting-btn"
+            onClick={() => setIsSubMenuOpen(false)}
+
+            // onClick={() => setIsSubMenuOpen(false)}
+          >
             <span className="fas fa-arrow-left"></span>Settings
           </li>
           <li>

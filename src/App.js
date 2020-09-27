@@ -25,7 +25,6 @@ function App() {
       <Router>
         <div className="App">
           <Nav />
-          <MyAccount />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/items" component={ItemsList} />

@@ -6,6 +6,7 @@ import Pic from "../../img/logo_02.png";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { toggleLogOut } from "../../redux/actions/loginActions";
+import MyAccount from "./MyAccount/MyAccount";
 
 function Nav() {
   const { isLoggedIn } = useSelector((state) => state.toggleLogInOut);
@@ -33,7 +34,8 @@ function Nav() {
                   <FaShoppingCart size="30" />
                   <figcaption
                     className="num-items-cart"
-                    style={numberOfItems >= 10 ? { left: "20px" } : { left: "23px" }}>
+                    style={numberOfItems >= 10 ? { left: "20px" } : { left: "23px" }}
+                  >
                     {numberOfItems}
                   </figcaption>
                 </NavLink>
@@ -42,7 +44,9 @@ function Nav() {
             {isLoggedIn ? (
               <>
                 <li>
-                  <NavLink to="/user/:username/">My account</NavLink>
+                  <button>
+                    <MyAccount />
+                  </button>
                 </li>
                 <li onClick={() => dispatch(toggleLogOut())}>
                   <Link to="/">log out</Link>
