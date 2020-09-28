@@ -1,17 +1,16 @@
+//TODO: refactor
+
 $h: 200px;
 .Cart {
-  //background-color: deeppink;
   background-color: #042201;
-
   background-image: url("../../img/bb_05.jpg");
-  background-clip: content-box;
-  //background-size: 100%;
+  background-size: 100%; //use to avoid diff sizes in Firefox and Chrome
   background-repeat: no-repeat;
   background-position: 28% 0%;
+  min-height: calc(100vh - 54px);
 
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 54px);
 
   .number-items {
     h2,
