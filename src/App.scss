@@ -2,20 +2,23 @@
   height: 100%;
 }
 
-// .App > div {
-//   height: 100%;
-// }
-
-//shared
-a:hover {
-  opacity: 0.8;
-}
-
+//GLOBALLY AVAILABLE
 button {
   cursor: pointer;
   padding: 0 2px;
 }
+a:hover {
+  opacity: 0.8;
+}
 
 .button-unavailable {
   cursor: not-allowed;
+}
+
+.hide-visibility {
+  visibility: hidden;
+}
+
+.show-visibility {
+  visibility: visible;
 }

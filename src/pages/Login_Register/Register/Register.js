@@ -84,13 +84,13 @@ function Register() {
     // console.log(newsletter);
   }, [userDatabase, newsletter]);
   return (
-    <>
+    <div className="Register">
       <div className="container__form">
         <div className="wrapper__form">
           <h2>Register</h2>
           {/* FIRST NAME */}
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="fullName">
+            <div className="firstName">
               <label htmlFor="first-name">First Name</label>
               <input
                 type="text"
@@ -102,7 +102,7 @@ function Register() {
             </div>
             <br />
             {/* LAST NAME */}
-            <div className="fullName">
+            <div className="lastName">
               <label htmlFor="last-name">Last name</label>
               <input
                 type="text"
@@ -133,7 +133,7 @@ function Register() {
               <br />
               <label htmlFor="user-name">User name*</label>
               <input
-                // required
+                required
                 type="text"
                 name="userName"
                 id="user-name"
@@ -142,16 +142,16 @@ function Register() {
               />
             </div>
             <br />
+
             {/* PASSWORD */}
             <div className="password">
               <label htmlFor="password">Password*</label>
               <input
-                // required
+                required
                 type="password"
                 name="password"
                 id="password"
                 placeholder="password"
-                //required
                 ref={register({
                   required: false,
                   minLength: {
@@ -170,18 +170,21 @@ function Register() {
             </div>
 
             {/* Extended NEWSLETTER */}
-            <div className="extended">
+            <div className="extended ">
               <br></br>
               <label htmlFor="newsletter" id="label-newsletter">
                 Receive newsletter
               </label>
               <input type="checkbox" name="newsletter" id="newsletter" ref={register} />
-            </div>
-            <br />
+              <br />
 
-            <br />
-            {newsletter && (
-              <div className="choices">
+              <br />
+
+              <div
+                className={`choices ${
+                  newsletter ? "show-visibility" : "hide-visibility"
+                }`}
+              >
                 <label htmlFor="choices"></label>
                 <select name="choices" ref={register}>
                   <option value="all">all</option>
@@ -190,14 +193,15 @@ function Register() {
                   <option value="books">books</option>
                 </select>
               </div>
-            )}
+            </div>
+
             {/* //ONCLICK */}
             <button type="submit">Submit</button>
           </form>
         </div>
         <Route>{isRegistered && <Redirect push to="/login" />}</Route>
       </div>
-    </>
+    </div>
   );
 }
 
