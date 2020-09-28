@@ -1,10 +1,12 @@
-//
+//TODO: separate logic from register
+//TODO: refactor
 
-.container__form {
-  div.wrapper__form {
-    min-height: 330px;
+.Login {
+  .container__form {
+    div.wrapper__form {
+      min-height: 330px;
+    }
   }
-
   .display-errorMsg {
     // background-color: greenyellow;
     padding-top: 5px;
@@ -14,17 +16,30 @@
       color: red;
     }
   }
-
   .forgot-password {
+    // background-color: cornsilk;
     padding-top: 7px;
     padding-bottom: 7px;
-    text-align: right;
-    text-decoration: underline;
-    color: pink;
+
     input {
       box-shadow: 0 0 0 0;
-      color: pink;
       border: none;
     }
+  }
+  div .forgot-password button {
+    background-color: transparent;
+    // background-color: cyan;
+    color: #65976d;
+    box-shadow: 0 0 0 0;
+    text-decoration: underline;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+  .wrapper__retrieve-password input {
+    background-color: crimson;
+    padding-top: 10px;
+    width: 100%;
   }
 }

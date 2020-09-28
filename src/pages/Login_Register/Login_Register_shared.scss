@@ -160,35 +160,5 @@
         text-align: center;
       }
     }
-
-    //LOGIN
-    .forgot-password > p {
-      padding-top: 7px;
-      padding-bottom: 7px;
-      text-align: center;
-      text-decoration: underline;
-    }
-    .wrapper__retrieve-password input {
-      padding-top: 10px;
-      width: 100%;
-      //background-color: greenyellow;
-    }
-
-    // .forgot-password button {
-    //   //appearance: none;
-    //   background-color: transparent;
-    //   text-decoration: underline;
-
-    //   color: black;
-    //   color: #2f5735e3;
-
-    //   cursor: pointer;
-    //   padding: 0;
-    // }
   }
-}
-
-.container__form .wrapper__form .forgot-password button {
-  color: pink;
-  box-shadow: 0 0 0 0;
 }

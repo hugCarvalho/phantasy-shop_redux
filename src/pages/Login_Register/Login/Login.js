@@ -9,6 +9,9 @@ import { toast } from "react-toastify";
 import { toggleLogIn } from "../../../redux/actions/loginActions";
 import reducer, { inputIsWrongInit } from "./reducer.js";
 
+//TODO: refactor
+//TODO: automatic focus forgot-password-input-text on "forgot password" click
+
 //Toast
 const notifyUser = (type) => {
   console.log(toast.options);
@@ -86,7 +89,7 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="Login">
       <div className="container__form">
         <div className="wrapper__form">
           <h2>Log in</h2>
@@ -135,7 +138,8 @@ function Login() {
                   onClick={(e) => {
                     e.preventDefault();
                     setForgotPassword(true);
-                  }}>
+                  }}
+                >
                   forgot password?
                 </button>
               </div>
@@ -168,7 +172,7 @@ function Login() {
       </div>
       {/* To be changed or removed */}
       <Route>{logIn && <Redirect push to="/items" />}</Route>
-    </>
+    </div>
   );
 }
 
