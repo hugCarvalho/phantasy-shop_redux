@@ -4,9 +4,9 @@ $h: 200px;
 .Cart {
   background-color: #042201;
   background-image: url("../../img/bb_05.jpg");
-  background-size: 100%; //use to avoid diff sizes in Firefox and Chrome
+  background-size: cover; //use to avoid diff sizes in Firefox and Chrome
   background-repeat: no-repeat;
-  background-position: 28% 0%;
+  // background-position: 70% 0%;
   min-height: calc(100vh - 54px);
 
   display: flex;

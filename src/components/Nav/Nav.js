@@ -8,6 +8,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { toggleLogOut } from "../../redux/actions/loginActions";
 import MyAccount from "./MyAccount/MyAccount";
 
+//TODO: refactor
+
 function Nav() {
   const { isLoggedIn } = useSelector((state) => state.toggleLogInOut);
   const numberOfItems = useSelector((state) => state.cart.cart.length);
