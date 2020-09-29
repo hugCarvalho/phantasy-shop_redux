@@ -1,3 +1,141 @@
-// .container__form {
+//TODO: delete back-color used for reference when project completed
 
-// }
+.Register {
+  background-color: #000;
+  background-image: url("../../../img/br_01.jpg");
+  // color: #2f5735e3;
+  background-size: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  min-height: 96vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper__all {
+    // background-color: pink;
+    width: 290px;
+    max-width: 80%;
+    min-width: 100px;
+    min-height: 400px;
+    padding: 10px 40px 25px;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 0px 0px 8px 1px #222;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  //SHARED
+  .firstName,
+  .lastName,
+  .userName,
+  .email,
+  .password,
+  .wrapper__retrieve-password {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    padding: 8px 0;
+    font-family: Helvetica, sans-serif;
+    font-size: x-large;
+    font-weight: lighter;
+    color: #2f5735e3;
+    text-align: center;
+  }
+
+  form {
+    // background-color: orange;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    label {
+      // background-color: rgb(118, 177, 177);
+      margin: 8px 0 2px;
+    }
+
+    .display-errorMsg {
+      // background-color: rgb(170, 196, 131);
+      color: #ff0000;
+      text-align: center;
+      padding-top: 1px;
+    }
+  }
+
+  input {
+    // background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.151);
+    color: white;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #d6d1d5;
+    outline: none;
+
+    &::placeholder {
+      color: #ffffffa4;
+      font-size: 1.2rem;
+      font-weight: lighter;
+    }
+  }
+
+  .required-fields-text {
+    // background-color: #2f9dac;
+    padding-bottom: 10px;
+
+    small {
+      //background-color: mediumseagreen;
+      display: block;
+      text-align: center;
+      padding: 2px 0 10px;
+    }
+  }
+
+  .newsletter {
+    // background-color: aquamarine;
+    width: 100%;
+    min-height: 30px;
+    padding-top: 6px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #label-newsletter {
+      // background-color: limegreen;
+      width: 30%;
+    }
+
+    .choices {
+      // background-color: blue;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    min-width: 100%;
+    margin: 15px 5px 8px 0;
+    color: #fefefe;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 5px 1px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
