@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import "../../Login_Register/Login_Register_shared.scss";
 import "./Register.scss";
 import { Redirect, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -36,7 +35,7 @@ const notifyUser = (type) => {
 
   if (type === "onload") {
     return toast.info(
-      "If you complete the register form, you will be able to login with this data. Use fake data",
+      "Demo purposes: if you complete the register form, you will be able to login with that data. Use fake data",
       {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: false,
