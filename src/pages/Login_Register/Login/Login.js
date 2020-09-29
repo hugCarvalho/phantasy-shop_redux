@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.scss";
 import "../../Login_Register/Login_Register_shared.scss";
 import { Redirect, Route } from "react-router-dom";
@@ -20,7 +20,7 @@ const notifyUser = (type) => {
       "Maybe you need to register first. For demo purposes, you can login using `ab` as username and `123` as password ",
       {
         // position: toast.POSITION.TOP_CENTER,
-        autoclose: 4000,
+        autoClose: 4000,
       }
     );
   if (type === "loginSuccess")
@@ -28,14 +28,24 @@ const notifyUser = (type) => {
       "Login successful! Please note this is an ongoing project, some functionalities are still being implemented",
       {
         position: toast.POSITION.TOP_LEFT,
-        autoclose: 6000,
+        autoClose: 6000,
       }
     );
   if (type === "emailSent")
     toast.info("Email has been sent!... but not really... ", {
       position: toast.POSITION.TOP_CENTER,
-      autoclose: 2000,
+      autoClose: 2000,
     });
+
+  if (type === "onload") {
+    toast.info(
+      "You can login by either completing the register form or, for demo purposes, use `ab` as username and `123` as password",
+      {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: false,
+      }
+    );
+  }
 };
 
 function Login() {
@@ -43,9 +53,13 @@ function Login() {
   const userDatabase = useSelector((state) => state.database.userDatabase);
   const dispatch = useDispatch();
   const [logIn, setLogIn] = React.useState(false); //to be removed
-  const [inputIsWrong, setInputIsWrong] = React.useReducer(reducer, inputIsWrongInit);
   const [forgotPassword, setForgotPassword] = React.useState(false);
+  const [inputIsWrong, setInputIsWrong] = React.useReducer(reducer, inputIsWrongInit);
   const { register, handleSubmit } = useForm();
+
+  useEffect(() => {
+    notifyUser("onload");
+  }, []);
 
   //SUBMIT
   const onSubmit = (data) => {

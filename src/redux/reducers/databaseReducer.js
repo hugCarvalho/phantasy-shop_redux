@@ -9,7 +9,7 @@ const initState = {
       userName: "test",
       firstName: "",
       lastName: "",
-      password: "test21",
+      password: "test123",
       email: "test@gmail.com",
       // emails: {
       //   inbox: [],

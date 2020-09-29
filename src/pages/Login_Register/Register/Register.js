@@ -25,10 +25,23 @@ const notifyUser = (type) => {
     });
   }
   if (type === "success") {
-    return toast.success("Account created! Please login", {
-      position: toast.POSITION.TOP_CENTER,
-      autoclose: 1000,
-    });
+    return toast.success(
+      "Account created! Please login. This msg exists for demo purposes only ",
+      {
+        position: toast.POSITION.TOP_CENTER,
+        autoclose: 3000,
+      }
+    );
+  }
+
+  if (type === "onload") {
+    return toast.info(
+      "If you complete the register form, you will be able to login with this data. Use fake data",
+      {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: false,
+      }
+    );
   }
 };
 
@@ -42,6 +55,10 @@ function Register() {
     mode: "onChange",
   }); //onChange | onSubmit | onBlur | all
   const newsletter = watch("newsletter"); //listens to changes on the input name field "newsletter"
+
+  useEffect(() => {
+    notifyUser("onload");
+  }, []);
 
   // console.log(userDatabase);
   const onSubmit = (data) => {
