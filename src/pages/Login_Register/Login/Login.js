@@ -52,7 +52,7 @@ function Login() {
   const userDatabase = useSelector((state) => state.database.userDatabase);
   const dispatch = useDispatch();
   //Local state
-  const [logIn, setLogIn] = React.useState(false); //to be removed
+  const [logIn, setLogIn] = React.useState(false);
   const [forgotPassword, setForgotPassword] = React.useState(false);
   const [inputIsWrong, setInputIsWrong] = React.useReducer(
     loginReducer,

@@ -3,6 +3,7 @@ import "./MyAccount.scss";
 import myAccountSubmenuReducer, { myAccountSubmenuInitState } from "./reducer";
 
 //TODO: refactor
+//TODO: replace <a> with either button or Link
 //TODO: smooth transition from menus
 //TODO: menus active onHOVER or onCLICK?
 //TODO: set message "this is as far as the rabbit hole goes. For now..."

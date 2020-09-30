@@ -36,6 +36,9 @@ $h: 200px;
 
     .container__actors-data {
       background-color: whitesmoke;
+      background-color: rgba(245, 245, 245, 0.837);
+      background-color: rgba(245, 245, 245, 0.55);
+      background-color: rgba(245, 245, 245, 0.75); //CHANGE HERE?
       width: 70%;
       padding: 10px;
       margin-right: 10px;
@@ -122,7 +125,7 @@ $h: 200px;
       flex-grow: 1;
 
       .total {
-        background-color: whitesmoke;
+        background-color: rgba(245, 245, 245, 0.7);
         position: sticky;
         top: 5px;
         padding: 10px;
