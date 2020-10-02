@@ -5,7 +5,7 @@ import Button from "../../Reusable/Button";
 //actions
 import { addToCart, removeFromCart } from "../../redux/actions/itemCartAction";
 
-// TODO: in cart and ItemCart -> DRY
+//TODO: in cart and ItemCart -> DRY
 //TODO: move fns?
 
 const styleNonAvailable = (stock) =>
