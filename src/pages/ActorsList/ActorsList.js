@@ -1,30 +1,29 @@
 import React, { useEffect } from "react";
-import "./ItemsList.scss";
+import "./ActorsList.scss";
 import { useSelector, useDispatch } from "react-redux";
 import ItemCard from "../../components/ItemCard/ItemCard";
+import LoaderSpinner from "../../utils/LoaderSpinner/LoaderSpinner";
 // actions
 import { fetchItems } from "../../redux/actions/asyncAction";
 import { populateDatabase } from "../../redux/actions/itemCartAction";
-import LoaderSpinner from "../../utils/LoaderSpinner/LoaderSpinner";
 
-function ItemsList() {
+//TODO: add rating system
+
+function ActorsList() {
   const data = useSelector((state) => state.fetchItems);
   const populatedData = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log("FETCH");
-    if (data.items.length === 0) dispatch(fetchItems());
-  }, [dispatch, data.items]);
-
-  useEffect(() => {
-    // console.log("POPULATE DATABASE");
+    if (data.items.length === 0) {
+      dispatch(fetchItems());
+    }
     //adds extra entries for shop logic
     dispatch(populateDatabase(data.items));
   }, [data.items, dispatch]);
 
   return (
-    <main className="ItemsList">
+    <main className="ActorsList">
       <h1>Actors List</h1>
       <div className="wrapper__items-list">
         {data.loading ? (
@@ -49,12 +48,11 @@ function ItemsList() {
             );
           })
         ) : (
-          "No data"
+          <h4>"No data"</h4>
         )}
       </div>
-      {/* <button onClick={() => dispatch(fetchItems())}>Fetch Items</button>*/}
     </main>
   );
 }
 
-export default ItemsList;
+export default ActorsList;

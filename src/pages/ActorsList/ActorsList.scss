@@ -1,6 +1,6 @@
 // @import "../../index.scss";
 
-.ItemsList {
+.ActorsList {
   background: radial-gradient(
     circle,
     rgba(54, 94, 59, 0.938) 0%,
@@ -10,17 +10,13 @@
     #000 100%
   );
   color: whitesmoke;
-  min-height: calc(100vh - 54px);
+  min-height: calc(100vh - 120px);
+  text-align: center;
   padding-bottom: 21px;
 
-  text-align: center;
   h1 {
     font-size: x-large;
     padding-top: 2rem;
-  }
-
-  h4 {
-    padding: 4px 0 0 0;
   }
 
   .wrapper__items-list {
@@ -28,5 +24,9 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 2rem;
+
+    h4 {
+      padding: 4px 0 0 0;
+    }
   }
 }

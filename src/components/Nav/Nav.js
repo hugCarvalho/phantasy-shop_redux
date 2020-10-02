@@ -9,6 +9,7 @@ import { toggleLogOut } from "../../redux/actions/loginActions";
 import MyAccount from "./MyAccount/MyAccount";
 
 //TODO: refactor
+//TODO: make mobile menu
 
 function Nav() {
   const { isLoggedIn } = useSelector((state) => state.toggleLogInOut);
@@ -24,7 +25,9 @@ function Nav() {
           </figure> */}
           <ul>
             <li>
-              <Link to="/">Info</Link>
+              <NavLink exact to="/">
+                Info
+              </NavLink>
             </li>
 
             <li>
