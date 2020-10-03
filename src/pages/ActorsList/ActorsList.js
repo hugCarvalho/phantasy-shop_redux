@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./ActorsList.scss";
 import { useSelector, useDispatch } from "react-redux";
 import ItemCard from "../../components/ItemCard/ItemCard";
-import LoaderSpinner from "../../utils/LoaderSpinner/LoaderSpinner";
+import LoaderSpinner from "../../Reusable/LoaderSpinner/LoaderSpinner";
 // actions
 import { fetchItems } from "../../redux/actions/asyncAction";
 import { populateDatabase } from "../../redux/actions/itemCartAction";

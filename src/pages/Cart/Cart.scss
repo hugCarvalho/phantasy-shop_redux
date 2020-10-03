@@ -13,6 +13,9 @@ $h: 200px;
   flex-direction: column;
 
   .number-items {
+    // background-color: aqua;
+    text-align: center;
+
     h2,
     h3 {
       margin-top: 20px;
@@ -20,128 +23,130 @@ $h: 200px;
     }
   }
 
-  .number-items {
-    text-align: center;
-  }
-
   img {
     width: 100px;
     height: 140px;
   }
+
   .container__cart-list {
     // background-color: rgb(243, 187, 226);
-    display: flex;
     padding: 1%;
     margin-bottom: 10px;
 
-    .container__actors-data {
-      background-color: whitesmoke;
-      background-color: rgba(245, 245, 245, 0.837);
-      background-color: rgba(245, 245, 245, 0.55);
-      background-color: rgba(245, 245, 245, 0.75); //CHANGE HERE?
-      width: 70%;
-      padding: 10px;
-      margin-right: 10px;
+    display: flex;
+  }
+
+  .container__actors-data {
+    background-color: rgba(245, 245, 245, 0.75);
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  // LEFT CTNR
+
+  .wrapper__actors-data {
+    // background-color: red;
+    margin-bottom: 30px;
+
+    hr {
+      margin-top: 10px;
+      margin-bottom: -20px;
     }
-    // LEFT CTNR
-    .wrapper__actors-data {
-      // background-color: red;
-      margin-bottom: 30px;
-      hr {
-        background-color: black;
-        margin-top: 10px;
-        margin-bottom: -20px;
+
+    .details {
+      // background-color: cornflowerblue;
+      display: flex;
+      justify-content: space-between;
+
+      .details-left {
+        // background-color: chartreuse;
+        display: flex;
+
+        .info {
+          // background-color: darkmagenta;
+          padding: 0 10px;
+
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+        }
       }
-      .details {
-        // background-color: cornflowerblue;
+
+      .details-right {
+        // background-color: rgb(253, 236, 1);
+        min-width: 20%;
+        flex-shrink: 0;
+
+        flex-direction: column;
         display: flex;
         justify-content: space-between;
 
-        .details-left {
-          // background-color: chartreuse;
-          display: flex;
-          //   flex-direction: column;
-
-          .info {
-            // background-color: darkmagenta;
-            display: flex;
-            padding: 0 10px;
-            flex-direction: column;
-            justify-content: space-between;
-          }
-        }
-
-        .details-right {
-          // background-color: rgb(253, 236, 1);
+        .stock-amount {
+          // background-color: darkmagenta;
           display: flex;
           flex-direction: column;
-          min-width: 20%;
-          flex-shrink: 0;
-          justify-content: space-between;
 
-          .stock-amount {
-            // background-color: darkmagenta;
+          p {
+            // background-color: darkolivegreen;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
-
-            p {
-              // background-color: darkolivegreen;
-              display: flex;
-              justify-content: space-between;
-            }
-            .booked-days {
-              background-color: rgb(214, 214, 226);
-            }
           }
-          .buttons {
-            display: flex;
-            justify-content: center;
-            padding-top: 3px;
+
+          .booked-days {
+            background-color: rgb(214, 214, 226);
           }
         }
-      }
 
-      .subtotal {
-        // background-color: darkorange;
+        .btns__plus-minus {
+          padding-top: 3px;
+
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+
+    .subtotal {
+      // background-color: darkorange;
+      font-weight: bold;
+
+      display: flex;
+      justify-content: space-between;
+      align-content: space-between;
+    }
+
+    // .quote {
+    //   background-color: darkgoldenrod;
+    // }
+  }
+
+  //RIGHT
+  .container__cart-total {
+    // background-color: lightgreen;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+    .total {
+      background-color: rgba(245, 245, 245, 0.7);
+      position: sticky;
+      top: 5px;
+      padding: 10px;
+
+      p {
         display: flex;
         justify-content: space-between;
-        align-content: space-between;
-        font-weight: bold;
       }
 
-      // .quote {
-      //   background-color: darkgoldenrod;
-      // }
-    }
-
-    //RIGHT
-    .container__cart-total {
-      // background-color: lightgreen;
-
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-
-      .total {
-        background-color: rgba(245, 245, 245, 0.7);
-        position: sticky;
-        top: 5px;
-        padding: 10px;
-        p {
-          display: flex;
-          justify-content: space-between;
-        }
-        button {
-          width: 100%;
-          margin-top: 10px;
-        }
-      }
-      .voucher {
+      button {
+        width: 100%;
         margin-top: 10px;
-        // background-color: blueviolet;
       }
     }
+
+    // .voucher {
+    //   // background-color: blueviolet;
+    //   margin-top: 10px;
+    // }
   }
 }

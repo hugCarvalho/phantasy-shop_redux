@@ -36,7 +36,7 @@ const formatPrice = (price) => {
   return price;
 };
 
-//Toast
+//Toast, to delete
 const notifyUser = () => {
   toast.success("This function is still not implemented.", {
     position: toast.POSITION.TOP_CENTER,
@@ -51,6 +51,7 @@ function Cart() {
 
   //Not really necessary, could be omitted by using directly data.products. Just for practice purposes
   const [inCart, setInCart] = React.useState(false);
+
   useEffect(() => {
     if (data.cart.length) {
       setInCart(true);
@@ -67,7 +68,7 @@ function Cart() {
     <div className="Cart">
       <div className="number-items">
         <h2>Items in your cart: {data.cart.length}</h2>
-        <h3>{!inCart && "Your cart is empty! :-("}</h3>
+        <h3>{!inCart && "Your cart is empty! Why don't you add some actors? "}</h3>
       </div>
 
       {inCart && (
@@ -75,9 +76,10 @@ function Cart() {
           <section className="container__actors-data">
             {data.cart.map((item) => {
               return (
-                // LEFT SIDE
+                // ITEM DETAILS
                 <div key={item.char_id} className="wrapper__actors-data">
                   <div className="details">
+                    {/* Details left */}
                     <section className="details-left">
                       {/* <div className="pic"> */}
                       <img src={item.img} alt={item.name}></img>
@@ -96,6 +98,8 @@ function Cart() {
                         </div>
                       </div>
                     </section>
+
+                    {/* details right */}
                     <section className="details-right">
                       <div className="stock-amount">
                         <p>
@@ -106,11 +110,12 @@ function Cart() {
                           Booked days:
                           <span className="booked-days">{item.amount}</span>
                         </p>
-                        <div className="buttons">
+                        <div className="btns__plus-minus">
                           <Button
                             className={item.amount <= 1 ? "button-unavailable" : null}
                             disabled={item.amount <= 1}
-                            action={() => dispatch(decrement(item.char_id))}>
+                            action={() => dispatch(decrement(item.char_id))}
+                          >
                             &#45;
                           </Button>
                           <Button
@@ -120,11 +125,13 @@ function Cart() {
                             disabled={item.stock === item.amount}
                             action={() =>
                               dispatch(increment(item.char_id, item.amount, item.stock))
-                            }>
+                            }
+                          >
                             &#43;
                           </Button>
                         </div>
                       </div>
+
                       <div className="subtotal">
                         <span>Subtotal: </span> <span>{formatPrice(item.total)}€</span>
                       </div>
@@ -138,30 +145,37 @@ function Cart() {
             })}
           </section>
 
-          {/* RIGHT */}
+          {/* TOTAL DETAILS */}
           {inCart && (
             <section className="container__cart-total">
               <div className="total">
                 <h3>Total</h3>
+                {/* SUBTOTAL */}
                 <p>
                   <span>Subtotal </span>
                   <span>{formatPrice(calculations.total)}€</span>
                 </p>
+                {/* Various */}
                 <p>
                   <span>Travel fees</span>
                   <span>free</span>
                 </p>
                 <hr></hr>
-                <h4>
-                  <p>
-                    <span>
+                {/* TOTAL */}
+                <p>
+                  <span>
+                    <strong>
                       Total <small>(VAT included)</small>
-                    </span>
-                    <span>{formatPrice(calculations.total)}€</span>
-                  </p>
-                </h4>
+                    </strong>
+                  </span>
+                  <span>
+                    <strong>{formatPrice(calculations.total)}€</strong>
+                  </span>
+                </p>
+
                 <Button action={notifyUser}>Checkout</Button>
               </div>
+              {/* Voucher */}
               {/* <section className="voucher">Add a voucher</section> */}
             </section>
           )}
