@@ -2,12 +2,13 @@ import React from "react";
 import { listOfTasks } from "./listOfTasks";
 import "./Home.scss";
 
+//TODO: move fns to separate file
+//FNS
 const taskStatus = (status) => {
   if (status === true) return { color: "green" };
   else if (!status) return { color: "red" };
   else return { color: "orange" };
 };
-
 //Computation for report
 const calcCategories = (list) => {
   const firstWordOfEachTitle = list.map((item) => item.title.split(" ")[0]);
@@ -23,6 +24,7 @@ const calcCategories = (list) => {
 const calcCompleted = (list) => list.filter((item) => item.completed).length;
 const calcCompletedPercent = (list) =>
   Math.round((calcCompleted(list) * 100) / list.length);
+//-FNS END-//
 
 const ongoingText = `This is an ONGOING project, NOT yet optimized for mobile.`;
 //Some features are still being added
@@ -34,7 +36,9 @@ function Home() {
   });
 
   React.useEffect(() => {
-    if (index === ongoingText.length) return;
+    if (index === ongoingText.length) {
+      return;
+    }
 
     const delay = setTimeout(() => {
       setContent({ content: content + ongoingText[index], cursor: index + 1 });
@@ -49,7 +53,6 @@ function Home() {
     <div className="Home">
       <article>
         <h1>Important!</h1>
-
         <h3 className="typing">
           {" "}
           <span>{content}</span>
@@ -66,7 +69,8 @@ function Home() {
             <span className="bb-style">SASS</span>
           </strong>
         </article>
-        <article className="left">
+
+        <article>
           <p>
             This project consists on a <b>phantasy online shop</b> where you can book days
             with actors of the Breaking Bad series (one of my favorites).
@@ -82,8 +86,8 @@ function Home() {
           </p>
         </article>
       </article>
-
       <hr></hr>
+
       <div className="legend">
         <h5>Tasks</h5>
         <div className="wrapper">
@@ -93,6 +97,7 @@ function Home() {
         </div>
       </div>
       <hr></hr>
+
       <section className="list">
         <h5>List</h5>
         <ul>
@@ -103,6 +108,7 @@ function Home() {
           ))}
         </ul>
       </section>
+
       <section className="statistics">
         <h5>Report</h5>
         <p>{`There are a total of ${listOfTasks.length} tasks, from which ${calcCompleted(
