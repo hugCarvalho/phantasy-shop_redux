@@ -37,7 +37,7 @@ function Nav() {
             </li>
 
             <li>
-              <figure className="wrapper__cart-icon">
+              <figure className="wrapper__cart-icon" title="shopping cart">
                 <NavLink to="/cart">
                   <FaShoppingCart size="30" />
                   <figcaption
@@ -58,7 +58,9 @@ function Nav() {
                   </button>
                 </li>
                 <li onClick={() => dispatch(toggleLogOut())}>
-                  <Link to="/">log out</Link>
+                  <Link to="/">
+                    <i class="fas fa-sign-out-alt" title="Sign out"></i>
+                  </Link>
                 </li>
               </>
             ) : (
