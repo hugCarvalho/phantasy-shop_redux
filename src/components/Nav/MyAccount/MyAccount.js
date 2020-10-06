@@ -33,12 +33,9 @@ function MyAccount() {
   return (
     <nav className="MyAccount">
       <div className="dropdown-btn " onClick={() => setIsMenuOpen((state) => !state)}>
-        My Account{" "}
-        {isMenuOpen ? (
-          <i className="fas fa-angle-up"></i>
-        ) : (
-          <i className="fas fa-angle-down"></i>
-        )}
+        <span className="mobile-hide">My Account </span>
+        {!isMenuOpen ? <i class="fa fa-folder-open"></i> : <i class="fa fa-folder"></i>}
+        <button></button>
       </div>
       <div
         className="tooltip"

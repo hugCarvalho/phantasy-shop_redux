@@ -14,6 +14,7 @@
   }
 
   .tooltip {
+    background-color: blue;
     position: absolute;
     right: 0;
     bottom: -22px;
@@ -102,13 +103,28 @@
       color: #b0b3b8;
     }
   }
+  .fa-arrow-left {
+    line-height: 55px;
+  }
+  .fa-angle-down,
+  .fa-angle-up {
+    margin-left: 10px;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: white;
+  }
 }
 
-.fa-arrow-left {
-  line-height: 55px;
+.fa-folder-open,
+.fa-folder {
+  padding-left: 12px;
 }
 
-.fa-angle-down,
-.fa-angle-up {
-  margin-left: 10px;
+@media (max-width: 900px) {
+  .mobile-hide {
+    display: none;
+  }
 }

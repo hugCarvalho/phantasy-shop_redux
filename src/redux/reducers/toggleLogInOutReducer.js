@@ -1,8 +1,8 @@
 import { LOG_IN, LOG_OUT } from "../actions/loginActions";
 
 const isLoggedInInit = {
-  // isLoggedIn: true,
-  isLoggedIn: false,
+  isLoggedIn: true,
+  // isLoggedIn: false,
 };
 
 const toggleLogInOutReducer = (state = isLoggedInInit, action) => {
