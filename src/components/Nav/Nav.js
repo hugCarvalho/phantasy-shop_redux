@@ -25,14 +25,20 @@ function Nav() {
           </figure> */}
           <ul>
             <li>
-              <NavLink exact to="/">
+              <NavLink exact to="/" className="desktop-only">
                 Info
+              </NavLink>
+              <NavLink exact to="/">
+                <i class="fas fa-info-circle"></i>{" "}
               </NavLink>
             </li>
 
             <li>
+              <NavLink to="/items" className="desktop-only">
+                Actors{" "}
+              </NavLink>
               <NavLink to="/items">
-                <span>Actors</span>
+                <i className="fas fa-film"></i>
               </NavLink>
             </li>
 
@@ -65,12 +71,22 @@ function Nav() {
               </>
             ) : (
               <>
-                <li>
-                  <NavLink to="/login">Login</NavLink>
+                <li className="login ">
+                  <NavLink to="/login" className="desktop-only">
+                    Login
+                  </NavLink>
+                  <NavLink to="/login">
+                    <i className="fas fa-user"></i>
+                  </NavLink>
                 </li>
-                <li>
-                  <NavLink to="/register">Register</NavLink>
+                <li className="register ">
+                  <NavLink to="/register" className="mobile-hide">
+                    Register
+                  </NavLink>
                 </li>
+                {/* <li className="login-register mobile-only ">
+                  <NavLink to="/login-register "></NavLink>
+                </li> */}
               </>
             )}
           </ul>

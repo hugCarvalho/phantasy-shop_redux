@@ -72,17 +72,17 @@ function Home() {
 
         <article>
           <p>
-            This project consists on a <b>phantasy online shop</b> where you can book days
-            with actors of the Breaking Bad series (one of my favorites).
+            This project simulates a <b>phantasy online shop</b> where you can book days
+            with actors of the Breaking Bad series.
           </p>
 
           <p>
-            The data consists on a mixture of the{" "}
+            The data consists of a mixture of the{" "}
             <span className="bb-style">
               Breaking Bad <b>API</b>
             </span>{" "}
-            data and object manipulation in order to add the necessary entries for a shop
-            behaviour.
+            data and own object manipulation in order to add the necessary entries for a
+            shop behaviour.
           </p>
         </article>
       </article>

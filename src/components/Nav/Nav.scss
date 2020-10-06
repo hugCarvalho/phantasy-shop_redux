@@ -13,7 +13,10 @@ $height: 80px;
 
   .container__navlinks {
     // background-color: pink;
-
+    // .mobile-only {
+    //   background-color: gold;
+    //   display: none;
+    // }
     ul {
       // background-color: lightcoral;
       height: $height; //40
@@ -25,7 +28,7 @@ $height: 80px;
         color: rgba(255, 255, 255, 0.945);
         line-height: $height;
         transition: all 0.6s ease;
-        display: flex;
+        // display: flex;
 
         &:hover {
           background-color: RGB(56, 101, 59);
@@ -69,5 +72,62 @@ $height: 80px;
     color: inherit;
     padding: 0 8px;
     border: none;
+  }
+
+  .mobile-only {
+    // background-color: gold;
+    display: none;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .Nav {
+    .container__navlinks {
+      // background-color: pink;
+      // .mobile-only {
+      //   background-color: gold;
+      //   display: none;
+      // }
+      ul {
+        // background-color: lightcoral;
+        height: $height; //40
+        display: flex;
+        justify-content: space-around;
+
+        li {
+          // background-color: lightgreen;
+          color: rgba(255, 255, 255, 0.945);
+          line-height: $height;
+          transition: all 0.6s ease;
+          // display: flex;
+
+          &:hover {
+            background-color: RGB(56, 101, 59);
+          }
+
+          a {
+            padding: 0 8px;
+            display: inline-block;
+
+            .desktop-only {
+              display: none;
+            }
+            svg {
+              margin-right: 2px;
+            }
+          }
+        }
+      }
+    }
+    .container__navlinks ul li .desktop-only {
+      display: none;
+    }
+    .container__navlinks ul li .mobile-only {
+      display: block;
+    }
   }
 }
