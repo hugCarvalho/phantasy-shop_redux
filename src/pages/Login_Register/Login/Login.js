@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./Login.scss";
-import { Redirect, Route } from "react-router-dom";
+import { NavLink, Redirect, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -150,7 +150,7 @@ function Login() {
 
           {/* FORGOT PASSWORD TEXT */}
           <div>
-            <div className="forgot-password">
+            <div className="options">
               <button
                 type="button"
                 onClick={(e) => {
@@ -163,6 +163,14 @@ function Login() {
             </div>
           </div>
         </form>
+
+        <div className="options">
+          <button type="button">
+            <NavLink to="/register" className="desktop-only">
+              I need to register first!
+            </NavLink>
+          </button>
+        </div>
 
         {/* FORGOT PASSWORD FORM */}
         <form onSubmit={handleSubmit(submitSendPassword)}>
