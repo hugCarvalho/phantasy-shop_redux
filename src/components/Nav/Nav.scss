@@ -82,6 +82,10 @@ $height: 80px;
   .desktop-only {
     display: block;
   }
+
+  i {
+    font-size: 26px;
+  }
 }
 
 @media (max-width: 900px) {

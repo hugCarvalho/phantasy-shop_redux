@@ -1,13 +1,13 @@
 //TODO: refactor
 
-$h: 200px;
+$height: 120px;
 .Cart {
   background-color: #042201;
   background-image: url("../../img/bb_05.jpg");
   background-size: cover; //use to avoid diff sizes in Firefox and Chrome
   background-repeat: no-repeat;
   // background-position: 70% 0%;
-  min-height: calc(100vh - 54px);
+  min-height: calc(100vh - #{$height});
 
   display: flex;
   flex-direction: column;

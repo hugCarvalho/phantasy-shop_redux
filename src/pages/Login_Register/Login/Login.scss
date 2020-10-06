@@ -1,23 +1,22 @@
 //TODO: delete back-color used for reference when project completed
-
-//TODO: separate logic from register
 //TODO: refactor
 
-//TODO: separate logic for logic and register
+$height: 120px;
 
 .Login {
   background-color: #000;
   background-image: url("../../../img/br_01.jpg");
-  background-size: 100vw;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 41%;
   width: 100%;
-  min-height: 96vh;
+  min-height: calc(100vh - #{$height});
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
 
   .wrapper__all {
     // background-color: pink;

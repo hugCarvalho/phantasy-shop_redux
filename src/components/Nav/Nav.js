@@ -73,17 +73,17 @@ function Nav() {
               <>
                 <li className="login ">
                   <NavLink to="/login" className="desktop-only">
-                    Login
+                    Login / Register
                   </NavLink>
                   <NavLink to="/login">
                     <i className="fas fa-user"></i>
                   </NavLink>
                 </li>
-                <li className="register ">
-                  <NavLink to="/register" className="mobile-hide">
+                {/* <li className="register ">
+                  <NavLink to="/register" className="desktop-only">
                     Register
                   </NavLink>
-                </li>
+                </li> */}
                 {/* <li className="login-register mobile-only ">
                   <NavLink to="/login-register "></NavLink>
                 </li> */}
