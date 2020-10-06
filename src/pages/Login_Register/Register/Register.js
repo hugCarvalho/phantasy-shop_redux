@@ -38,7 +38,7 @@ const notifyUser = (type) => {
       "Demo purposes: if you complete the register form, you will be able to login with that data. Use fake data",
       {
         position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: false,
+        autoClose: 6500,
       }
     );
   }

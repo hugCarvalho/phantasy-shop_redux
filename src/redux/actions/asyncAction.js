@@ -34,13 +34,13 @@ export const fetchItems = () => {
     axios
       .get("https://www.breakingbadapi.com/api/characters?limit=10")
       .then((res) => {
-        console.log("fetchItems -> res", res);
+        // console.log("fetchItems -> res", res);
         if (res.status === 200) {
           dispatch(fetchItemsSuccess(res.data));
         }
       })
       .catch((error) => {
-        console.log("fetchItems -> error", error);
+        // console.log("fetchItems -> error", error);
         dispatch(fetchItemsFailure(error.message));
       });
   };

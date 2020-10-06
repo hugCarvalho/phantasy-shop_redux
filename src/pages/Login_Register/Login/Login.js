@@ -13,7 +13,6 @@ import loginReducer, { inputIsWrongInit } from "./reducer.js";
 
 //Toast: delete after project is done
 const notifyUser = (type) => {
-  console.log(toast.options);
   if (type === "4demoPurposes")
     toast.warning(
       "Maybe you need to register first. For demo purposes, you can login using `ab` as username and `123` as password ",
@@ -41,7 +40,7 @@ const notifyUser = (type) => {
       "For demo purposes msg: you can login by either completing the register form or by using `ab` as username and `123` as password",
       {
         position: toast.POSITION.BOTTOM_CENTER,
-        autoClose: false,
+        autoClose: 7000,
       }
     );
   }

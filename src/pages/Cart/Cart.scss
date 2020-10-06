@@ -42,8 +42,8 @@ $h: 200px;
     padding: 10px;
     margin-right: 10px;
   }
-  // LEFT CTNR
 
+  // LEFT CTNR
   .wrapper__actors-data {
     // background-color: red;
     margin-bottom: 30px;
@@ -126,10 +126,10 @@ $h: 200px;
     width: 30%;
     display: flex;
     flex-direction: column;
+    position: sticky;
 
-    .total {
+    .wrapper__cart-total {
       background-color: rgba(245, 245, 245, 0.7);
-      position: sticky;
       top: 5px;
       padding: 10px;
 
@@ -142,11 +142,34 @@ $h: 200px;
         width: 100%;
         margin-top: 10px;
       }
+
+      small {
+        padding-right: 4px;
+      }
     }
 
     // .voucher {
     //   // background-color: blueviolet;
     //   margin-top: 10px;
     // }
+  }
+}
+
+@media (max-width: 600px) {
+  .Cart .container__cart-list {
+    // background-color: red;
+    display: flex;
+    flex-direction: column;
+
+    .container__actors-data {
+      // background-color: aqua;
+      width: 100%;
+    }
+  }
+
+  .Cart .container__cart-total {
+    // background-color: green;
+    width: 100%;
+    margin-top: 10px;
   }
 }

@@ -148,8 +148,8 @@ function Cart() {
           {/* TOTAL DETAILS */}
           {inCart && (
             <section className="container__cart-total">
-              <div className="total">
-                <h3>Total</h3>
+              <div className="wrapper__cart-total">
+                <h3>Cart Value</h3>
                 {/* SUBTOTAL */}
                 <p>
                   <span>Subtotal </span>
@@ -168,7 +168,7 @@ function Cart() {
                       Total <small>(VAT included)</small>
                     </strong>
                   </span>
-                  <span>
+                  <span className="total">
                     <strong>{formatPrice(calculations.total)}€</strong>
                   </span>
                 </p>

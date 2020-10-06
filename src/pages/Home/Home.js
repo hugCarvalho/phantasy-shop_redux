@@ -42,7 +42,7 @@ function Home() {
 
     const delay = setTimeout(() => {
       setContent({ content: content + ongoingText[index], cursor: index + 1 });
-    }, 0 || 150);
+    }, 0 || 140);
 
     return () => {
       clearTimeout(delay);
