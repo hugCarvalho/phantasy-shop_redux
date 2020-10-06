@@ -4,7 +4,6 @@ import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import Pic from "../../img/logo_02.png";
 
-import { FaShoppingCart } from "react-icons/fa";
 import { toggleLogOut } from "../../redux/actions/loginActions";
 import MyAccount from "./MyAccount/MyAccount";
 
@@ -29,7 +28,7 @@ function Nav() {
                 Info
               </NavLink>
               <NavLink exact to="/">
-                <i class="fas fa-info-circle"></i>{" "}
+                <i className="fas fa-info-circle"></i>{" "}
               </NavLink>
             </li>
 
@@ -43,17 +42,15 @@ function Nav() {
             </li>
 
             <li>
-              <figure className="wrapper__cart-icon" title="shopping cart">
-                <NavLink to="/cart">
-                  <FaShoppingCart size="30" />
-                  <figcaption
-                    className="items-amount"
-                    style={numberOfItems >= 10 ? { left: "20px" } : { left: "23px" }}
-                  >
-                    {numberOfItems}
-                  </figcaption>
+              <li className="wrapper__cart-icon">
+                <NavLink to="/cart" className="desktop-only">
+                  Cart{" "}
                 </NavLink>
-              </figure>
+                <NavLink to="/cart" className="cart">
+                  <i className="fas fa-shopping-cart"></i>
+                  <figcaption className="number-of-items">{numberOfItems}</figcaption>
+                </NavLink>
+              </li>
             </li>
 
             {isLoggedIn ? (
@@ -79,14 +76,6 @@ function Nav() {
                     <i className="fas fa-user"></i>
                   </NavLink>
                 </li>
-                {/* <li className="register ">
-                  <NavLink to="/register" className="desktop-only">
-                    Register
-                  </NavLink>
-                </li> */}
-                {/* <li className="login-register mobile-only ">
-                  <NavLink to="/login-register "></NavLink>
-                </li> */}
               </>
             )}
           </ul>

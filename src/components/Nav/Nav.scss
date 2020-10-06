@@ -5,7 +5,7 @@ $height: 80px;
   // background-color: black;
   background-color: rgb(21, 35, 22); //RGB(56, 101, 59)
   padding: 20px 0;
-  font-size: 2.6rem;
+  font-size: 2.1rem;
 
   .active {
     background-color: RGB(56, 101, 59);
@@ -13,10 +13,6 @@ $height: 80px;
 
   .container__navlinks {
     // background-color: pink;
-    // .mobile-only {
-    //   background-color: gold;
-    //   display: none;
-    // }
     ul {
       // background-color: lightcoral;
       height: $height; //40
@@ -28,19 +24,14 @@ $height: 80px;
         color: rgba(255, 255, 255, 0.945);
         line-height: $height;
         transition: all 0.6s ease;
-        // display: flex;
 
         &:hover {
           background-color: RGB(56, 101, 59);
         }
 
         a {
-          padding: 0 8px;
+          padding: 0 6px;
           display: inline-block;
-
-          svg {
-            margin-right: 2px;
-          }
         }
       }
     }
@@ -49,19 +40,18 @@ $height: 80px;
   .wrapper__cart-icon {
     // background-color: yellow;
     position: relative;
-    line-height: $height + 10px;
-
     display: flex;
     justify-content: center;
 
-    .items-amount {
-      // background-color: rgba(30, 231, 238, 0.829);
+    .number-of-items {
       background-color: transparent;
+      // background-color: rgba(30, 231, 238, 0.829);
       color: RGB(56, 101, 59);
       font-weight: bold;
       font-size: 1.2rem;
       position: absolute;
-      top: -9px;
+      top: -5px;
+      left: 72px;
       z-index: 10;
     }
   }
@@ -72,11 +62,6 @@ $height: 80px;
     color: inherit;
     padding: 0 8px;
     border: none;
-  }
-
-  .mobile-only {
-    // background-color: gold;
-    display: none;
   }
 
   .desktop-only {
@@ -90,48 +75,11 @@ $height: 80px;
 
 @media (max-width: 900px) {
   .Nav {
-    .container__navlinks {
-      // background-color: pink;
-      // .mobile-only {
-      //   background-color: gold;
-      //   display: none;
-      // }
-      ul {
-        // background-color: lightcoral;
-        height: $height; //40
-        display: flex;
-        justify-content: space-around;
-
-        li {
-          // background-color: lightgreen;
-          color: rgba(255, 255, 255, 0.945);
-          line-height: $height;
-          transition: all 0.6s ease;
-          // display: flex;
-
-          &:hover {
-            background-color: RGB(56, 101, 59);
-          }
-
-          a {
-            padding: 0 8px;
-            display: inline-block;
-
-            .desktop-only {
-              display: none;
-            }
-            svg {
-              margin-right: 2px;
-            }
-          }
-        }
-      }
+    .wrapper__cart-icon .number-of-items {
+      left: 20px;
     }
     .container__navlinks ul li .desktop-only {
       display: none;
-    }
-    .container__navlinks ul li .mobile-only {
-      display: block;
     }
   }
 }
