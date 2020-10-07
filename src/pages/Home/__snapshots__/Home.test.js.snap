@@ -8,57 +8,71 @@ exports[`snapshot 1`] = `
 >
   <article>
     <h1>
-      Important
+      Important!
     </h1>
-    <p>
-      This is an
-       
-      <u>
-        <span
-          className="ongoing"
-        >
-           !!! ongoing !!! 
-        </span>
-      </u>
-       
-      project whose focus is, primarily, 
-      <u>
-        behaviour
-      </u>
-       with REACT (hooks) and REDUX.
-    </p>
-    <p>
-      Graphical enhancements and responsive optimization will be added at a later stage, as well as optimized code.
-    </p>
-    <br />
-    <p>
-      <strong>
-        Descr:
-      </strong>
-       This project consists on a
+    <h3
+      className="typing"
+    >
        
       <span>
-        phantasy online shop
+        
       </span>
-       where you can book days with actors of the Breaking Bad series (one of my favorites! ).
-       
-      <u>
-         
-        The data consists on a mixture of the Breaking Bad API data and object manipulation in order to add the necessary entries for a shop behaviour.
-      </u>
-    </p>
-    <br />
+    </h3>
     <hr />
-  </article>
-  <div
-    className="tecs"
-  >
-    <i>
+    <article
+      className="built-with"
+    >
       <strong>
-        React-redux / React-router / React-hook-form
+        Built with
+         
+        <span
+          className="bb-style"
+        >
+          REACT 
+          <sup>
+            hooks
+          </sup>
+        </span>
+         
+        + 
+        <span
+          className="bb-style"
+        >
+          REDUX
+        </span>
+         +
+         
+        <span
+          className="bb-style"
+        >
+          SASS
+        </span>
       </strong>
-    </i>
-  </div>
+    </article>
+    <article>
+      <p>
+        This project simulates a 
+        <b>
+          phantasy online shop
+        </b>
+         where you can book days with actors of the Breaking Bad series.
+      </p>
+      <p>
+        The data consists of a mixture of the
+         
+        <span
+          className="bb-style"
+        >
+          Breaking Bad 
+          <b>
+            API
+          </b>
+        </span>
+         
+        data and own object manipulation in order to add the necessary entries for a shop behaviour.
+      </p>
+    </article>
+  </article>
   <hr />
   <div
     className="legend"
@@ -289,7 +303,7 @@ exports[`snapshot 1`] = `
       <li
         style={
           Object {
-            "color": "red",
+            "color": "green",
           }
         }
       >
@@ -307,7 +321,7 @@ exports[`snapshot 1`] = `
       <li
         style={
           Object {
-            "color": "red",
+            "color": "green",
           }
         }
       >
@@ -394,7 +408,7 @@ exports[`snapshot 1`] = `
       Report
     </h5>
     <p>
-      There are a total of 31 tasks, from which 15 are completed (48%)  
+      There are a total of 31 tasks, from which 17 are completed (55%)  
     </p>
     <p>
       There are 9 categories:

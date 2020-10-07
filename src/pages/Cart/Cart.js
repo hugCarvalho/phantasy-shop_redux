@@ -63,7 +63,7 @@ function Cart() {
   useEffect(() => {
     dispatch(calculateTotal(data));
   }, [data, dispatch]);
-
+  //{data.cart.length}
   return (
     <div className="Cart">
       <div className="number-items">
