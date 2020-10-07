@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useReducer } from "react";
+import { pruneNonErrors } from "react-hooks-useform/dist/validate/pruneNonErrors";
 import "./MyAccount.scss";
 import myAccountSubmenuReducer, { myAccountSubmenuInitState } from "./reducer";
 
@@ -11,12 +12,14 @@ import myAccountSubmenuReducer, { myAccountSubmenuInitState } from "./reducer";
 const styleShow = {
   display: "block",
   marginLeft: "0",
-  //transform: "translate(0%, 0%)",
+  border: "none",
+  transform: "translate(0%, 0%)",
 };
 const styleHide = {
   display: "none",
   marginLeft: "-280px",
-  //transform: "translate(-50%, -50%)",
+  border: "none",
+  transform: "translate(-50%, -50%)",
 };
 
 function MyAccount() {
@@ -32,11 +35,10 @@ function MyAccount() {
 
   return (
     <nav className="MyAccount">
-      <div className="dropdown-btn " onClick={() => setIsMenuOpen((state) => !state)}>
+      <button className="dropdown-btn " onClick={() => setIsMenuOpen((state) => !state)}>
         <span className="mobile-hide">My Account </span>
         {!isMenuOpen ? <i class="fa fa-folder-open"></i> : <i class="fa fa-folder"></i>}
-        <button></button>
-      </div>
+      </button>
       <div
         className="tooltip"
         style={isMenuOpen ? { display: "block" } : { display: "none" }}
@@ -45,7 +47,12 @@ function MyAccount() {
       {/* DROPDOWN MENU */}
       <div
         className="wrapper"
-        style={isMenuOpen ? { display: "flex" } : { display: "none" }}
+        style={
+          isMenuOpen
+            ? { display: "flex", border: "none", outline: "none" }
+            : { display: "none" }
+        }
+        onMouseLeave={() => setIsMenuOpen(false)}
       >
         {/* DRPDOWN CONTENT */}
         <ul
@@ -65,11 +72,8 @@ function MyAccount() {
             </a>
           </li>
 
-          {/******************* SUBMENU1 *********************/}
-          <li
-            className="setting-item"
-            onClick={() => setSubmenu({ type: "settings_open" })}
-          >
+          {/**SUBMENU1 Settings */}
+          <li className="settings" onClick={() => setSubmenu({ type: "settings_open" })}>
             <a href="#">
               <div className="icon">
                 <span className="fas fa-cog"></span>
@@ -78,8 +82,8 @@ function MyAccount() {
             </a>
           </li>
 
-          {/* SUBMENU 2 */}
-          <li className="help-item" onClick={() => setSubmenu({ type: "help_open" })}>
+          {/* SUBMENU 2 Help & Support */}
+          <li className="help-support" onClick={() => setSubmenu({ type: "help_open" })}>
             <a href="#">
               <div className="icon">
                 <span className="fas fa-question-circle"></span>
@@ -139,14 +143,6 @@ function MyAccount() {
                 <span className="fas fa-address-book"></span>
               </div>
               Activity log
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <div class="icon">
-                <span class="fas fa-globe-asia"></span>
-              </div>
-              Languages{" "}
             </a>
           </li>
           <li>

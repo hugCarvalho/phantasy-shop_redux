@@ -4,53 +4,78 @@
 
 .MyAccount {
   position: relative;
+  border: none;
+  // transform: "translate(-50%, -50%)";
+
+  :active,
+  :focus {
+    border: none;
+    outline: none;
+  }
+
+  button {
+    background-color: transparent;
+    color: white;
+    border: none;
+
+    :focus {
+      outline: none;
+      border: none;
+    }
+  }
 
   .dropdown-btn {
     // background-color: orange;
     display: flex;
     height: 79px;
     align-items: center;
-    overflow: visible;
+    // overflow: visible;
+  }
+
+  .mobile-hide {
+    padding-right: 12px;
   }
 
   .tooltip {
-    background-color: blue;
+    // background: white;
+    background: #242526;
+    background: green;
     position: absolute;
     right: 0;
     bottom: -22px;
     height: 15px;
     width: 15px;
-    background: #242526;
-    background: green;
-    background: white;
     transform: rotate(45deg);
     // border: 1px solid white;
     z-index: 30;
   }
 
   .wrapper {
+    background: #242526;
     border: 1px solid RGB(56, 101, 59);
-    border: 1px solid white;
+    //border: 1px solid white;
     position: absolute;
     right: -21px;
     top: 93px; // 71
     display: flex;
     width: 280px;
     overflow: hidden;
-    // border-radius: 5px;
-    background: #242526;
     // display: none;
-    transition: all 0.3s ease;
     z-index: 500;
     min-height: 296px;
+
+    outline: none;
+    &:focus {
+      border: none;
+      outline: none;
+    }
+    padding: 7px;
   }
 
   .wrapper ul {
-    width: 280px;
-    list-style: none;
-    padding: 10px;
-    transition: all 0.3s ease;
     position: relative;
+    width: 280px;
+    transition: all 1s ease-in-out;
     z-index: 100;
 
     li {
@@ -62,10 +87,9 @@
         font-size: 18px;
         font-weight: 500;
         padding: 0 10px;
+
         display: flex;
-        border-radius: 8px;
         align-items: center;
-        // text-decoration: none;
 
         i {
           position: absolute;
@@ -78,24 +102,27 @@
   }
 
   .wrapper .arrow {
-    padding-left: 23px;
+    color: #b0b3b8;
+    padding-left: 0px;
     font-size: 20px;
     font-weight: 500;
-    color: #b0b3b8;
 
     span {
       margin-right: 22px;
     }
   }
+
   .icon {
     background: #ffffff1a;
-    height: 40px;
     width: 40px;
+    height: 40px;
     margin-right: 13px;
-    display: flex;
-    justify-content: center;
     text-align: center;
     border-radius: 50%;
+    border: none;
+
+    display: flex;
+    justify-content: center;
 
     span {
       line-height: 40px;
@@ -103,24 +130,30 @@
       color: #b0b3b8;
     }
   }
+
+  .back-setting-btn {
+    // background-color: red;
+    padding-right: 110px;
+  }
+
+  .back-help-btn {
+    padding-right: 50px;
+  }
+
+  //Sets position of right arrows in main menu
+  .settings,
+  .help-support i {
+    padding-right: 40px;
+  }
+
   .fa-arrow-left {
     line-height: 55px;
   }
+
   .fa-angle-down,
   .fa-angle-up {
     margin-left: 10px;
   }
-
-  button {
-    background-color: transparent;
-    border: none;
-    color: white;
-  }
-}
-
-.fa-folder-open,
-.fa-folder {
-  padding-left: 12px;
 }
 
 @media (max-width: 900px) {
