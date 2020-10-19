@@ -1,6 +1,6 @@
 import React from "react";
 import { listOfTasks } from "./listOfTasks";
-import "./Home.scss";
+import "./Info.scss";
 
 //TODO: move fns to separate file
 //FNS
@@ -9,6 +9,7 @@ const taskStatus = (status) => {
   else if (!status) return { color: "red" };
   else return { color: "orange" };
 };
+
 //Computation for report
 const calcCategories = (list) => {
   const firstWordOfEachTitle = list.map((item) => item.title.split(" ")[0]);
@@ -26,7 +27,7 @@ const calcCompletedPercent = (list) =>
   Math.round((calcCompleted(list) * 100) / list.length);
 //-FNS END-//
 
-const ongoingText = `This is an ONGOING project, NOT yet optimized for mobile.`;
+const ongoingText = `ONGOING project, NOT fully optimized.`;
 //Some features are still being added
 
 function Home() {

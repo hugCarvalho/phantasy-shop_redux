@@ -47,10 +47,10 @@
   .typing::after {
     content: "";
     position: absolute;
-    padding-left: 1px;
+    top: 1px;
     width: 2px;
     height: 79%;
-    top: 1px;
+    padding-left: 1px;
     border-right: 2px solid white;
     animation: blink 0.7s infinite ease;
   }
@@ -97,6 +97,6 @@
 
 @media (max-width: 600px) {
   .Home {
-    // font-size: 1.6rem;
+    font-size: 1.6rem;
   }
 }

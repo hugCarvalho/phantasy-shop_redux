@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 //Pages
-import Home from "./pages/Home/Home";
+import Info from "./pages/Info/Info";
 import ItemsList from "./pages/ActorsList/ActorsList";
 import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Login_Register/Login/Login";
@@ -18,7 +18,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 toast.configure();
 
-//TODO: fix background display in firefox
 //TODO: optimize pictures
 //TODO: write toaster instructions
 
@@ -29,7 +28,7 @@ function App() {
         <div className="App">
           <Nav />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Info} />
             <Route path="/items" component={ItemsList} />
             <Route path="/cart" component={Cart} />
             <Route path="/login" component={Login} />
