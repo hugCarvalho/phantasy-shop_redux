@@ -11,12 +11,6 @@ const initState = {
       lastName: "",
       password: "test123",
       email: "test@gmail.com",
-      // emails: {
-      //   inbox: [],
-      //   new: [],
-      //   draft: [],
-      //   deleted: []
-      // }
     },
     {
       userName: "ab",

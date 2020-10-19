@@ -10,7 +10,7 @@ const initState = {
   error: "",
 };
 
-//TODO: put calcs in dif file & import them
+//TODO: put calcs in dif file
 //Randomizes num of days available and price for actor whose ID is greater than 20
 const makeRandomNum = (name) => {
   return name === "stock"

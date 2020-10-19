@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useState, useReducer } from "react";
+import { Link } from "react-router-dom";
 import "./MyAccount.scss";
 import myAccountSubmenuReducer, { myAccountSubmenuInitState } from "./reducer";
 
@@ -26,15 +27,19 @@ function MyAccount() {
     myAccountSubmenuInitState
   );
 
-  useEffect(() => {
-    console.log("1", isSubmenuSettingsOpen, "2", isSubmenuHelpOpen);
-  }, [isSubmenuHelpOpen, isSubmenuSettingsOpen]);
+  // useEffect(() => {
+  //   console.log("1", isSubmenuSettingsOpen, "2", isSubmenuHelpOpen);
+  // }, [isSubmenuHelpOpen, isSubmenuSettingsOpen]);
 
   return (
     <nav className="MyAccount">
       <button className="dropdown-btn " onClick={() => setIsMenuOpen((state) => !state)}>
         <span className="mobile-hide">My Account </span>
-        {!isMenuOpen ? <i class="fa fa-folder-open"></i> : <i class="fa fa-folder"></i>}
+        {!isMenuOpen ? (
+          <i className="fa fa-folder-open"></i>
+        ) : (
+          <i className="fa fa-folder"></i>
+        )}
       </button>
       <div
         className="tooltip"
@@ -61,48 +66,48 @@ function MyAccount() {
           }
         >
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-envelope"></span>
               </div>
               Inbox
-            </a>
+            </Link>
           </li>
 
           {/**SUBMENU1 Settings */}
           <li className="settings" onClick={() => setSubmenu({ type: "settings_open" })}>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-cog"></span>
               </div>
               Settings <i className="fas fa-angle-right"></i>
-            </a>
+            </Link>
           </li>
 
           {/* SUBMENU 2 Help & Support */}
           <li className="help-support" onClick={() => setSubmenu({ type: "help_open" })}>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-question-circle"></span>
               </div>
               Help & support <i className="fas fa-angle-right"></i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-user"></span>
               </div>
               About us
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-comment-alt"></span>
               </div>
               Feedback
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -119,36 +124,36 @@ function MyAccount() {
             <span className="fas fa-arrow-left"></span>Settings
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-user"></span>
               </div>
               Personal info
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-lock"></span>
               </div>
               Password
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-address-book"></span>
               </div>
               Activity log
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
-              <div class="icon">
-                <span class="fas fa-globe-asia"></span>
+            <Link to="#">
+              <div className="icon">
+                <span className="fas fa-globe-asia"></span>
               </div>
               Languages{" "}
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -162,28 +167,28 @@ function MyAccount() {
           </li>
 
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-envelope"></span>
               </div>
               Inbox
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-comment-alt"></span>
               </div>
               Send feedback
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#">
+            <Link to="#">
               <div className="icon">
                 <span className="fas fa-exclamation-circle"></span>
               </div>
               Report problem
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

@@ -41,16 +41,14 @@ function Nav() {
               </NavLink>
             </li>
 
-            <li>
-              <li className="wrapper__cart-icon">
-                <NavLink to="/cart" className="desktop-only">
-                  Cart{" "}
-                </NavLink>
-                <NavLink to="/cart" className="cart">
-                  <i className="fas fa-shopping-cart"></i>
-                  <figcaption className="number-of-items">{numberOfItems}</figcaption>
-                </NavLink>
-              </li>
+            <li className="wrapper__cart-icon">
+              <NavLink to="/cart" className="desktop-only">
+                Cart{" "}
+              </NavLink>
+              <NavLink to="/cart" className="cart">
+                <i className="fas fa-shopping-cart"></i>
+                <figcaption className="number-of-items">{numberOfItems}</figcaption>
+              </NavLink>
             </li>
 
             {isLoggedIn ? (
@@ -63,7 +61,7 @@ function Nav() {
                 </li>
                 <li onClick={() => dispatch(toggleLogOut())}>
                   <Link to="/">
-                    <i class="fas fa-sign-out-alt" title="Sign out"></i>
+                    <i className="fas fa-sign-out-alt" title="Sign out"></i>
                   </Link>
                 </li>
               </>

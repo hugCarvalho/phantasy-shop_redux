@@ -1,6 +1,5 @@
 import React from "react";
 import Cart from "./Cart";
-import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 // import store from "../../redux/store";
 import { Provider } from "react-redux";
@@ -20,7 +19,6 @@ describe("test TestedComponent components", () => {
     });
     const heading = screen.getByRole("heading", { name: /items in your cart/i });
     expect(heading).toHaveTextContent("Items in your cart: 0");
-    // expect(heading.textContent).toBe("Items in your cart: 0");
     screen.getByText(/your cart is empty/i);
     screen.getByText(/items/i);
     screen.getByText("Items in your cart: 0");
