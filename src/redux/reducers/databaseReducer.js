@@ -25,7 +25,7 @@ const initState = {
 const databaseReducer = (state = initState, action) => {
   switch (action.type) {
     case PUSH_USER_DATA:
-      console.log(action.payload);
+      console.log("databaseReducer payload:", action.payload);
       state.userDatabase.push(action.payload);
       return {
         ...state,
